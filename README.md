@@ -64,7 +64,7 @@ the API.
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### [Phase 3][phase-three]: Flux Architecture and Router (1 days)
+### [Phase 3][phase-two-three]: Flux Architecture and Router (1 days)
 
 **Objective:** Snippets and snippet comments can be created, read, edited and destroyed with the
 user interface.
