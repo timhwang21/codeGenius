@@ -34,7 +34,7 @@ codeGenius is a code annotation web application inspired by Rapgenius. The backe
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and User Authentication (0.5 days)
+### [Phase 1][phase-one]: Backend setup and User Authentication (0.5 days)
 
 **Objective:** Functioning rails project with Authentication
 
@@ -46,7 +46,7 @@ codeGenius is a code annotation web application inspired by Rapgenius. The backe
 - [ ] user signup/signin pages with rudimentary styling
 - [ ] blank landing page at root
 
-### Phase 2: Model, API, and basic APIUtil for snippets and comments (1.5 days)
+### [Phase 2][phase-two-three]: Model, API, and basic APIUtil for snippets and comments (1.5 days)
 
 **Objective:** Snippets can be created, read, edited and destroyed through
 the API.
@@ -64,7 +64,7 @@ the API.
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### Phase 3: Flux Architecture and Router (1 days)
+### [Phase 3][phase-three]: Flux Architecture and Router (1 days)
 
 **Objective:** Snippets and snippet comments can be created, read, edited and destroyed with the
 user interface.
@@ -81,7 +81,7 @@ user interface.
   - [ ] `CommentForm`
   - [ ] `SnippetForm` (possibly a separate page)
 
-### Phase 4: Start Styling (0.5 days)
+### [Phase 4][phase-four]: Start Styling (0.5 days)
 
 **Finish by:** 2/25/16 midday
 
@@ -95,7 +95,7 @@ user interface.
 - [ ] beautify index page, sign in, sign up
 - [ ] implement syntax highlighting
 
-### Phase 5: Annotations and annotation comments (1.5 day)
+### [Phase 5][phase-five]: Annotations and annotation comments (1.5 day)
 
 **Finish by:** 2/26/16 end
 
@@ -174,6 +174,7 @@ the API.
 
 ### Phase 9: Bonus Features (TBD)
 - [ ] add sharing system (`Share` model and join table for users)
+- [ ] add "suggest improvements" to annotations
 - [ ] add edit history for annotations
 - [ ] increase types of files users can upload (embedded videos, etc.)
 - [ ] infinite scrolling for snippet comments (not annotation comments)
