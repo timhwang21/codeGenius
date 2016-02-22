@@ -2,9 +2,9 @@
 
 ![Logo][logo]
 
-[logo]: ./images/codegenius-logo.png
+[logo]: ./docs/images/codegenius-logo.png
 
-[Heroku link][heroku] 
+Heroku link -- *not yet available*
 
 [heroku]: http://www.herokuapp.com
 
@@ -22,7 +22,7 @@ codeGenius is a code annotation web application inspired by Rapgenius. The backe
 ## Design Docs
 * [View Wireframes][views]
 * [React Components][components]
-* [Flux Stores][stores]
+* Flux Stores -- *not yet available*
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
@@ -38,116 +38,149 @@ codeGenius is a code annotation web application inspired by Rapgenius. The backe
 
 **Objective:** Functioning rails project with Authentication
 
-**Finish by:** 2/22/15
+**Finish by:** 2/22/16 midday
 
-- [ ] create new project
 - [ ] create `User` model
 - [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [ ] blank index page after signin
+- [ ] user signup/signin pages with rudimentary styling
+- [ ] blank landing page at root
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days)
+### Phase 2: Model, API, and basic APIUtil for snippets and comments (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Snippets can be created, read, edited and destroyed through
 the API.
 
-**Finish by:** 2/23/15
+**Finish by:** 2/23/16 end
 
-- [ ] create `Note` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] create `Snippet` model
+- [ ] CRUD API for snippets (`SnippetsController`)
+- [ ] create `SnippetComment` model
+- [ ] CRUD API for snippet comments (`SnippetCommentsController`)
+- [ ] Create `Language` model (read-only)
+- [ ] create seed data for snippets and comments
+- [ ] jBuilder views for snippets and snippet comments -- comments nested within snippets
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Phase 3: Flux Architecture and Router (1 days)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
+**Objective:** Snippets and snippet comments can be created, read, edited and destroyed with the
 user interface.
 
-**Finish by:** 2/23/15
+**Finish by:** 2/24/16 end 
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
-  after editing.
+- implement each snippet component, building out the flux loop as needed.
+  - [ ] `SnippetsIndex`
+  - [ ] `SnippetIndexItem`
+  - [ ] `CommentsIndex`
+  - [ ] `CommentIndexItem`
+  - [ ] `CommentForm`
+  - [ ] `SnippetForm` (possibly a separate page)
 
 ### Phase 4: Start Styling (0.5 days)
 
-**Finish by:** 2/23/15
+**Finish by:** 2/25/16 midday
 
-**Objective:** Existing pages (including singup/signin) will look good.
+**Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
 - [ ] position elements on the page
+- [ ] create a basic style guide
+  - [ ] sitewide colors
+  - [ ] sitewide interactive elements (buttons)
 - [ ] add basic colors & styles
+- [ ] beautify index page, sign in, sign up
+- [ ] implement syntax highlighting
 
-### Phase 5: Notebooks (1 day)
+### Phase 5: Annotations and annotation comments (1.5 day)
 
-**Finish by:** 2/23/15
+**Finish by:** 2/26/16 end
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Annotations can be created, read, edited and destroyed through
+the API.
 
-- [ ] create `Notebook` model
+- [ ] create `Annotations` model
+  - [ ] nested under `Snippets`
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
+  - [ ] Annotation CRUD
+  - [ ] annotating requires a snippet
   - [ ] viewing notes by notebook
+- [ ] annotation functionality includes:
+  - [ ] inline annotations
+  - [ ] annotation comments
 - Use CSS to style new views
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
+### Phase 6: Tags (1 day)
 
-### Phase 6: Tags (1.5 days)
-
-**Finish by:** 2/23/15
+**Finish by:** 2/27/16 end
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
 - [ ] create `Tag` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] fetching tags for snippet
+  - [ ] adding tags to snippet
+  - [ ] creating tags while adding to snippets
+  - [ ] searching snippets by tag
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days)
+### Flex Day: 2/28/16 reschedule, catch up, replan
 
-**objective:** Enable complex styling of notes.
+### Phase 7: Users Pt. II (1 day)
 
-**Finish by:** 2/23/15
+**Finish by:** 2/29/16 end
 
+**Objective: User profile pages show uploaded snippets and annotations
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+- [ ] create user profile pages
+- [ ] tabs display user information
+  - [ ] annotations, pages annotated, files uploaded
+
+### Phase 8: Vote system (1.5 days)
+
+**Finish by:** 3/2/16 midday
+
+- [ ] create upvote and downvote functionality
+  - [ ] portable across snippet comments, annotations, and annotation comments
+- [ ] elements reorganize based on votes
+  - [ ] comments arranged in order of vote
+  - [ ] only top voted annotation is displayed
+  - [ ] comments under -2 votes are hidden
+- [ ] User profile page shows sum of votes as "IQ"
+
+### Phase 9: Flesh out content (0.5 days)
+
+**Finish by:** 3/2/16 end
+
+**Objective:** Add style guidelines, navigation aids, user profile page
+
+- [ ] add basic functionality to user profile pages
+- [ ] add to website content
+- [ ] ask classmates to beta test
 
 ### Phase 8: Styling Cleanup and Seeding (1 day)
 
-**Finish by:** 2/23/15
+**Finish by:** 3/3/16 end
 
-**objective:** Make the site feel more cohesive and awesome.
+**Objective:** Make the site feel more cohesive and awesome.
 
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+- [ ] get feedback on my UI from others
+- [ ] refactor HTML classes & CSS rules
+- [ ] add modals, transitions, and other styling flourishes.
+- [ ] add splash page code rain animation
 
-### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+### Phase 9: Bonus Features (TBD)
+- [ ] add sharing system (`Share` model and join table for users)
+- [ ] add edit history for annotations
+- [ ] increase types of files users can upload (embedded videos, etc.)
+- [ ] infinite scrolling for snippet comments (not annotation comments)
+- [ ] changelogs for Notes
+- [ ] new user walkthrough
 
 [phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
+[phase-two-three]: ./docs/phases/phase2-3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md

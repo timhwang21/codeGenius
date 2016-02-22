@@ -1,22 +1,36 @@
 # View Wireframes
 
-## New User
-![new-user]
+## Sign In
+![signin][signin]
 
-## New Session
-![new-session]
+## Sign Up
+![signup][signup]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+___
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## Index
+![index][index]
 
-## NotebookForm
-![notebook-form]
+___
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+## SnippetIndex / SnippetIndexItem / SnippetCommentsIndex / SnippetCommentsItem
+![snippet][snippet]
+
+## SnippetForm
+![snippet-form][snippet-form]
+
+___
+
+## AnnotationIndex / AnnotationIndexItem / CommentsIndex / CommentsIndexItem
+![annotation][annotation]
+
+## AnnotationForm
+![annotation-form][annotation-form]
+
+[signin]: ./wireframes/Signin.png
+[signup]: ./wireframes/Signup.png
+[index]: ./wireframes/Index.png
+[annotation]: ./wireframes/AnnotationIndex.png
+[annotation-form]: ./wireframes/AnnotationForm.png
+[snippet]: ./wireframes/SnippetIndex.png
+[snippet-form]: ./wireframes/SnippetForm.png

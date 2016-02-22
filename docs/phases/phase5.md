@@ -1,40 +1,59 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Annotations, annotation comments (1.5 days)
 
 ## Rails
 ### Models
-* Reminder
+* Annotation
+* AnnotationComment
 
 ### Controllers
-* Api::RemindersController (create, destroy, index, show, update)
+* Api::AnnotationController (create, destroy, index, show, update)
+* Api::AnnotationCommentsController (create, destroy, index, show, update)
 
 ### Views
-* reminders/index.json.jbuilder
+* annotations/index.json.jbuilder
+* annotations/show.json.jbuilder
+* annotation_comments/index.json.jbuilder
+* annotation_comments/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* RemindersIndex
-  - ReminderIndexItem
-* ReminderShow
-* ReminderForm
+* AnnotationsIndex
+  - AnnotationsIndexItem
+* AnnotationForm
+* AnnotationCommentsIndex
+  - AnnotationCommentsIndexItem
+* AnnotationCommentForm
 
 ### Stores
-* Reminder
+* Annotation
+* AnnotationComment
 
 ### Actions
-* ApiActions.receiveAllReminders -> triggered by ApiUtil
-* ApiActions.receiveSingleReminder
-* ApiActions.deleteReminder
-* ReminderActions.fetchAllReminders -> triggers ApiUtil
-* ReminderActions.fetchSingleReminder
-* ReminderActions.createReminder
-* ReminderActions.updateReminder
-* ReminderActions.destroyReminder
+* ApiActions.receiveAllAnnotations
+* ApiActions.receiveSingleAnnotation
+* ApiActions.deleteAnnotation
+* ApiActions.receiveAllAnnotationComments
+* ApiActions.receiveSingleAnnotationComment
+* ApiActions.deleteAnnotationComment
+* NoteActions.fetchAllAnnotations
+* AnnotationActions.fetchSingleAnnotation
+* AnnotationActions.createAnnotation
+* AnnotationActions.editAnnotation
+* AnnotationActions.destroyAnnotation
+* AnnotationCommentActions.fetchAllAnnotationComments
+* AnnotationCommentActions.fetchSingleAnnotationComment
+* AnnotationCommentActions.createAnnotationComment
+* AnnotationCommentActions.editAnnotationComment
+* AnnotationCommentActions.destroyAnnotationComment
 
 ### ApiUtil
-* ApiUtil.fetchAllReminders
-* ApiUtil.fetchSingleReminder
-* ApiUtil.createReminder
-* ApiUtil.updateReminder
-* ApiUtil.destroyReminder
-
-## Gems/Libraries
+* ApiUtil.fetchAllAnnotations
+* ApiUtil.fetchAllAnnotationComments
+* ApiUtil.fetchSingleAnnotation
+* ApiUtil.fetchSingleAnnotationComment
+* ApiUtil.createAnnotation
+* ApiUtil.editAnnotation
+* ApiUtil.destroyAnnotation
+* ApiUtil.createAnnotationComment
+* ApiUtil.editAnnotationComment
+* ApiUtil.destroyAnnotationComment

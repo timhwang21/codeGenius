@@ -1,18 +1,10 @@
-# Phase 4: Allow Complex Styling in Notes (1 day)
+# Phase 4: Styling (0.5 days)
 
 ## Rails
-### Models
-
-### Controllers
-
-### Views
+### Assets/stylesheets
+* /signin.css
+* /signup.css
+* /index.css
 
 ## Flux
 ### Views (React Components)
-
-### Stores
-
-### Actions
-
-## Gems/Libraries
-* react-quill (npm)
