@@ -22,7 +22,7 @@ codeGenius is a code annotation web application inspired by Rapgenius. The backe
 ## Design Docs
 * [View Wireframes][views]
 * [React Components][components]
-* Flux Stores -- *not yet available*
+* [Flux Stores][stores]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
