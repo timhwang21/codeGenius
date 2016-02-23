@@ -7,7 +7,7 @@ id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 language_id | integer   | not null, foreign key (references languages), indexed
 title       | string    | not null
-image_url   | string    | not null
+image_url   | string    | 
 body        | text      | not null
 views       | integer   | not null
 
@@ -17,7 +17,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 snippet_id  | integer   | not null, foreign key (references snippets), indexed
-body        | string    | not null 
+body        | text      | not null 
 upvotes     | integer   | not null 
 downvotes   | integer   | not null 
 
@@ -39,7 +39,7 @@ column name    | data type | details
 id             | integer   | not null, primary key
 author_id      | integer   | not null, foreign key (references users), indexed
 annotation_id  | integer   | not null, foreign key (references annotations), indexed
-body           | string    | not null 
+body           | text      | not null 
 upvotes        | integer   | not null 
 downvotes      | integer   | not null 
 

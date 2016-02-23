@@ -73,7 +73,7 @@ user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each snippet component, building out the flux loop as needed.
+- [ ] implement each snippet component, building out the flux loop as needed.
   - [ ] `SnippetsIndex`
   - [ ] `SnippetIndexItem`
   - [ ] `CommentsIndex`

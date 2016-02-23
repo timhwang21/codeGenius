@@ -1,0 +1,88 @@
+.index-pane {
+  background: black;
+  display: block;
+  width: 500px;
+  float: right;
+  padding: 20px 0 20px 0;
+}
+
+.index-pane ul {
+  list-style: none;
+}
+
+.index-header {
+  color: #BBB;
+  font-family: 'Futura';
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 4px 0;
+}
+
+.index-list-item {
+  background: #222;
+  border: 1px solid #222;
+  display: inline-block;
+  width: 240px;
+  height: 133px;
+  float: left;
+  clear: none;
+  font-family: monaco, Consolas, monospace;
+  margin: 0 0px 20px 0px;
+  position: relative;
+  z-index: 0;
+}
+
+.index-overlay {
+  display: block;
+  opacity: 0.1;
+  /*position: absolute;*/
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  z-index: 2;
+  transition: .2s;
+}
+
+.index-list-item:hover .index-link{
+  color: white;
+}
+
+/*.index-list-item:hover .index-overlay{
+  opacity: 0.25;
+  transition: .2s;
+}*/
+
+.index-list-item:nth-child(odd) {
+  margin: 0 20px 20px 0px;
+}
+
+.index-link {
+  color: #BBB;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+/*
+.index-link:hover {
+  color: white;
+}*/
+
+
+
+
+.index-snippet-title {
+  font-weight: 700;
+  margin: 0 10px 0 0;
+}
+
+.index-snippet-language {
+  font-weight: 100;
+}
