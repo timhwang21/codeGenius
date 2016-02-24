@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: codeGenius_production
-  username: codeGenius
-  password: <%= ENV['CODEGENIUS_DATABASE_PASSWORD'] %>
