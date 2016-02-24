@@ -1,6 +1,12 @@
 var React = require('react');
 
-var languageDropDown = React.createClass({
+var LanguageDropDown = React.createClass({
+  getInitialState: function() {
+    return({
+      languages: [],
+    });
+  },
+
   componentDidMount: function() {
     this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
     ApiUtil.fetchAllLanguages();
@@ -15,12 +21,23 @@ var languageDropDown = React.createClass({
   },
 
   render: function() {
-    return(
-      <div>
-        
-      </div>
+    var all = this.state.languages.map(function(language, i) {
+      var link = "api/languages/" + language.id;
+      return (
+        <div className="nav-link-box">
+          <a href={link} className="nav-menu-sub-link">
+            {language.name}
+          </a>
+        </div>
       );
+    });
+
+    return(
+      <nav className="nav-menu-sub">
+        {all}
+      </nav>
+    );
   }
 });
 
-module.exports = languageDropDown;
+module.exports = LanguageDropDown;

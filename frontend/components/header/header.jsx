@@ -1,8 +1,8 @@
 var React = require('react');
 
 var headerLogo = "/assets/codegenius-logo-small";
-var languageDropDown = "./languageDropDown";
-var typeDropDown = "./typeDropDown";
+var LanguageDropDown = require("./languageDropDown");
+var TypeDropDown = require("./typeDropDown");
 
 var Header = React.createClass({
   render: function() {
@@ -35,9 +35,10 @@ var Header = React.createClass({
         <nav className="header-nav">
 
           <div className="nav-link-box">
-            <a className="nav-link" href="api/languages">
+            <a className="nav-link" href="#">
             Language ▾
             </a>
+            <LanguageDropDown />
           </div>
 
           <div className="nav-link-box">
@@ -61,7 +62,7 @@ var Header = React.createClass({
         </nav>
 
       </header>
-      );
+    );
   }
 });
 

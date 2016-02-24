@@ -22,8 +22,17 @@ function removeLanguage(language) {
 }
 
 LanguageStore.all = function() {
-  return _languages;
-  // return Object.extend({}, _languages);
+  var results = [];
+  for (var prop in _languages) {
+    if (_languages.hasOwnProperty(prop)) {
+      results.push(_languages[prop]);
+    }
+  }
+  return results;
+};
+
+LanguageStore.all_object = function() {
+  return Object.assign({}, _languages);
 };
 
 LanguageStore.find = function(id) {

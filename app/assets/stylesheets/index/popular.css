@@ -2,7 +2,7 @@
   background: black;
   display: block;
   width: 500px;
-  float: right;
+  float: right; /*change to flex*/
   padding: 20px 0 20px 0;
 }
 

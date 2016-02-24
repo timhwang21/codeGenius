@@ -40,7 +40,7 @@ var Popular = React.createClass({
   },
 
   _onLanguageChange: function() {
-    this.setState({languages: LanguageStore.all()});
+    this.setState({languages: LanguageStore.all_object()});
   },
 
   makePopularList: function() {
