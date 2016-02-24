@@ -13,4 +13,4 @@ Rails.application.config.assets.version = '1.0'
 
 # TEST
 
-Rails.application.config.assets.precompile += %w( codegenius-logo.png )
+Rails.application.config.assets.precompile += %w( codegenius-logo.png cpdegenius-logo-small.png)

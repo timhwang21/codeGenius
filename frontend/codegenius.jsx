@@ -13,15 +13,16 @@ var SnippetStore = require('./stores/snippetStore');
 
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
+var Index = require('./components/index.jsx');
+var Popular = require('./components/index/popular.jsx');
 
 
-var Test = require('./components/test.jsx');
+
 
 $(function(){
   ReactDOM.render(
     <div>
-      Hello world!
-      <Test />
+      <Popular />
     </div>,
     document.getElementById('root')
   );

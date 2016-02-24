@@ -1,3 +1,5 @@
+// TODO: incorporate into splash page
+
 var React = require('react');
 
 var divRubyStyle = {
@@ -13,14 +15,14 @@ var divHaskellStyle = {
 };
 
 
-var Test = React.createClass({
+var Popular = React.createClass({
   render: function() {
     return(    
-      <section className="index-pane">  
+      <article className="index-pane">  
         <header className="index-header">
           <p>Popular on codeGenius</p>
         </header>
-        <ul>
+        <ul className="index-list">
           <li className="index-list-item">
             <a href="#" className="index-link">
               <span className="index-link-information">
@@ -65,10 +67,55 @@ var Test = React.createClass({
             <div className="index-overlay" style={divHaskellStyle}>
             </div>
           </li>
+
+          <li className="index-list-item">
+            <a href="#" className="index-link">
+              <span className="index-link-information">
+                <span className="index-snippet-title">
+                  Quicksort
+                </span>
+                <span className="index-snippet-language">
+                  Ruby
+                </span>
+              </span>
+            </a>
+            <div className="index-overlay" style={divRubyStyle}>
+            </div>
+          </li>
+
+          <li className="index-list-item">
+            <a href="#" className="index-link">
+              <span className="index-link-information">
+                <span className="index-snippet-title">
+                  Bubblesort
+                </span>
+                <span className="index-snippet-language">
+                  Haskell
+                </span>
+              </span>
+            </a>
+            <div className="index-overlay" style={divHaskellStyle}>
+            </div>
+          </li>
+
+          <li className="index-list-item">
+            <a href="#" className="index-link">
+              <span className="index-link-information">
+                <span className="index-snippet-title">
+                  Shittysort
+                </span>
+                <span className="index-snippet-language">
+                  Ruby
+                </span>
+              </span>
+            </a>
+            <div className="index-overlay" style={divRubyStyle}>
+            </div>
+          </li>
         </ul>
-      </section>
+      </article>
     );
   }
 });
 
-module.exports = Test;
+module.exports = Popular;

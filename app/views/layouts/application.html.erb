@@ -10,15 +10,62 @@
 </head>
 <body>
 
-<% if signed_in? %>
-  <strong>Signed in as: </strong><%= current_user.username %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-  <%= button_to "Sign In", new_session_url, method: :get %>
-  <%= button_to "Sign Up", new_user_url, method: :get %>
-<% end %>
+<header class="header">
+  <div class="header-primary">
+    <div class="header-searchbar">
+      <p>SEARCHBAR GOES HERE</p>
+    </div>
 
-<hr>
+    <div class="header-logo">
+      <a href="#" class="header-logo-link">
+        <%= image_tag("codegenius-logo-small.png", height: "38", width: "202") %>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="action-notification">
+        Notif
+      </div>
+      <div class="user-info">
+        IMG
+        <div class="user-iq">
+          100
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <nav class="header-nav">
+
+    <div class="nav-link-box">
+      <a class="nav-link" href="#">
+      Language ▾
+      </a>
+    </div>
+
+    <div class="nav-link-box">
+      <a class="nav-link" href="#">
+      Problem Type ▾⌵∨
+      </a>
+    </div>
+
+    <div class="nav-link-box">
+      <a class="nav-link" href="#">
+      Add Snippet
+      </a>
+    </div>
+
+    <div class="nav-link-box">
+      <a class="nav-link" href="#">
+      Test-link
+      </a>
+    </div>
+
+  </nav>
+
+</header>
+
 
 <%= render "layouts/errors" %>
 

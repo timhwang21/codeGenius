@@ -14,22 +14,34 @@
  *= require_self
  */
 
-* {
-  box-sizing: border-box;
+html, body, header, nav, a, ul, li, i,
+img, div, p, form, fieldset, label, input, span {
   margin: 0;
   padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  display: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
 }
 
 html {
+  box-sizing: border-box;
+  color: #F6F7EE;
   font-family: "Open Sans", Arial, sans-serif;
-
-
+  /*display: flex;*/
 
 }
 
 body {
-
-
-
+  background: black;
 }
 
+ul {
+  list-style: none;
+}
