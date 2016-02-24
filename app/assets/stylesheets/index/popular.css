@@ -1,4 +1,4 @@
-.index-pane {
+.popular-pane {
   background: black;
   display: block;
   width: 500px;
@@ -6,11 +6,11 @@
   padding: 20px 0 20px 0;
 }
 
-.index-pane ul {
+.popular-pane ul {
   list-style: none;
 }
 
-.index-header {
+.popular-header {
   color: #BBB;
   font-family: 'Futura';
   font-size: 12px;
@@ -18,13 +18,13 @@
   margin: 4px 0;
 }
 
-.index-list {
+.popular-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.index-list-item {
+.popular-list-item {
   background: #222;
   border: 1px solid #222;
   display: inline-block;
@@ -39,7 +39,7 @@
   z-index: 0;
 }
 
-.index-overlay {
+.popular-overlay {
   display: block;
   opacity: 0.1;
   /*position: absolute;*/
@@ -53,17 +53,17 @@
   transition: .2s;
 }
 
-.index-list-item:hover .index-link{
+.popular-list-item:hover .popular-link{
   color: #F6F7EE;
 }
 
-/*.index-list-item:hover .index-overlay{
+/*.popular-list-item:hover .popular-overlay{
   opacity: 0.25;
   transition: .2s;
 }*/
 
 
-.index-link {
+.popular-link {
   color: #BBB;
   display: block;
   font-size: 18px;
@@ -74,12 +74,12 @@
   z-index: 3;
 }
 
-.index-snippet-title {
+.popular-snippet-title {
   font-weight: 700;
   padding: 10px 0 0 10px;
 }
 
-.index-snippet-language {
+.popular-snippet-language {
   font-size: 14px;
   font-weight: 100;
   padding: 0 0 0 10px;

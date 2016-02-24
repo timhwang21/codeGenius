@@ -18,98 +18,98 @@ var divHaskellStyle = {
 var Popular = React.createClass({
   render: function() {
     return(    
-      <article className="index-pane">  
-        <header className="index-header">
+      <article className="popular-pane">  
+        <header className="popular-header">
           <p>Popular on codeGenius</p>
         </header>
-        <ul className="index-list">
-          <li className="index-list-item">
-            <a href="#" className="index-link">
-              <span className="index-link-information">
-                <span className="index-snippet-title">
+        <ul className="popular-list">
+          <li className="popular-list-item">
+            <a href="#" className="popular-link">
+              <span className="popular-link-information">
+                <span className="popular-snippet-title">
                   Bubblesort
                 </span>
-                <span className="index-snippet-language">
+                <span className="popular-snippet-language">
                   Ruby
                 </span>
               </span>
             </a>
-            <div className="index-overlay" style={divRubyStyle}>
+            <div className="popular-overlay" style={divRubyStyle}>
             </div>
           </li>
 
-          <li className="index-list-item">
-            <a href="#" className="index-link">
-              <span className="index-link-information">
-                <span className="index-snippet-title">
+          <li className="popular-list-item">
+            <a href="#" className="popular-link">
+              <span className="popular-link-information">
+                <span className="popular-snippet-title">
                   Mergesort
                 </span>
-                <span className="index-snippet-language">
+                <span className="popular-snippet-language">
                   Python
                 </span>
               </span>
             </a>
-            <div className="index-overlay" style={divPythonStyle}>
+            <div className="popular-overlay" style={divPythonStyle}>
             </div>
           </li>
 
-          <li className="index-list-item">
-            <a href="#" className="index-link">
-              <span className="index-link-information">
-                <span className="index-snippet-title">
+          <li className="popular-list-item">
+            <a href="#" className="popular-link">
+              <span className="popular-link-information">
+                <span className="popular-snippet-title">
                   Heapsort
                 </span>
-                <span className="index-snippet-language">
+                <span className="popular-snippet-language">
                   Haskell
                 </span>
               </span>
             </a>
-            <div className="index-overlay" style={divHaskellStyle}>
+            <div className="popular-overlay" style={divHaskellStyle}>
             </div>
           </li>
 
-          <li className="index-list-item">
-            <a href="#" className="index-link">
-              <span className="index-link-information">
-                <span className="index-snippet-title">
+          <li className="popular-list-item">
+            <a href="#" className="popular-link">
+              <span className="popular-link-information">
+                <span className="popular-snippet-title">
                   Quicksort
                 </span>
-                <span className="index-snippet-language">
+                <span className="popular-snippet-language">
                   Ruby
                 </span>
               </span>
             </a>
-            <div className="index-overlay" style={divRubyStyle}>
+            <div className="popular-overlay" style={divRubyStyle}>
             </div>
           </li>
 
-          <li className="index-list-item">
-            <a href="#" className="index-link">
-              <span className="index-link-information">
-                <span className="index-snippet-title">
+          <li className="popular-list-item">
+            <a href="#" className="popular-link">
+              <span className="popular-link-information">
+                <span className="popular-snippet-title">
                   Bubblesort
                 </span>
-                <span className="index-snippet-language">
+                <span className="popular-snippet-language">
                   Haskell
                 </span>
               </span>
             </a>
-            <div className="index-overlay" style={divHaskellStyle}>
+            <div className="popular-overlay" style={divHaskellStyle}>
             </div>
           </li>
 
-          <li className="index-list-item">
-            <a href="#" className="index-link">
-              <span className="index-link-information">
-                <span className="index-snippet-title">
+          <li className="popular-list-item">
+            <a href="#" className="popular-link">
+              <span className="popular-link-information">
+                <span className="popular-snippet-title">
                   Shittysort
                 </span>
-                <span className="index-snippet-language">
+                <span className="popular-snippet-language">
                   Ruby
                 </span>
               </span>
             </a>
-            <div className="index-overlay" style={divRubyStyle}>
+            <div className="popular-overlay" style={divRubyStyle}>
             </div>
           </li>
         </ul>

@@ -4,12 +4,16 @@
   width: 100%;
 }
 
+.header div, .header nav {
+  display: flex;
+  align-items: center;
+}
+
 .header-primary {  
   background: #1D1E19;
   height: 50px;
   padding: 0 10px;
 
-  display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: space-between;
@@ -33,19 +37,13 @@
 }
 
 .header-logo-link {
-  display: inline-block;
+  display: flex;
+  align-items: center;  
   height: 100%;
-}
-
-.header-logo-link * {
-  display: block;
-  transform: translateY(6px);
-  vertical-align: middle;
 }
 
 .header-actions {
   width: 20%;
-  display: flex;
   /*flex-direction: row;*/
   justify-content: flex-end;
 }
@@ -56,10 +54,8 @@
 
 .header-nav {
   height: 34px;
-
   padding: 0 30%;
 
-  display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: space-between;
@@ -76,7 +72,7 @@
   color: #99a7ee;
   display: inline-block;
   font-size: 14px;
-  padding: 0 1px 2px 1px;
+  padding: 2px 3px 1px 3px;
   text-transform: uppercase;
   transition: .1s;
   border-top-left-radius: 1px;

@@ -21,9 +21,6 @@ function removeSnippet(snippet) {
   delete _snippets[snippet.id];
 }
 
-
-
-
 SnippetStore.all = function() {
   var results = [];
   for (var prop in _snippets) {
