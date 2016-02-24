@@ -27,7 +27,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 snippet_id  | string    | not null, foreign key (references snippets), indexed
-body        | datetime  | not null
+body        | text      | not null
 start_idx   | integer   | not null
 end_idx     | integer   | not null
 upvotes     | integer   | not null 

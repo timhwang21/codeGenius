@@ -33,11 +33,11 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     primary_key: :id)
 
-  # has_many(
-  #   :annotations,
-  #   class_name: :Annotation, 
-  #   foreign_key: :author_id,
-  #   primary_key: :id)
+  has_many(
+    :annotations,
+    class_name: :Annotation, 
+    foreign_key: :author_id,
+    primary_key: :id)
 
   # has_many(
   #   :annotation_comments,

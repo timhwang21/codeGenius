@@ -35,6 +35,12 @@ class Snippet < ActiveRecord::Base
     foreign_key: :snippet_id,
     primary_key: :id)
 
+  has_amny(
+    :annotations,
+    class_name: :Annotation,
+    foreign_key: :snippet_id,
+    primary_key: :id)
+
   # has_many(
   #   :annotations,
   #   class_name: :Annotation,
