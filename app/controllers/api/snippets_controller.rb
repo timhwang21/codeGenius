@@ -40,7 +40,8 @@ class Api::SnippetsController < ApplicationController
       :language_id, 
       :title, 
       :image_url, 
-      :body
+      :body,
+      :views
     )
   end
 end

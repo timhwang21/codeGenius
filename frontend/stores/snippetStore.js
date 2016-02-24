@@ -31,6 +31,26 @@ SnippetStore.all = function() {
   return results;
 };
 
+SnippetStore.popular = function(take) {
+  var results = this.all();
+
+  // default value of take is take all
+  take = typeof take == 'undefined' ? 
+    results.length : 
+    take; 
+
+  results.sort(function(a,b) {
+    return (a.views < b.views) ? 
+      1 : 
+      ((b.views < a.views) ? 
+        -1 : 
+        0
+      );
+    } 
+  );
+  return results.slice(0, take);
+},
+
 SnippetStore.find = function(id) {
   return _snippets[id];
 };
@@ -53,7 +73,6 @@ SnippetStore.__onDispatch = function(payload) {
       this.__emitChange();
       break;
   }
-  console.log(_snippets);
 };
 
 window.SnippetStore = SnippetStore

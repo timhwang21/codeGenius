@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 
 // UTILITY
 var ApiUtil = require('./util/ApiUtil'); // take out later
-var SnippetStore = require('./stores/snippetStore');
 // var UserStore = require('./stores/userStore');
 // var AnnotationStore = require('./stores/annotationStore');
 // var SnippetCommentStore = require('./stores/snippetCommentStore');
@@ -13,16 +12,14 @@ var SnippetStore = require('./stores/snippetStore');
 
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
+var Header = require('./components/header/header.jsx');
 var Index = require('./components/index.jsx');
-var Popular = require('./components/index/popular.jsx');
-
-
-
 
 $(function(){
   ReactDOM.render(
     <div>
-      <Popular />
+      <Header />
+      <Index />
     </div>,
     document.getElementById('root')
   );

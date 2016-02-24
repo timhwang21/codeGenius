@@ -1,0 +1,7 @@
+var LanguageConstants = {
+  LANGUAGES_ALL_RECEIVED: "LANGUAGES_ALL_RECEIVED",
+  LANGUAGE_RECEIVED: "LANGUAGE_RECEIVED",
+  LANGUAGE_REMOVED: "LANGUAGE_REMOVED"
+};
+
+module.exports = LanguageConstants;

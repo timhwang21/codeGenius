@@ -22,7 +22,7 @@ end
 
 # Make languages
 languages = %w(
-  SQL
+  Trumpscript
   Java
   Javascript
   C#
@@ -32,7 +32,7 @@ languages = %w(
   Swift
   Ruby
   R
-  Trumpscript
+  Haskell
 )
 
 languages.each {|language| Language.create!(name: language)}
@@ -70,6 +70,7 @@ problems = %w(
     author_id: author_id,
     language_id: language_id,
     title: problems[i],
+    views: rand(1000),
     body: 
     <<-code
 def #{problems[i]}(n)

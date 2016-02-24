@@ -1,21 +1,62 @@
 // TODO: incorporate into splash page
 
 var React = require('react');
+var SnippetStore = require('../../stores/snippetStore.js');
+var LanguageStore = require('../../stores/languageStore.js');
+var ApiUtil = require('../../util/ApiUtil.js');
 
-var divRubyStyle = {
-  backgroundImage: 'url(https://cdn0.iconfinder.com/data/icons/long-shadow-web-icons/512/ruby-512.png)'
+// COMPONENTS
+var PopularListItem = require('./popularListItem');
+
+var divOverlay = function(idx) {
+  return ({
+    backgroundImage: 'url(/assets/' + idx + ')'
+  });
 };
-
-var divPythonStyle = {
-  backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png)'
-};
-
-var divHaskellStyle = {
-  backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/2000px-Haskell-Logo.svg.png)'
-};
-
 
 var Popular = React.createClass({
+  getInitialState: function() {
+    return({
+      snippets: [],
+      languages: {},
+    });
+  },
+
+  componentDidMount: function() {
+    this.snippetChangeToken = SnippetStore.addListener(this._onSnippetChange);
+    ApiUtil.fetchAllSnippets();
+
+    this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
+    ApiUtil.fetchAllLanguages();
+  },
+
+  componentWillUnmount: function() {
+    this.snippetChangeToken.remove();
+    this.languageChangeToken.remove();
+  },
+
+  _onSnippetChange: function() {
+    this.setState({snippets: SnippetStore.popular(6)});
+  },
+
+  _onLanguageChange: function() {
+    this.setState({languages: LanguageStore.all()});
+  },
+
+  makePopularList: function() {
+    var languages = this.state.languages;
+    var output = this.state.snippets.map(function(snippet, i) {
+      return(
+        <PopularListItem 
+          snippet={snippet} 
+          language={languages[snippet.language_id]}
+          id={i} 
+          key={i} />
+      );
+    });
+    return output;
+  },
+
   render: function() {
     return(    
       <article className="popular-pane">  
@@ -23,95 +64,7 @@ var Popular = React.createClass({
           <p>Popular on codeGenius</p>
         </header>
         <ul className="popular-list">
-          <li className="popular-list-item">
-            <a href="#" className="popular-link">
-              <span className="popular-link-information">
-                <span className="popular-snippet-title">
-                  Bubblesort
-                </span>
-                <span className="popular-snippet-language">
-                  Ruby
-                </span>
-              </span>
-            </a>
-            <div className="popular-overlay" style={divRubyStyle}>
-            </div>
-          </li>
-
-          <li className="popular-list-item">
-            <a href="#" className="popular-link">
-              <span className="popular-link-information">
-                <span className="popular-snippet-title">
-                  Mergesort
-                </span>
-                <span className="popular-snippet-language">
-                  Python
-                </span>
-              </span>
-            </a>
-            <div className="popular-overlay" style={divPythonStyle}>
-            </div>
-          </li>
-
-          <li className="popular-list-item">
-            <a href="#" className="popular-link">
-              <span className="popular-link-information">
-                <span className="popular-snippet-title">
-                  Heapsort
-                </span>
-                <span className="popular-snippet-language">
-                  Haskell
-                </span>
-              </span>
-            </a>
-            <div className="popular-overlay" style={divHaskellStyle}>
-            </div>
-          </li>
-
-          <li className="popular-list-item">
-            <a href="#" className="popular-link">
-              <span className="popular-link-information">
-                <span className="popular-snippet-title">
-                  Quicksort
-                </span>
-                <span className="popular-snippet-language">
-                  Ruby
-                </span>
-              </span>
-            </a>
-            <div className="popular-overlay" style={divRubyStyle}>
-            </div>
-          </li>
-
-          <li className="popular-list-item">
-            <a href="#" className="popular-link">
-              <span className="popular-link-information">
-                <span className="popular-snippet-title">
-                  Bubblesort
-                </span>
-                <span className="popular-snippet-language">
-                  Haskell
-                </span>
-              </span>
-            </a>
-            <div className="popular-overlay" style={divHaskellStyle}>
-            </div>
-          </li>
-
-          <li className="popular-list-item">
-            <a href="#" className="popular-link">
-              <span className="popular-link-information">
-                <span className="popular-snippet-title">
-                  Shittysort
-                </span>
-                <span className="popular-snippet-language">
-                  Ruby
-                </span>
-              </span>
-            </a>
-            <div className="popular-overlay" style={divRubyStyle}>
-            </div>
-          </li>
+          {this.makePopularList()}
         </ul>
       </article>
     );
