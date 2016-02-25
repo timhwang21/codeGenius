@@ -15,8 +15,6 @@ var Body = React.createClass({
         <div className="wrapper">
           <Header />
           <Popular />
-          <Test />
-          <Test2 />
         </div>
         {this.props.children}
       </section>
