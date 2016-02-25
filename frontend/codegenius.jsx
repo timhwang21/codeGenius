@@ -16,7 +16,8 @@ var ApiUtil = require('./util/ApiUtil'); // take out later
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
 var App = require('./components/app.jsx');
-var Body = require('./components/body.jsx');
+var Index = require('./components/index/index.jsx');
+// var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
 
 // var Landing = require('./components/landing.jsx');
 
@@ -26,9 +27,9 @@ var Test2 = require('./test2.jsx');
 // how to get to test1 and test2?
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Body}>
-      <Route path="test1" component={Test} />
-      <Route path="test2" component={Test2} />
+
+    <IndexRoute component={Index}>
+      <Route path="snippet/:snippetId" component={Test} />
     </IndexRoute>
   </Route>
   );

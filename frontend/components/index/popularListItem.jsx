@@ -1,19 +1,20 @@
 var React = require('react');
 
 var divOverlay = function(idx) {
-  return ({
-    backgroundImage: 'url(/assets/' + idx + ')'
-  });
+  if (idx !== 0) {
+    return ({
+      backgroundImage: 'url(/assets/' + idx + ')'
+    });
+  }
 };
 
 var PopularListItem = React.createClass({
-
   renderLoaded: function() {
     var snippet = this.props.snippet;
     var language = this.props.language;
-
+    var overlayId = (this.props.klass === "popular-small" ? 0 : snippet.language_id);
     return(
-      <li className="popular-list-item">
+      <li className={"popular-list-item " + this.props.klass}>
         <a href={"api/snippets/" + snippet.id} className="popular-link">
           <span className="popular-link-information">
             <span className="popular-snippet-title">
@@ -24,15 +25,14 @@ var PopularListItem = React.createClass({
             </span>
           </span>
         </a>
-        <div className="popular-overlay" style={divOverlay(snippet.language_id)}>
-        </div>
+        <div className="popular-overlay" style={divOverlay(overlayId)} />
       </li>
     );
   },
 
   renderUnloaded: function() {
     return(
-      <li className="popular-list-item">
+      <li className={"popular-list-item " + this.props.klass}>
         <a href="#" className="popular-link">
           <span className="popular-link-information">
             <span className="popular-snippet-title">
@@ -40,8 +40,7 @@ var PopularListItem = React.createClass({
             </span>
           </span>
         </a>
-        <div className="popular-overlay" style={divOverlay(0)}>
-        </div>
+        <div className="popular-overlay" style={divOverlay(0)} />
       </li>
     );
   },

@@ -1,0 +1,64 @@
+.index {
+  color: #BBB;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.col-left-pane {
+  flex: 0 0 500px;
+  margin: 20px 10px;
+}
+
+.col-right-pane {
+
+  flex: 0 0 500px;
+  margin: 20px 10px;
+}
+
+.index-header-small {
+  color: #BBB;
+  font-family: 'Futura';
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 6px 0;
+}
+
+.index-header-large {
+  color: #BBB;
+  font-family: 'Futura-CondensedMedium';
+  font-size: 30px;
+  margin: 6px 0;
+}
+
+.index-link {
+  color: #99a7ee;
+  transition: .1s;
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-right: 1px solid black;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.index-text, .index-article {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-text {
+  padding: 6px;
+}
+
+.index-text div:nth-child(even), .index-article div:nth-child(even) {
+  margin-top: 1em;
+}
+
+.index-article {
+  color: #BBB;
+  font-size: 12px;
+  margin: 4px 0 20px 0;
+}

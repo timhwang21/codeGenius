@@ -1,17 +1,18 @@
-.popular-pane {
-  background: black;
-  display: block;
-  width: 500px;
-  float: right; /*remove when adding flex to wrapper*/
-  padding: 20px 0 20px 0;
+.popular-intro {
+  border: 1px solid #222;
+  color: #BBB;
+  display: flex;
+  font-size: 12px;
+  margin: 4px 0 20px 0;
+  padding: 4px 0;
 }
 
-.popular-header {
-  color: #BBB;
-  font-family: 'Futura';
-  font-size: 12px;
-  text-transform: uppercase;
-  margin: 4px 0;
+.popular-intro-img {
+  padding: 6px;
+  align-items: center;
+  font-size: 64px;
+  font-family: 'menlo', Consolas, monospace;
+  font-weight: 100;
 }
 
 .popular-list {
@@ -25,14 +26,35 @@
   border: 1px solid #222;
   display: inline-block;
   box-sizing: border-box;
-  width: 240px;
-  height: 133px;
-  float: left;
-  clear: none;
+
   font-family: 'menlo', Consolas, monospace;
   margin: 0 0px 20px 0px;
   position: relative;
   z-index: 0;
+}
+
+.popular-large {
+  width: 500px;
+  height: 300px;
+}
+
+.popular-med-wide {
+  width: 500px;
+  height: 133px;
+}
+
+.popular-med {
+  width: 240px;
+  height: 133px;
+}
+
+.popular-small {
+  width: 500px;
+  height: 45px;
+}
+
+.popular-small * {
+  display: inline-block;
 }
 
 .popular-overlay {
@@ -53,10 +75,10 @@
   color: #F6F7EE;
 }
 
-/*.popular-list-item:hover .popular-overlay{
+.popular-large:hover .popular-overlay{
   opacity: 0.25;
   transition: .2s;
-}*/
+}
 
 .popular-link {
   color: #BBB;
