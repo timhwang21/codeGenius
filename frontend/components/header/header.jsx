@@ -38,7 +38,6 @@ var Header = React.createClass({
             <a className="nav-link" href="#">
             Language ▾
             </a>
-            <LanguageDropDown />
           </div>
 
           <div className="nav-link-box">

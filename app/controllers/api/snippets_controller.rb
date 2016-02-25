@@ -3,6 +3,10 @@ class Api::SnippetsController < ApplicationController
     @snippets = Snippet.all
   end
 
+  # def index_lang
+  #   @snippets = Snippet.where(language_id: params[:language_id])
+  # end
+
   def show
     @snippet = Snippet.find(params[:id])
   end

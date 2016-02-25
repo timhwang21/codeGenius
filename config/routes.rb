@@ -11,15 +11,12 @@ Rails.application.routes.draw do
       resources :snippets, only: [:create, :show]
     end
 
-     # resources :snippets, only: [:show, :update, :destroy] do # TODO: final
-    resources :snippets, only: [:index, :show, :update, :destroy] do # TODO: remove :index; accessible through language tabs Retained for testing
-      resources :snippet_comments, only: [:create] # get user id from current_user
-      resources :annotations, only: [:create]
+    resources :snippets, only: [:index, :show, :update, :destroy] do 
+      resources :snippet_comments, only: [:index, :create] # get user id from current_user
+      resources :annotations, only: [:index, :create]
     end
 
-    # resources :snippet_comments, only: [:update, :destroy] # TODO: final route
-    # resources :annotations, only: [:update, :destroy] # TODO: this is the "correct" one
-    resources :snippet_comments, only: [:index, :show, :update, :destroy] # TODO: testing resource
-    resources :annotations, only: [:index, :show, :update, :destroy] # TODO: testing resource
+    resources :snippet_comments, only: [:show, :update, :destroy] 
+    resources :annotations, only: [:show, :update, :destroy] 
   end
 end

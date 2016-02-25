@@ -1,6 +1,6 @@
 class Api::SnippetCommentsController < ApplicationController
   def index
-    @snippet_comments = SnippetComment.all
+    @snippet_comments = SnippetComment.where(snippet_id: params[:snippet_id])
   end
 
   def show

@@ -1,5 +1,5 @@
 json.extract!(
   comment,
-  :id, :author_id, :snippet_id
+  :id, :author_id
 )
 
