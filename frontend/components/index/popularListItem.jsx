@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var divOverlay = function(idx) {
   if (idx !== 0) {
@@ -15,7 +16,7 @@ var PopularListItem = React.createClass({
     var overlayId = (this.props.klass === "popular-small" ? 0 : snippet.language_id);
     return(
       <li className={"popular-list-item " + this.props.klass}>
-        <a href={"api/snippets/" + snippet.id} className="popular-link">
+        <Link to={"snippets/" + snippet.id} className="popular-link">
           <span className="popular-link-information">
             <span className="popular-snippet-title">
               {snippet.title}
@@ -24,7 +25,7 @@ var PopularListItem = React.createClass({
               {language.name}
             </span>
           </span>
-        </a>
+        </Link>
         <div className="popular-overlay" style={divOverlay(overlayId)} />
       </li>
     );
@@ -33,13 +34,11 @@ var PopularListItem = React.createClass({
   renderUnloaded: function() {
     return(
       <li className={"popular-list-item " + this.props.klass}>
-        <a href="#" className="popular-link">
-          <span className="popular-link-information">
-            <span className="popular-snippet-title">
-              Loading...
-            </span>
+        <span className="popular-link-information">
+          <span className="popular-snippet-title">
+            Loading...
           </span>
-        </a>
+        </span>
         <div className="popular-overlay" style={divOverlay(0)} />
       </li>
     );

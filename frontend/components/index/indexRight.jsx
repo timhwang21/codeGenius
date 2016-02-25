@@ -13,7 +13,7 @@ var IndexRight = React.createClass({
 
         <div>
           Find out all the latest on&nbsp;
-          <a href="https://github.com/timhwang21/codeGenius" className="index-link">
+          <a href="https://github.com/timhwang21/codeGenius" className="body-link">
             Github
           </a>!
         </div>
@@ -24,7 +24,7 @@ var IndexRight = React.createClass({
   render: function() {
     return(    
       <article className="col-right-pane">
-        <header className="index-header-small">
+        <header className="header-small">
           <p>About codeGenius</p>
         </header>
 
@@ -37,7 +37,7 @@ var IndexRight = React.createClass({
 
         </article>
 
-        <header className="index-header-small">
+        <header className="header-small">
           <p>Popular on codeGenius</p>
         </header>
         <ul className="popular-list">

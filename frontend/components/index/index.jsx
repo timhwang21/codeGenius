@@ -2,7 +2,6 @@ var React = require('react');
 
 var IndexLeft = require('./indexLeft.jsx');
 var IndexRight = require('./indexRight.jsx');
-var Header = require('../header/header.jsx');
 var PopularListItem = require('./popularListItem');
 
 // var News = require('./news/news.jsx')
@@ -77,7 +76,6 @@ var Index = React.createClass({
 
     return(
       <section className="index">
-        <Header />
         <div className="wrapper">
           <IndexLeft popularImage={largeItemLeft}/>
           <IndexRight 

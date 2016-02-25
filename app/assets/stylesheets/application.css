@@ -46,14 +46,23 @@ html, body, #root, .app {
   width: 100%;
 }
 
+.app {
+  display: block;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 ul {
   list-style: none;
 }
 
-/*p {
-  display: block;
+.code {
+  white-space: pre;
 }
-*/
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -62,4 +71,44 @@ ul {
   -ms-user-select: none;       /* IE/Edge */
   user-select: none;           /* non-prefixed version, currently
                                   not supported by any browser */
+}
+
+.index {
+  color: #BBB;
+  width: 100%;
+}
+
+.col-left-pane {
+  flex: 0 0 500px;
+  margin: 20px 10px;
+}
+
+.col-right-pane {
+  flex: 0 0 500px;
+  margin: 20px 10px;
+}
+
+.header-small {
+  color: #BBB;
+  font-family: 'Futura';
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 6px 0;
+}
+
+.header-large {
+  color: #BBB;
+  font-family: 'Futura-CondensedMedium';
+  font-size: 30px;
+  margin: 6px 0;
+}
+
+.body-link {
+  color: #99a7ee;
+  transition: .1s;
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-right: 1px solid black;
+  display: inline-block;
+  font-size: 12px;
 }

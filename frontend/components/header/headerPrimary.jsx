@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var headerLogo = "/assets/codegenius-logo-small";
 
@@ -11,9 +12,9 @@ var HeaderPrimary = React.createClass({
         </div>
 
         <div className="header-logo">
-          <a href="#" className="header-logo-link">
+          <Link to="/">
             <img src={headerLogo} height="38" width="202" />
-          </a>
+          </Link>
         </div>
 
         <div className="header-actions">

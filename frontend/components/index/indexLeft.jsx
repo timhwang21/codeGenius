@@ -4,7 +4,7 @@ var IndexLeft = React.createClass({
   render: function() {
     return(    
       <article className="col-left-pane">
-        <header className="index-header-small">
+        <header className="header-small">
           <p>Latest on codeGenius</p>
         </header>
 
@@ -12,7 +12,7 @@ var IndexLeft = React.createClass({
           {this.props.popularImage}
         </ul>
 
-        <header className="index-header-large">
+        <header className="header-large">
           <p>Sample article 1</p>
         </header>
 
@@ -36,7 +36,7 @@ var IndexLeft = React.createClass({
           </div>
         </article>
 
-        <header className="index-header-large">
+        <header className="header-large">
           <p>Sample article 2</p>
         </header>
 

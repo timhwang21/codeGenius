@@ -46,12 +46,6 @@
   z-index: 1;
 }
 
-.header-logo-link {
-  display: flex;
-  align-items: center;  
-  height: 100%;
-}
-
 .header-actions {
   width: 20%;
   justify-content: flex-end;

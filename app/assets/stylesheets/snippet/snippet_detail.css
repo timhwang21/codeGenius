@@ -1,0 +1,31 @@
+.snippet-index {
+  background: black;
+  color: #BBB;
+  font-family: 'menlo', Consolas, monospace;
+  height: 100%;
+  width: 100%;
+}
+
+.snippet-wrapper {
+  padding: 60px;
+}
+
+.snippet-header-large {
+  color: #FFFF64;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 6px 0;
+  text-transform: uppercase;
+}
+
+.snippet-header-medium {
+  color: #BBB;
+  font-size: 24px;
+  margin: 6px 0;
+}
+
+.snippet-body {
+  color: #BBB;
+  font-size: 16px;
+  margin: 50px 0 40px 0;
+}

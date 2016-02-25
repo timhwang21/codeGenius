@@ -17,7 +17,7 @@ var ApiUtil = require('./util/ApiUtil'); // take out later
 // var Search = require('./components/Search.jsx');
 var App = require('./components/app.jsx');
 var Index = require('./components/index/index.jsx');
-// var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
+var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
 
 // var Landing = require('./components/landing.jsx');
 
@@ -28,9 +28,8 @@ var Test2 = require('./test2.jsx');
 var routes = (
   <Route path="/" component={App}>
 
-    <IndexRoute component={Index}>
-      <Route path="snippet/:snippetId" component={Test} />
-    </IndexRoute>
+    <IndexRoute component={Index} />
+    <Route path="snippets/:snippetId" component={SnippetDetail} />
   </Route>
   );
 
