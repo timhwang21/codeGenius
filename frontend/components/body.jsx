@@ -1,22 +1,21 @@
-// TODO: incorporate into splash page
-
 var React = require('react');
 
 var Popular = require('./index/popular.jsx');
 var Header = require('./header/header.jsx');
-var Test = require('../test.jsx'); //TODO TESTING
-var Test2 = require('../test2.jsx'); //TODO TESTING
+// var News = require('./news/news.jsx')
 
 
+// Try using align-content: space-between for header-wrapper-footer!
+// Eventually move popular to children
 var Body = React.createClass({
   render: function() {
     return(
-      <section className="index">
+      <section className="body">
+        <Header />
         <div className="wrapper">
-          <Header />
           <Popular />
+          {this.props.children}
         </div>
-        {this.props.children}
       </section>
     );
   }

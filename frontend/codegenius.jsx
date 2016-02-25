@@ -15,19 +15,24 @@ var ApiUtil = require('./util/ApiUtil'); // take out later
 
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
-var Header = require('./components/header/header.jsx');
+var App = require('./components/app.jsx');
 var Body = require('./components/body.jsx');
+
+// var Landing = require('./components/landing.jsx');
+
 var Test = require('./test.jsx');
 var Test2 = require('./test2.jsx');
 
+// how to get to test1 and test2?
 var routes = (
-  <Route component={Body} path="/">
-    <IndexRoute component={Test}>
+  <Route path="/" component={App}>
+    <IndexRoute component={Body}>
+      <Route path="test1" component={Test} />
+      <Route path="test2" component={Test2} />
     </IndexRoute>
-    <Route component={Test2} path="new2">
-    </Route>
   </Route>
   );
+
 
 $(function(){
   ReactDOM.render(

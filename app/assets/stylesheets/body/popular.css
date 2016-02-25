@@ -2,12 +2,8 @@
   background: black;
   display: block;
   width: 500px;
-  float: right; /*change to flex*/
+  float: right; /*remove when adding flex to wrapper*/
   padding: 20px 0 20px 0;
-}
-
-.popular-pane ul {
-  list-style: none;
 }
 
 .popular-header {
@@ -33,7 +29,7 @@
   height: 133px;
   float: left;
   clear: none;
-  font-family: monaco, Consolas, monospace;
+  font-family: 'menlo', Consolas, monospace;
   margin: 0 0px 20px 0px;
   position: relative;
   z-index: 0;
@@ -62,12 +58,10 @@
   transition: .2s;
 }*/
 
-
 .popular-link {
   color: #BBB;
   display: block;
   font-size: 18px;
-  text-decoration: none;
   position: absolute;
   height: 100%;
   width: 100%;

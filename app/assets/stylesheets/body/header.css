@@ -1,10 +1,12 @@
 .header {
   background: black;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
-.nav-link-box a {
+.nav-link {
   color: #99a7ee;
   padding: 2px 3px 1px 3px;
   text-transform: uppercase;
@@ -25,13 +27,8 @@
   padding: 0 10px;
 
   flex-direction: row;
-  align-content: center;
   justify-content: space-between;
-}
 
-.header-link {
-  display: block;
-  padding: 10px 20px;
 }
 
 .header-searchbar {
@@ -54,27 +51,15 @@
 
 .header-actions {
   width: 20%;
-  /*flex-direction: row;*/
   justify-content: flex-end;
-}
-
-.header-actions div {
-  background: red;
 }
 
 .header-nav {
   height: 34px;
   padding: 0 30%;
 
-  flex-direction: row;
   align-content: center;
   justify-content: space-between;
-}
-
-.nav-link-box {
-  display: block;
-  height: 75%;
-  vertical-align: middle;
 }
 
 .nav-link {
@@ -88,6 +73,8 @@
   border-right: 1px solid #F6F7EE;
 }
 
+
+/* TODO - for dropdown lists */
 .nav-menu-sub {
   left: 36em;
   top: 5em;
@@ -112,4 +99,11 @@
   font-size: 14px;
   text-align: left;
 
+}
+
+
+
+/*For styling icons, etc. eventually. temporary!*/
+.header-actions div {
+  background: red;
 }
