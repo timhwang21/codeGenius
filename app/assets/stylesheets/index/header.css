@@ -7,7 +7,6 @@
 }
 
 .nav-link {
-  color: #99a7ee;
   padding: 2px 3px 1px 3px;
   text-transform: uppercase;
   transition: .1s;
@@ -57,18 +56,6 @@
 
   align-content: center;
   justify-content: space-between;
-}
-
-.nav-link-box {
-  resize: none;
-
-
-}
-
-.nav-link-box:hover > a {
-  color: #F6F7EE;
-  background-color: #39382F;
-  border-right: 1px solid #F6F7EE;
 }
 
 /* TODO - for dropdown lists */

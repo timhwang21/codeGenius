@@ -20,6 +20,7 @@ var Index = React.createClass({
   getInitialState: function() {
     return({
       snippets: [],
+      lastSnippet: {},
       languages: {},
     });
   },
@@ -39,6 +40,7 @@ var Index = React.createClass({
 
   _onSnippetChange: function() {
     this.setState({snippets: SnippetStore.popular(22)});
+    this.setState({lastSnippet: SnippetStore.last()});
   },
 
   _onLanguageChange: function() {
@@ -69,10 +71,11 @@ var Index = React.createClass({
 
   render: function() {
     var snippets = this.state.snippets;
-    var largeItemLeft = this.makePopularItem(snippets[0], 0, "popular-large");
-    var popularWide = this.makePopularItem(snippets[1], 0, "popular-med-wide");
-    var popularList = this.makePopularList(snippets.slice(2, 6), "popular-med");
-    var popularSmallList = this.makePopularList(snippets.slice(7, 22), "popular-small");
+    var lastSnippet = this.state.lastSnippet;
+    var largeItemLeft = this.makePopularItem(lastSnippet, 0, "popular-large");
+    var popularWide = this.makePopularItem(snippets[0], 0, "popular-med-wide");
+    var popularList = this.makePopularList(snippets.slice(1, 5), "popular-med");
+    var popularSmallList = this.makePopularList(snippets.slice(6, 21), "popular-small");
 
     return(
       <section className="index">

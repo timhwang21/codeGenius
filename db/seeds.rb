@@ -63,6 +63,34 @@ problems = %w(
   myBind
 )
 
+Snippet.create!(
+  author_id: 1,
+  language_id: 3,
+  title: "def timBSearch",
+  views: 99999,
+  body:
+  <<-code
+Array.prototype.bsearch = function(target) {
+    if (this === [] || (this.length === 1 && this[mid] !== target)) {return -1;}
+
+    var mid = Math.floor(this.length / 2);
+
+    if (this[mid] === target) {
+      return mid;
+    } else if (this[mid] > target) {
+      return this.slice(0, mid).bsearch(target);
+    } else {
+      var search = this.slice(mid).bsearch(target);
+      if (search === -1) {
+        return -1;
+      } else {
+        return search + mid;
+      }
+    }
+};
+  code
+)
+
 20.times do |i|
   author_id = rand(1..User.all.length)
   language_id = rand(1..Language.all.length)

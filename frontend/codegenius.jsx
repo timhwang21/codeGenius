@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
+// var browserHistory = require('react-router').browserHistory;
 
 // UTILITY
 var ApiUtil = require('./util/ApiUtil'); // take out later

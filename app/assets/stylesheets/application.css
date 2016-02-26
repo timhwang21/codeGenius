@@ -14,8 +14,13 @@
  *= require_self
  */
 
+ /*DELETE ME*/
+.test {
+  border: 2px solid white;
+  margin-bottom: 80px;
+}
 
-html, body, header, nav, a, ul, li, i,
+html, body, header, nav, a, ul, li, pre, code,
 img, div, p, form, fieldset, label, input, span {
   margin: 0;
   padding: 0;
@@ -46,6 +51,20 @@ html, body, #root, .app {
   width: 100%;
 }
 
+a {
+  color: #99a7ee;
+}
+
+.link-box {
+  resize: none;
+}
+
+.link-box:hover > a {
+  color: #F6F7EE;
+  background-color: #39382F;
+  border-right: 1px solid #F6F7EE;
+}
+
 .app {
   display: block;
 }
@@ -53,14 +72,20 @@ html, body, #root, .app {
 .wrapper {
   display: flex;
   justify-content: center;
+  width: 1020px;
+  margin: 0px auto;
 }
 
 ul {
   list-style: none;
 }
 
-.code {
-  white-space: pre;
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 .noselect {
@@ -69,8 +94,7 @@ ul {
   -khtml-user-select: none;    /* Konqueror */
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* IE/Edge */
-  user-select: none;           /* non-prefixed version, currently
-                                  not supported by any browser */
+  user-select: none;           
 }
 
 .index {
@@ -80,12 +104,12 @@ ul {
 
 .col-left-pane {
   flex: 0 0 500px;
-  margin: 20px 10px;
+  margin: 20px 10px 20px 0px;
 }
 
 .col-right-pane {
   flex: 0 0 500px;
-  margin: 20px 10px;
+  margin: 20px 0px 20px 10px;
 }
 
 .header-small {
@@ -104,11 +128,10 @@ ul {
 }
 
 .body-link {
-  color: #99a7ee;
   transition: .1s;
   border-top-left-radius: 1px;
   border-bottom-left-radius: 1px;
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(0, 0, 0, 0);
   display: inline-block;
   font-size: 12px;
 }

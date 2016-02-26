@@ -1,5 +1,7 @@
 json.partial!('snippet', snippet: @snippet)
 
+json.author @snippet.author.username
+
 json.extract!(
   @snippet,
   :image_url, :body, :views

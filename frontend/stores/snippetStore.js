@@ -51,6 +51,12 @@ SnippetStore.popular = function(take) {
   return results.slice(0, take);
 },
 
+SnippetStore.last = function() {
+  var keys = Object.keys(_snippets);
+  var last_key = keys[keys.length - 1];
+  return _snippets[last_key];
+}
+
 SnippetStore.find = function(id) {
   return _snippets[id];
 };

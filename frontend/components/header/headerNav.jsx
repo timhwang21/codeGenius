@@ -5,25 +5,25 @@ var HeaderNav = React.createClass({
     return(
       <nav className="header-nav">
 
-        <div className="nav-link-box">
+        <div className="link-box">
           <a className="nav-link" href="#">
           Language ▾
           </a>
         </div>
 
-        <div className="nav-link-box">
+        <div className="link-box">
           <a className="nav-link" href="#">
           Problem Type ▾
           </a>
         </div>
 
-        <div className="nav-link-box">
+        <div className="link-box">
           <a className="nav-link" href="#">
           Add Snippet
           </a>
         </div>
 
-        <div className="nav-link-box">
+        <div className="link-box">
           <a className="nav-link" href="#">
           About
           </a>

@@ -1,5 +1,5 @@
 .snippet-index {
-  background: black;
+  background: linear-gradient(black, #0d0e0c, #0d0e0c);
   color: #BBB;
   font-family: 'menlo', Consolas, monospace;
   height: 100%;
@@ -7,7 +7,11 @@
 }
 
 .snippet-wrapper {
-  padding: 60px;
+  display: flex;
+  justify-content: center;
+  width: 980px;
+  margin: 0px auto;
+  padding: 30px;
 }
 
 .snippet-header-large {
@@ -24,8 +28,34 @@
   margin: 6px 0;
 }
 
-.snippet-body {
-  color: #BBB;
-  font-size: 16px;
-  margin: 50px 0 40px 0;
+.snippet-header-text {
+  color: #9A9A9A;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Futura';
+  font-size: 14px;
+  margin: 6px 0;
 }
+
+.snippet-col-left-pane {
+  flex: 0 0 600px;
+  max-width: 600px;
+  margin: 20px 10px 20px 0px;
+}
+
+.snippet-col-right-pane {
+  font-family: "Open Sans", Arial, sans-serif;
+
+  flex: 0 0 360px;
+  margin: 20px 0px 20px 10px;
+}
+
+.snippet-body {
+  background: #1D1E19;
+  color: white;
+  font-size: 14px;
+  margin: 30px 0 40px 0;
+  padding: 1.5em;
+  border-radius: 4px;
+}
+

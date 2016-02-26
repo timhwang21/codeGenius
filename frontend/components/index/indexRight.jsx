@@ -13,9 +13,9 @@ var IndexRight = React.createClass({
 
         <div>
           Find out all the latest on&nbsp;
-          <a href="https://github.com/timhwang21/codeGenius" className="body-link">
+          <span className="link-box"><a href="https://github.com/timhwang21/codeGenius" className="body-link">
             Github
-          </a>!
+          </a></span>!
         </div>
       </article>
     );
