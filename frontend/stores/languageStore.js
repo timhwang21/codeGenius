@@ -42,17 +42,17 @@ LanguageStore.find = function(id) {
 LanguageStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case languageConstants.LANGUAGES_ALL_RECEIVED:
-      console.log("LANGUAGES_ALL_RECEIVED");
+      // console.log("LANGUAGES_ALL_RECEIVED");
       resetAllLanguages(payload.languages);
       this.__emitChange();
       break;
     case languageConstants.LANGUAGE_RECEIVED:
-      console.log("LANGUAGE_RECEIVED");
+      // console.log("LANGUAGE_RECEIVED");
       resetLanguage(payload.language);
       this.__emitChange();
       break;
     case languageConstants.LANGUAGE_REMOVED:
-      console.log("LANGUAGE_REMOVED");
+      // console.log("LANGUAGE_REMOVED");
       removeLanguage(payload.language);
       this.__emitChange();
       break;

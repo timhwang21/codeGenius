@@ -21,12 +21,13 @@ var SnippetApiUtil = {
     );
   },
 
-  createSnippet: function(snippet) {
+  createSnippet: function(snippet, callback) {
     $.post(
       "/api/snippets", 
       {snippet: snippet}, 
       function(data) {
         snippetActions.receiveSingleSnippet(data);
+        callback && callback(data.id);
       }
     );
   },

@@ -57,13 +57,21 @@ textarea {
   resize: none;
 }
 
+button:focus {
+  outline: 0 !important;
+}
+
+/*::selection {
+  background: #909090;
+}
+*/
 .link-box {
   resize: none;
 }
 
 .link-box:hover > a {
   color: #F6F7EE;
-  background-color: #39382F;
+  background: #39382F;
   border-right: 1px solid #F6F7EE;
 }
 
@@ -140,4 +148,51 @@ pre, .word-wrap {
 
 .yellow {
   color: #FFFF64;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  width: 30%;
+}
+
+.square-button {
+  -moz-transition: .15s;
+  -webkit-transition: .15s;
+  transition: .15s;
+  background: 0 0;
+  border: 2px solid #BBB;
+  box-sizing: border-box;
+  color: #BBB;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Futura';
+  font-size: inherit;
+  line-height: inherit;
+  text-align: center;
+  padding: .25em .5em;
+  vertical-align: top;
+  -webkit-appearance: none;
+}
+
+.square-button:not(:last-child) {
+  margin: 0 .5em 0 0;
+}
+
+.square-button:hover {
+  background: #39382F;
+  /*color: #F6F7EE;*/
+}
+
+.btn-submit {
+  border: 2px solid #0ecb27;
+  color: #0ecb27;
+}
+
+.btn-submit:hover {
+  background: rgba(14,203,39,0.4);
+}
+
+.btn-noborder {
+  border: none;
 }

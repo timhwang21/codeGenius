@@ -1,32 +1,53 @@
 var React = require('react');
-// var History = require('react-router').History;
+var History = require('react-router').History;
 var Link = require('react-router').Link;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ApiUtil = require('../../util/ApiUtil.js');
+var SnippetStore = require('../../stores/snippetStore.js');
 var LanguageStore = require('../../stores/languageStore.js');
 
 var SnippetForm = React.createClass({
-  // mixins: [History, LinkedStateMixin],
-  mixins: [LinkedStateMixin],
+  mixins: [History, LinkedStateMixin],
+
+  blankAttrs: {
+    title: '',
+    language_id: 1,
+    image_url: '',
+    body: '',
+    desc: '',
+    languages: []
+  },
 
   getInitialState: function() {
-    return ({
-      title: '',
-      language_id: 1,
-      image_url: '',
-      body: '',
-      desc: '',
-      languages: []
-    });
+    return this.blankAttrs;
   },
 
   componentDidMount: function() {
+    if (this.props.params.snippetId) {
+      var id = parseInt(this.props.params.snippetId);
+      this.snippetChangeToken = SnippetStore.addListener(this._onSnippetChange);
+      ApiUtil.fetchSingleSnippet(id);
+    }
     this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
     ApiUtil.fetchAllLanguages();
   },
 
   componentWillUnmount: function() {
+    if (this.snippetChangeToken) {
+      this.snippetChangeToken.remove();
+    }
     this.languageChangeToken.remove();
+  },
+
+  _onSnippetChange: function() {
+    var snippet = SnippetStore.find(this.props.params.snippetId);
+    this.setState({
+      title: snippet.title,
+      language_id: snippet.language_id,
+      image_url: snippet.image_url,
+      body: snippet.body,
+      desc: snippet.desc
+    });
   },
 
   _onLanguageChange: function() {
@@ -45,37 +66,45 @@ var SnippetForm = React.createClass({
       desc: this.state.desc
     };
 
-    if (this.props.params.id) {
+    if (this.props.params.snippetId) {
+      var id = this.props.params.snippetId;
       this.editSnippet(snippet);
+      this.history.pushState(null, "snippets/" + id, {});
     } else {
       this.createSnippet(snippet);
     }
+  },
 
-    // also push to history
+  handleBack: function(event) {
+    event.preventDefault();
+    this.history.goBack();
   },
 
   createSnippet: function(snippet) {
-    console.log("Snippet created: ", snippet);
-    ApiUtil.createSnippet(snippet);
+    // console.log("Snippet created: ", snippet);
+    ApiUtil.createSnippet(snippet, function(id) {
+      this.history.pushState(null, "snippets/" + id, {});
+    }.bind(this));
   },
 
   editSnippet: function(snippet) {
-    console.log("Snippet edited: ", snippet);
-    ApiUtil.updateSnippet(parseInt(this.props.params.id), snippet);
+    var id = parseInt(this.props.params.snippetId);
+    // console.log("Snippet edited: ", snippet);
+    ApiUtil.updateSnippet(id, snippet);
   },
 
   render: function() {
     return(
-      <form hidden className="snippet-form" onSubmit={this.handleSubmit}>
+      <form hidden className="snippet-form">
         <div className="snippet-wrapper">
           <article className="snippet-col-left-pane">
             <div>
-              <label htmlFor="snippet_title">New Snippet</label>
+              <label htmlFor="snippet_title">Title</label>
               <input
                 className="snippet-header-large"
                 type="text"
                 id="snippet_title"
-                placeholder="Title: "
+                placeholder="New Snippet..."
                 valueLink={this.linkState("title")}
               />
             </div>
@@ -110,12 +139,20 @@ var SnippetForm = React.createClass({
             </div>
 
             
-            <div>
+            <div className="button-row">
               <input 
                 type="submit" 
+                className="square-button btn-submit"
                 onClick={this.handleSubmit}
-                value={this.props.params.id ? "Edit snippet" : "Create snippet"} 
+                value="Save" 
               />
+
+              <button 
+                className="square-button btn-noborder"
+                onClick={this.handleBack}
+              >
+                Back
+              </button>
             </div>
 
           </article>
@@ -142,11 +179,7 @@ var SnippetForm = React.createClass({
             </div>
           </article>
         </div>
-       
-
-      
-
-
+    
       </form>
     );
   }

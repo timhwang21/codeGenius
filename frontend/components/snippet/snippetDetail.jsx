@@ -1,5 +1,5 @@
 var React = require('react');
-// var History = require('react-router').History;
+var History = require('react-router').History;
 var Link = require('react-router').Link;
 // var hljs = require('highlight.js');
 
@@ -13,7 +13,7 @@ var animateScrollTop = function() {
 };
 
 var SnippetDetail = React.createClass({
-  // mixins: [History],
+  mixins: [History],
 
   getInitialState: function() {
     return {snippet: {}};
@@ -36,6 +36,12 @@ var SnippetDetail = React.createClass({
 
   _onChange: function() {
     this.setState({snippet: SnippetStore.find(this.props.params.snippetId)});
+  },
+
+  handleEdit: function(event) {
+    event.preventDefault();
+    var id = this.props.params.snippetId;
+    this.history.pushState(null, "snippets/" + id + "/edit", {});
   },
 
   render: function() {
@@ -70,6 +76,13 @@ var SnippetDetail = React.createClass({
                 {body}
               </code></pre>
             </article>
+
+            <button 
+              className="square-button"
+              onClick={this.handleEdit}
+            >
+              Edit
+            </button>
           </article>
           <article className="snippet-col-right-pane">
             <div className="snippet-img-box">

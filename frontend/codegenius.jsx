@@ -32,6 +32,7 @@ var routes = (
     <IndexRoute component={Index} />
     <Route path="snippets/new" component={SnippetFormPage} />
     <Route path="snippets/:snippetId" component={SnippetDetail} />
+    <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
   </Route>
   );
 
