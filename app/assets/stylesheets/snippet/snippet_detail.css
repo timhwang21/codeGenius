@@ -1,5 +1,5 @@
 .snippet-index {
-  background: linear-gradient(black, #0d0e0c, #0d0e0c);
+  background: linear-gradient(#0d0e0c, black);
   color: #BBB;
   font-family: 'menlo', Consolas, monospace;
   height: 100%;
