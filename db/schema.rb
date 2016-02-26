@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224181148) do
+ActiveRecord::Schema.define(version: 20160226051811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160224181148) do
     t.integer  "views",       default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.text     "desc",                    null: false
   end
 
   add_index "snippets", ["author_id"], name: "index_snippets_on_author_id", using: :btree

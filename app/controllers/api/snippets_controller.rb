@@ -45,6 +45,7 @@ class Api::SnippetsController < ApplicationController
       :title, 
       :image_url, 
       :body,
+      :desc,
       :views
     )
   end

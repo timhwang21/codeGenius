@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var HeaderNav = React.createClass({
   render: function() {
@@ -18,9 +19,9 @@ var HeaderNav = React.createClass({
         </div>
 
         <div className="link-box">
-          <a className="nav-link" href="#">
+          <Link to="snippets/new" className="nav-link">
           Add Snippet
-          </a>
+          </Link>
         </div>
 
         <div className="link-box">
@@ -35,3 +36,5 @@ var HeaderNav = React.createClass({
 });
 
 module.exports = HeaderNav;
+
+

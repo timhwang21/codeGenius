@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :create, :update, :destroy]
 
     resources :languages, only: [:index, :show, :create, :destroy] do
-      resources :snippets, only: [:create, :show]
+      resources :snippets, only: [:index]
     end
 
-    resources :snippets, only: [:index, :show, :update, :destroy] do 
+    resources :snippets, only: [:index, :create, :show, :update, :destroy] do 
       resources :snippet_comments, only: [:index, :create] # get user id from current_user
       resources :annotations, only: [:index, :create]
     end
