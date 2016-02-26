@@ -4,11 +4,13 @@ var SnippetForm = require('./snippetForm');
 var SnippetFormPage = React.createClass({
   render: function() {
     return(
-      <div>
+      <section className="snippet-index">
         <SnippetForm params={this.props.params}/>
-      </div>
+      </section>
     );
   }
 });
 
 module.exports = SnippetFormPage;
+
+

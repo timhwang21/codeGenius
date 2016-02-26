@@ -40,7 +40,8 @@ var SnippetDetail = React.createClass({
 
   render: function() {
     var snippet = this.state.snippet;
-    var title = snippet.title
+    var title = snippet.title;
+    var language = snippet.language;
     var author = snippet.author;
     var author_id = snippet.author_id;
     var views = snippet.views;
@@ -56,7 +57,7 @@ var SnippetDetail = React.createClass({
             </header>
 
             <header className="snippet-header-medium">
-              Language
+              {language}
             </header>
 
             <header className="snippet-header-text">
@@ -65,14 +66,16 @@ var SnippetDetail = React.createClass({
             </header>
 
             <article className="snippet-body">
-              <pre><code className="js">
+              <pre><code>
                 {body}
               </code></pre>
             </article>
           </article>
           <article className="snippet-col-right-pane">
-            <div><img src={testImg} height="280" width="280"className="test" /></div>
-            <div>
+            <div className="snippet-img-box">
+              <img src={testImg} className="snippet-img" />
+            </div>
+            <div className="snippet-desc word-wrap">
               {desc}
             </div>
           </article>

@@ -45,12 +45,13 @@ var SnippetForm = React.createClass({
       desc: this.state.desc
     };
 
-    debugger;
     if (this.props.params.id) {
       this.editSnippet(snippet);
     } else {
       this.createSnippet(snippet);
     }
+
+    // also push to history
   },
 
   createSnippet: function(snippet) {
@@ -65,55 +66,86 @@ var SnippetForm = React.createClass({
 
   render: function() {
     return(
-      <form className="snippet-form" onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="snippet_title">Title:</label>
-          <input
-            type="text"
-            id="snippet_title"
-            valueLink={this.linkState("title")}
-          />
-        </div>
+      <form hidden className="snippet-form" onSubmit={this.handleSubmit}>
+        <div className="snippet-wrapper">
+          <article className="snippet-col-left-pane">
+            <div>
+              <label htmlFor="snippet_title">New Snippet</label>
+              <input
+                className="snippet-header-large"
+                type="text"
+                id="snippet_title"
+                placeholder="Title: "
+                valueLink={this.linkState("title")}
+              />
+            </div>
 
-        <div>
-          <label htmlFor="snippet_language_id">Language:</label>
-          <select id="snippet_language_id" valueLink={this.linkState("language_id")}>
-            {this.state.languages.map(function (language, i) {
-              return <option value={language.id} key={i}>{language.name}</option>;
-            })}
-          </select>
-        </div>
+            <header className="snippet-header-medium">
+              Select Language:
+            </header>
 
-        <div>
-          <label htmlFor="snippet_image_url">Image URL:</label>
-          <input
-            type="text"
-            id="snippet_image_url"
-            valueLink={this.linkState("image_url")}
-          />
-        </div>
+            <label htmlFor="snippet_language_id">Language</label>
+            <div className="snippet-select-language-box">
+              <select id="snippet_language_id" valueLink={this.linkState("language_id")}>
+                {this.state.languages.map(function (language, i) {
+                  return (
+                    <option 
+                      value={language.id} 
+                      key={i}
+                    >
+                      {language.name}
+                    </option>);
+                })}
+              </select>
+            </div>
 
-        <div>
-          <label htmlFor="snippet_body">Body:</label>
-          <textarea 
-            id="snippet_body"
-            rows="20" 
-            cols="100" 
-            valueLink={this.linkState("body")} />
-        </div>
+            <div className="snippet-body yellow">
+              <label htmlFor="snippet_body">Body</label>
+              <textarea 
+                id="snippet_body"
+                rows="20" 
+                cols="68" 
+                placeholder="Enter code here... "
+                valueLink={this.linkState("body")} />
+            </div>
 
-        <div>
-          <label htmlFor="snippet_desc">Description:</label>
-          <textarea 
-            id="snippet_desc"
-            rows="20" 
-            cols="100" 
-            valueLink={this.linkState("desc")} />
-        </div>
+            
+            <div>
+              <input 
+                type="submit" 
+                onClick={this.handleSubmit}
+                value={this.props.params.id ? "Edit snippet" : "Create snippet"} 
+              />
+            </div>
 
-        <div>
-          <input type="submit" value={this.props.params.id ? "Edit snippet" : "Create snippet"} />
+          </article>
+          <article className="snippet-col-right-pane">
+            <div className="snippet-img-box">
+              <label htmlFor="snippet_image_url">Image URL</label>
+              <input
+                className="temp yellow"
+                type="text"
+                id="snippet_image_url"
+                placeholder="Image URL: (replace with Cloudinary!) "
+                valueLink={this.linkState("image_url")}
+              />
+            </div>
+            <div>
+              <label htmlFor="snippet_desc">Description</label>
+              <textarea 
+                className="yellow"
+                id="snippet_desc"
+                rows="20" 
+                cols="43"
+                placeholder="Enter description here..."
+                valueLink={this.linkState("desc")} />
+            </div>
+          </article>
         </div>
+       
+
+      
+
 
       </form>
     );
