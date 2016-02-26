@@ -60,10 +60,10 @@ var SnippetForm = React.createClass({
     var snippet = {
       author_id: 1, // pass in current user as prop; current_user.id
       language_id: this.state.language_id,
-      title: this.state.title,
-      image_url: this.state.image_url,
-      body: this.state.body,
-      desc: this.state.desc
+      title: this.state.title.trim(),
+      image_url: this.state.image_url.trim(),
+      body: this.state.body.trim(),
+      desc: this.state.desc.trim()
     };
 
     if (this.props.params.snippetId) {
@@ -101,7 +101,7 @@ var SnippetForm = React.createClass({
             <div>
               <label htmlFor="snippet_title">Title</label>
               <input
-                className="snippet-header-large"
+                className="snippet-header-large yellow"
                 type="text"
                 id="snippet_title"
                 placeholder="New Snippet..."

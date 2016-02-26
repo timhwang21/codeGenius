@@ -6,8 +6,6 @@ var Link = require('react-router').Link;
 var SnippetStore = require('../../stores/snippetStore.js')
 var ApiUtil = require('../../util/ApiUtil.js');
 
-var testImg = "/assets/9";
-
 var animateScrollTop = function() {
   $("html, body").animate({scrollTop: "0px"}, 200);
 };
@@ -46,34 +44,35 @@ var SnippetDetail = React.createClass({
 
   render: function() {
     var snippet = this.state.snippet;
-    var title = snippet.title;
-    var language = snippet.language;
-    var author = snippet.author;
-    var author_id = snippet.author_id;
-    var views = snippet.views;
-    var body = snippet.body;
-    var desc = snippet.desc;
+    if (typeof snippet.image_url !== 'undefined') {
+      var image_url = (
+        snippet.image_url === "" ? 
+        "/assets/" + snippet.language_id :
+        snippet.image_url  
+        // TODO: refactor to use Cloudinary
+      );
+    }
 
     return (
       <section className="snippet-index">
         <div className="snippet-wrapper">
           <article className="snippet-col-left-pane">
             <header className="snippet-header-large">
-              {title}
+              {snippet.title}
             </header>
 
             <header className="snippet-header-medium">
-              {language}
+              {snippet.language}
             </header>
 
             <header className="snippet-header-text">
-              <p>Author:&nbsp;<span className="link-box"><Link to={"users/" + author_id}>{author}</Link></span></p>
-              <p>Views:&nbsp;{views}</p>
+              <p>Author:&nbsp;<span className="link-box"><Link to={"users/" + snippet.author_id}>{snippet.author}</Link></span></p>
+              <p>Views:&nbsp;{snippet.views}</p>
             </header>
 
             <article className="snippet-body">
               <pre><code>
-                {body}
+                {snippet.body}
               </code></pre>
             </article>
 
@@ -86,10 +85,10 @@ var SnippetDetail = React.createClass({
           </article>
           <article className="snippet-col-right-pane">
             <div className="snippet-img-box">
-              <img src={testImg} className="snippet-img" />
+              <img src={image_url} className="snippet-img" />
             </div>
             <div className="snippet-desc word-wrap">
-              {desc}
+              {snippet.desc}
             </div>
           </article>
         </div>
@@ -99,3 +98,8 @@ var SnippetDetail = React.createClass({
 });
 
 module.exports = SnippetDetail;
+
+// div 
+//   className="snippet-img-box" 
+//   style={{backgroundImage: "url(" + image_url + ")"}}
+// /

@@ -55,6 +55,7 @@ label {
 
 textarea {
   resize: none;
+  overflow:hidden;
 }
 
 button:focus {

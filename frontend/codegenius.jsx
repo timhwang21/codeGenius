@@ -28,7 +28,6 @@ var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
 // how to get to test1 and test2?
 var routes = (
   <Route path="/" component={App}>
-
     <IndexRoute component={Index} />
     <Route path="snippets/new" component={SnippetFormPage} />
     <Route path="snippets/:snippetId" component={SnippetDetail} />
