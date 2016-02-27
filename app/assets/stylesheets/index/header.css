@@ -7,14 +7,15 @@
 }
 
 .nav-link {
-  padding: 2px 3px 1px 3px;
-  text-transform: uppercase;
-  transition: .1s;
   border-top-left-radius: 1px;
   border-bottom-left-radius: 1px;
   border-right: 1px solid black;
+  color: #99a7ee;
   display: inline-block;
+  padding: 2px 3px 1px 3px;
   font-size: 12px;
+  text-transform: uppercase;
+  transition: .1s;
   white-space: nowrap;
 }
 

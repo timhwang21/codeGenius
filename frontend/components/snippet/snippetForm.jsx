@@ -38,6 +38,7 @@ var SnippetForm = React.createClass({
     }
     this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
     ApiUtil.fetchAllLanguages();
+    this.refs.snippetTitle.focus();
   },
 
   componentWillUnmount: function() {
@@ -111,6 +112,7 @@ var SnippetForm = React.createClass({
               <input
                 className="snippet-header-large yellow"
                 type="text"
+                ref="snippetTitle"
                 id="snippet_title"
                 placeholder="New Snippet..."
                 valueLink={this.linkState("title")}

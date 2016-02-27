@@ -70,10 +70,11 @@ button:focus {
   resize: none;
 }
 
-.link-box:hover > a {
-  color: #F6F7EE;
+.link-box:hover > * {
   background: #39382F;
   border-right: 1px solid #F6F7EE;
+  color: #F6F7EE;
+  cursor: pointer;
 }
 
 .app {

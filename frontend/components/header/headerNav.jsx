@@ -2,20 +2,22 @@ var React = require('react');
 var Link = require('react-router').Link;
 
 var HeaderNav = React.createClass({
+  handleClickLanguage: function() {
+    console.log("this will unhide the languages dropdown");
+  },
+
+  handleClickAbout: function() {
+    console.log("unhide the about dropdown");
+  },
+
   render: function() {
     return(
       <nav className="header-nav">
 
         <div className="link-box">
-          <a className="nav-link" href="#">
+          <div className="nav-link" onClick={this.handleClickLanguage}>
           Language ▾
-          </a>
-        </div>
-
-        <div className="link-box">
-          <a className="nav-link" href="#">
-          Problem Type ▾
-          </a>
+          </div>
         </div>
 
         <div className="link-box">
@@ -25,9 +27,9 @@ var HeaderNav = React.createClass({
         </div>
 
         <div className="link-box">
-          <a className="nav-link" href="#">
+          <div className="nav-link" onClick={this.handleClickAbout}>
           About
-          </a>
+          </div>
         </div>
 
       </nav>
