@@ -19,6 +19,14 @@ var SnippetForm = React.createClass({
   },
 
   getInitialState: function() {
+    if (this.props.params.snippetId) {
+      var id = parseInt(this.props.params.snippetId);
+      if (SnippetStore.find(id)) {
+        var snippet = SnippetStore.find(id);
+        snippet.languages = [];
+        return snippet;
+      } 
+    }
     return this.blankAttrs;
   },
 

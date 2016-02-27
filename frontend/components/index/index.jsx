@@ -19,9 +19,9 @@ var divOverlay = function(idx) {
 var Index = React.createClass({
   getInitialState: function() {
     return({
-      snippets: [],
-      lastSnippet: {},
-      languages: {},
+      snippets: SnippetStore.popular(22) ? SnippetStore.popular(22) : [],
+      lastSnippet: SnippetStore.last() ? SnippetStore.last() : {},
+      languages: LanguageStore.allObject() ? LanguageStore.allObject() : {},
     });
   },
 
@@ -44,7 +44,7 @@ var Index = React.createClass({
   },
 
   _onLanguageChange: function() {
-    this.setState({languages: LanguageStore.all_object()});
+    this.setState({languages: LanguageStore.allObject()});
   },
 
   makePopularItem: function(snippet, i, klass) {

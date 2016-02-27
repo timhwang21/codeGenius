@@ -14,12 +14,18 @@ var SnippetDetail = React.createClass({
   mixins: [History],
 
   getInitialState: function() {
-    return {snippet: {}};
+    var id = parseInt(this.props.params.snippetId);
+    return ({
+      snippet: SnippetStore.find(id) ? SnippetStore.find(id) : {}
+    });
+
   },
 
   componentDidMount: function() {
+    var id = parseInt(this.props.params.snippetId);
+
     this.snippetChangeToken = SnippetStore.addListener(this._onChange);
-    ApiUtil.fetchSingleSnippet(this.props.params.snippetId);
+    ApiUtil.fetchSingleSnippet(id);
     animateScrollTop();
     // hljs.initHighlightingOnLoad()
   },
@@ -33,13 +39,19 @@ var SnippetDetail = React.createClass({
   },
 
   _onChange: function() {
-    this.setState({snippet: SnippetStore.find(this.props.params.snippetId)});
+    var id = parseInt(this.props.params.snippetId);
+    this.setState({snippet: SnippetStore.find(id)});
   },
 
   handleEdit: function(event) {
     event.preventDefault();
     var id = this.props.params.snippetId;
     this.history.pushState(null, "snippets/" + id + "/edit", {});
+  },
+
+  handleBack: function(event) {
+    event.preventDefault();
+    this.history.goBack();
   },
 
   render: function() {
@@ -76,12 +88,21 @@ var SnippetDetail = React.createClass({
               </code></pre>
             </article>
 
-            <button 
-              className="square-button"
-              onClick={this.handleEdit}
-            >
-              Edit
-            </button>
+            <div className="button-row">
+              <button 
+                className="square-button"
+                onClick={this.handleEdit}
+              >
+                Edit
+              </button>
+
+              <button 
+                className="square-button btn-noborder"
+                onClick={this.handleBack}
+              >
+                Back
+              </button>
+            </div>
           </article>
           <article className="snippet-col-right-pane">
             <div className="snippet-img-box">

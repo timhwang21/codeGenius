@@ -31,7 +31,7 @@ LanguageStore.all = function() {
   return results;
 };
 
-LanguageStore.all_object = function() {
+LanguageStore.allObject = function() {
   return Object.assign({}, _languages);
 };
 
