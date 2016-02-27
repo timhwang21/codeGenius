@@ -32,12 +32,12 @@ SnippetStore.all = function() {
 };
 
 SnippetStore.popular = function(take) {
-  var results = this.all();
-
   // default value of take is take all
   take = typeof take == 'undefined' ? 
     results.length : 
     take; 
+
+  var results = this.all().slice(0, take);
 
   results.sort(function(a,b) {
     return (a.views < b.views) ? 
@@ -48,7 +48,7 @@ SnippetStore.popular = function(take) {
       );
     } 
   );
-  return results.slice(0, take);
+  return results;
 },
 
 SnippetStore.last = function() {
