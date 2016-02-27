@@ -3,6 +3,7 @@ var Link = require('react-router').Link;
 // var hljs = require('highlight.js');
 
 var SnippetDetailLeft = require('./snippetDetailLeft');
+var SnippetDetailRight = require('./snippetDetailRight');
 
 var SnippetStore = require('../../stores/snippetStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
@@ -56,16 +57,8 @@ var SnippetDetail = React.createClass({
     return (
       <section className="snippet-index">
         <div className="snippet-wrapper">
-          <SnippetDetailLeft snippet={this.state.snippet} />
-
-          <article className="snippet-col-right-pane">
-            <div className="snippet-img-box">
-              <img src={image_url} className="snippet-img" />
-            </div>
-            <div className="snippet-desc word-wrap">
-              {snippet.desc}
-            </div>
-          </article>
+          <SnippetDetailLeft snippet={snippet} />
+          <SnippetDetailRight imgUrl={image_url} desc = {snippet.desc} />
         </div>
       </section>
     );

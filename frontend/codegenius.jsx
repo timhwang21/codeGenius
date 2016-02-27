@@ -22,7 +22,6 @@ var Index = require('./components/index/index.jsx');
 var SnippetFormPage = require('./components/snippet/snippetFormPage.jsx');
 var SnippetForm = require('./components/snippet/snippetForm.jsx');
 var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
-var SnippetDetailRight = require('./components/snippet/snippetDetailRight.jsx');
 
 // var Landing = require('./components/landing.jsx');
 
@@ -31,9 +30,7 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Index} />
     <Route path="snippets/new" component={SnippetFormPage} />
-    <Route path="snippets/:snippetId" component={SnippetDetail}>
-      <IndexRoute component={SnippetDetailRight} />
-    </Route>
+    <Route path="snippets/:snippetId" component={SnippetDetail} />
     <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
   </Route>
   );

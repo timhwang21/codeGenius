@@ -37,7 +37,7 @@ SnippetStore.popular = function(take) {
     results.length : 
     take; 
 
-  var results = this.all().slice(0, take);
+  var results = this.all();
 
   results.sort(function(a,b) {
     return (a.views < b.views) ? 
@@ -48,7 +48,7 @@ SnippetStore.popular = function(take) {
       );
     } 
   );
-  return results;
+  return results.slice(0, take);
 },
 
 SnippetStore.last = function() {

@@ -7,7 +7,6 @@ var PopularListItem = require('./popularListItem');
 // var News = require('./news/news.jsx')
 
 var SnippetStore = require('../../stores/snippetStore.js');
-var LanguageStore = require('../../stores/languageStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 
 var divOverlay = function(idx) {
@@ -21,21 +20,16 @@ var Index = React.createClass({
     return({
       snippets: SnippetStore.popular(22) ? SnippetStore.popular(22) : [],
       lastSnippet: SnippetStore.last() ? SnippetStore.last() : {},
-      languages: LanguageStore.allObject() ? LanguageStore.allObject() : {},
     });
   },
 
   componentDidMount: function() {
     this.snippetChangeToken = SnippetStore.addListener(this._onSnippetChange);
     ApiUtil.fetchAllSnippets();
-
-    this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
-    ApiUtil.fetchAllLanguages();
   },
 
   componentWillUnmount: function() {
     this.snippetChangeToken.remove();
-    this.languageChangeToken.remove();
   },
 
   _onSnippetChange: function() {
@@ -43,17 +37,13 @@ var Index = React.createClass({
     this.setState({lastSnippet: SnippetStore.last()});
   },
 
-  _onLanguageChange: function() {
-    this.setState({languages: LanguageStore.allObject()});
-  },
 
   makePopularItem: function(snippet, i, klass) {
-    var languages = this.state.languages;
     if (snippet) {
       return(
         <PopularListItem
           snippet={snippet}
-          language={languages[snippet.language_id]}
+          language={snippet.language}
           klass={klass}
           id={i}
           key={i} />

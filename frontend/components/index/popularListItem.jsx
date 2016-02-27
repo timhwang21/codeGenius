@@ -22,7 +22,7 @@ var PopularListItem = React.createClass({
               {snippet.title}
             </span>
             <span className="popular-snippet-detail">
-              {language.name}
+              {language}
             </span>
           </span>
         </Link>

@@ -1,6 +1,5 @@
 json.partial!('snippet', snippet: @snippet)
 
-json.language @snippet.language.name
 json.author @snippet.author.username
 
 json.extract!(
