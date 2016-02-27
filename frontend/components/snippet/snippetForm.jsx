@@ -77,7 +77,7 @@ var SnippetForm = React.createClass({
     if (this.props.params.snippetId) {
       var id = this.props.params.snippetId;
       this.editSnippet(snippet);
-      this.history.pushState(null, "snippets/" + id, {});
+      this.history.push("snippets/" + id);
     } else {
       this.createSnippet(snippet);
     }
@@ -91,7 +91,7 @@ var SnippetForm = React.createClass({
   createSnippet: function(snippet) {
     // console.log("Snippet created: ", snippet);
     ApiUtil.createSnippet(snippet, function(id) {
-      this.history.pushState(null, "snippets/" + id, {});
+      this.history.push("snippets/" + id);
     }.bind(this));
   },
 

@@ -1,9 +1,10 @@
 var React = require('react');
-var History = require('react-router').History;
 var Link = require('react-router').Link;
 // var hljs = require('highlight.js');
 
-var SnippetStore = require('../../stores/snippetStore.js')
+var SnippetDetailLeft = require('./snippetDetailLeft');
+
+var SnippetStore = require('../../stores/snippetStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 
 var animateScrollTop = function() {
@@ -11,14 +12,12 @@ var animateScrollTop = function() {
 };
 
 var SnippetDetail = React.createClass({
-  mixins: [History],
 
   getInitialState: function() {
     var id = parseInt(this.props.params.snippetId);
     return ({
       snippet: SnippetStore.find(id) ? SnippetStore.find(id) : {}
     });
-
   },
 
   componentDidMount: function() {
@@ -43,17 +42,6 @@ var SnippetDetail = React.createClass({
     this.setState({snippet: SnippetStore.find(id)});
   },
 
-  handleEdit: function(event) {
-    event.preventDefault();
-    var id = this.props.params.snippetId;
-    this.history.pushState(null, "snippets/" + id + "/edit", {});
-  },
-
-  handleBack: function(event) {
-    event.preventDefault();
-    this.history.goBack();
-  },
-
   render: function() {
     var snippet = this.state.snippet;
     if (typeof snippet.image_url !== 'undefined') {
@@ -68,42 +56,8 @@ var SnippetDetail = React.createClass({
     return (
       <section className="snippet-index">
         <div className="snippet-wrapper">
-          <article className="snippet-col-left-pane">
-            <header className="snippet-header-large">
-              {snippet.title}
-            </header>
+          <SnippetDetailLeft snippet={this.state.snippet} />
 
-            <header className="snippet-header-medium">
-              {snippet.language}
-            </header>
-
-            <header className="snippet-header-text">
-              <p>Author:&nbsp;<span className="link-box"><Link to={"users/" + snippet.author_id}>{snippet.author}</Link></span></p>
-              <p>Views:&nbsp;{snippet.views}</p>
-            </header>
-
-            <article className="snippet-body">
-              <pre><code>
-                {snippet.body}
-              </code></pre>
-            </article>
-
-            <div className="button-row">
-              <button 
-                className="square-button"
-                onClick={this.handleEdit}
-              >
-                Edit
-              </button>
-
-              <button 
-                className="square-button btn-noborder"
-                onClick={this.handleBack}
-              >
-                Back
-              </button>
-            </div>
-          </article>
           <article className="snippet-col-right-pane">
             <div className="snippet-img-box">
               <img src={image_url} className="snippet-img" />

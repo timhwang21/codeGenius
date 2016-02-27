@@ -1,35 +1,15 @@
 var React = require('react');
+var Link = require('react-router').Link;
+var History = require('react-router').History;
+
 
 var SnippetDetailLeft = React.createClass({
   mixins: [History],
 
-  getInitialState: function() {
-    return {snippet: {}};
-  },
-
-  componentDidMount: function() {
-    this.snippetChangeToken = SnippetStore.addListener(this._onChange);
-    ApiUtil.fetchSingleSnippet(this.props.params.snippetId);
-    animateScrollTop();
-    // hljs.initHighlightingOnLoad()
-  },
-
-  componentWillUnmount: function() {
-    this.snippetChangeToken.remove();
-  },
-
-  componentWillReceiveProps: function(nextProps) {
-    ApiUtil.fetchSingleSnippet(nextProps.params.snippetId);
-  },
-
-  _onChange: function() {
-    this.setState({snippet: SnippetStore.find(this.props.params.snippetId)});
-  },
-
   handleEdit: function(event) {
     event.preventDefault();
-    var id = this.props.params.snippetId;
-    this.history.pushState(null, "snippets/" + id + "/edit", {});
+    var id = this.props.snippet.id;
+    this.history.push("snippets/" + id + "/edit");
   },
 
   handleBack: function(event) {
@@ -38,6 +18,8 @@ var SnippetDetailLeft = React.createClass({
   },
 
   render: function() {
+    var snippet = this.props.snippet;
+
     return (
       <article className="snippet-col-left-pane">
         <header className="snippet-header-large">
