@@ -19,24 +19,29 @@ var ApiUtil = require('./util/ApiUtil'); // take out later
 // var Search = require('./components/Search.jsx');
 var App = require('./components/app.jsx');
 var Index = require('./components/index/index.jsx');
-var SnippetFormPage = require('./components/snippet/snippetFormPage.jsx');
-var SnippetForm = require('./components/snippet/snippetForm.jsx');
 var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
 var SnippetDetailRight = require('./components/snippet/snippetDetailRight.jsx');
+var SnippetFormPage = require('./components/snippet/snippetFormPage.jsx');
+var AnnotationDetail = require('./components/annotation/annotationDetail.jsx');
+var AnnotationFormPage = require('./components/annotation/annotationFormPage.jsx');
 
 // var Landing = require('./components/landing.jsx');
-
-// how to get to test1 and test2?
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Index} />
+
     <Route path="snippets/new" component={SnippetFormPage} />
+    
     <Route path="snippets/:snippetId" component={SnippetDetail}>
+      <IndexRoute component={SnippetDetailRight} />
+      <Route path="annotations/new" component={AnnotationFormPage} />
+      <Route path="annotations/:annotationId" component={AnnotationDetail} />
+      <Route path="annotations/:annotationId/edit" component={AnnotationFormPage} />
     </Route>
+    
     <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
   </Route>
   );
-
 
 $(function(){
   ReactDOM.render(

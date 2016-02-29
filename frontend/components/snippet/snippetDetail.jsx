@@ -21,6 +21,18 @@ var SnippetDetail = React.createClass({
     });
   },
 
+  childContextTypes: {
+    imgUrl: React.PropTypes.string,
+    desc: React.PropTypes.string
+  },
+
+  getChildContext: function() { // I'm afraid desc will be undefined if snippet isn't fetched yet
+    return {
+      imgUrl: this.imgUrl(),
+      desc: this.state.snippet.desc
+    };
+  },
+
   componentDidMount: function() {
     var id = parseInt(this.props.params.snippetId);
 
@@ -56,7 +68,7 @@ var SnippetDetail = React.createClass({
       <section className="snippet-index">
         <div className="snippet-wrapper">
           <SnippetDetailLeft snippet={snippet} />
-          <SnippetDetailRight imgUrl={this.imgUrl()} desc = {snippet.desc} />
+          {this.props.children}
         </div>
       </section>
     );
