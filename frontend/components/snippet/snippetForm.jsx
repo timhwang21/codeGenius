@@ -38,7 +38,7 @@ var SnippetForm = React.createClass({
     }
     this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
     ApiUtil.fetchAllLanguages();
-    this.refs.snippetTitle.focus();
+      this.refs.snippetTitle.focus();
   },
 
   componentWillUnmount: function() {
@@ -46,6 +46,12 @@ var SnippetForm = React.createClass({
       this.snippetChangeToken.remove();
     }
     this.languageChangeToken.remove();
+  },
+
+  componentWillReceiveProps: function(newProps) {
+    if (Object.keys(newProps.params).length === 0 && this.props.params.snippetId) {
+      this.setState(this.blankAttrs);
+    }
   },
 
   _onSnippetChange: function() {
@@ -90,7 +96,6 @@ var SnippetForm = React.createClass({
   },
 
   createSnippet: function(snippet) {
-    // console.log("Snippet created: ", snippet);
     ApiUtil.createSnippet(snippet, function(id) {
       this.history.push("snippets/" + id);
     }.bind(this));
@@ -98,7 +103,6 @@ var SnippetForm = React.createClass({
 
   editSnippet: function(snippet) {
     var id = parseInt(this.props.params.snippetId);
-    // console.log("Snippet edited: ", snippet);
     ApiUtil.updateSnippet(id, snippet);
   },
 
