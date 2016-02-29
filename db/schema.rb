@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229182233) do
+ActiveRecord::Schema.define(version: 20160229193110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,11 @@ ActiveRecord::Schema.define(version: 20160229182233) do
     t.integer  "author_id",              null: false
     t.integer  "snippet_id",             null: false
     t.text     "body",                   null: false
-    t.integer  "start_idx",              null: false
-    t.integer  "end_idx",                null: false
     t.integer  "upvotes",    default: 0
     t.integer  "downvotes",  default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "line_idx",               null: false
   end
 
   add_index "annotations", ["author_id"], name: "index_annotations_on_author_id", using: :btree

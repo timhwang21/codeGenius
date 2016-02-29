@@ -15,7 +15,7 @@
 #
 
 class Annotation < ActiveRecord::Base
-  validates :author_id, :snippet_id, :body, :start_idx, :end_idx, presence: true
+  validates :author_id, :snippet_id, :body, :line_idx, presence: true
   validates :upvotes, :downvotes, numericality: { only_integer: true }
 
   belongs_to(

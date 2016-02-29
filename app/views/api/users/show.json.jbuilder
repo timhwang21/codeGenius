@@ -28,16 +28,15 @@ json.snippet_comments @user.snippet_comments do |comment|
   json.downvotes comment.downvotes
 end
 
-# json.annotations @user.annotations do |annotation|
-#   json.id annotation.id
-#   json.snippet_id annotation.snippet_id
-#   json.snippet_title annotation.snippet.title
-#   json.start_idx annotation.start_idx # maybe think about slicing snippets here?
-#   json.end_idx annotation.end_idx
-#   json.body annotation.body
-#   json.upvotes annotation.upvotes
-#   json.downvotes annotation.downvotes
-# end
+json.annotations @user.annotations do |annotation|
+  json.id annotation.id
+  json.snippet_id annotation.snippet_id
+  json.snippet_title annotation.snippet.title
+  json.line_idx annotation.line_idx
+  json.body annotation.body
+  json.upvotes annotation.upvotes
+  json.downvotes annotation.downvotes
+end
 
 # json.annotation_comments @user.annotation_comments do |comment| # refactor into one comment model?
 #   json.id comment.id

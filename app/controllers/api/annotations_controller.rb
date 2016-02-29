@@ -1,6 +1,6 @@
 class Api::AnnotationsController < ApplicationController
   def index
-    @annotations = Annotations.where(snippet_id: params[:snippet_id])
+    @annotations = Annotation.where(snippet_id: params[:snippet_id])
   end
 
   def show
@@ -38,8 +38,7 @@ class Api::AnnotationsController < ApplicationController
       :author_id, 
       :snippet_id,
       :body,
-      :start_idx,
-      :end_idx
+      :line_idx
     )
   end
 end

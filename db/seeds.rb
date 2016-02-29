@@ -109,18 +109,15 @@ end
     code
     desc: Faker::Hipster.paragraph(3)
   )
-end
 
-
-# Make snippet comments
-50.times do 
-  author_id = rand(1..User.all.length)
-  snippet_id = rand(1..Snippet.all.length)
-  SnippetComment.create!(
-    author_id: author_id,
-    snippet_id: snippet_id,
-    body: Faker::Hipster.paragraph(3),
-    upvotes: rand(1..100),
-    downvotes: rand(1..10)
-  )
+  3.times do |j|
+    Annotation.create!(
+      author_id: author_id,
+      snippet_id: i + 1,
+      line_idx: j,
+      body: Faker::Hipster.paragraph(3),
+      upvotes: rand(1..100),
+      downvotes: rand(1..10)
+    )
+  end
 end
