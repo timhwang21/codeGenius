@@ -43,22 +43,20 @@ var SnippetDetail = React.createClass({
     this.setState({snippet: SnippetStore.find(id)});
   },
 
+  imgUrl: function() {
+    var snippet = this.state.snippet;
+    if (typeof snippet.language_id !== 'undefined') {
+      return "/assets/" + snippet.language_id;
+    }
+  },
+
   render: function() {
     var snippet = this.state.snippet;
-    if (typeof snippet.image_url !== 'undefined') {
-      var image_url = (
-        snippet.image_url === "" ? 
-        "/assets/" + snippet.language_id :
-        snippet.image_url  
-        // TODO: refactor to use Cloudinary
-      );
-    }
-
     return (
       <section className="snippet-index">
         <div className="snippet-wrapper">
           <SnippetDetailLeft snippet={snippet} />
-          <SnippetDetailRight imgUrl={image_url} desc = {snippet.desc} />
+          <SnippetDetailRight imgUrl={this.imgUrl()} desc = {snippet.desc} />
         </div>
       </section>
     );

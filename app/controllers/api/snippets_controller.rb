@@ -43,7 +43,6 @@ class Api::SnippetsController < ApplicationController
       :author_id, 
       :language_id, 
       :title, 
-      :image_url, 
       :body,
       :desc,
       :views

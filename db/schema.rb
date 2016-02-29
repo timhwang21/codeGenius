@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226230133) do
+ActiveRecord::Schema.define(version: 20160229182233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20160226230133) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "image_url"
   end
 
   add_index "languages", ["name"], name: "index_languages_on_name", unique: true, using: :btree
@@ -54,15 +53,14 @@ ActiveRecord::Schema.define(version: 20160226230133) do
   add_index "snippet_comments", ["snippet_id"], name: "index_snippet_comments_on_snippet_id", using: :btree
 
   create_table "snippets", force: :cascade do |t|
-    t.integer  "author_id",                null: false
-    t.integer  "language_id",              null: false
-    t.string   "title",                    null: false
-    t.string   "image_url",   default: ""
-    t.text     "body",                     null: false
+    t.integer  "author_id",               null: false
+    t.integer  "language_id",             null: false
+    t.string   "title",                   null: false
+    t.text     "body",                    null: false
     t.integer  "views",       default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "desc",                     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "desc",                    null: false
   end
 
   add_index "snippets", ["author_id"], name: "index_snippets_on_author_id", using: :btree

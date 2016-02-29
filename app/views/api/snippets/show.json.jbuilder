@@ -4,7 +4,7 @@ json.author @snippet.author.username
 
 json.extract!(
   @snippet,
-  :image_url, :body, :desc, :views
+  :body, :desc, :views
 )
 
 json.snippet_comments @snippet.snippet_comments do |comment|

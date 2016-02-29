@@ -12,7 +12,6 @@ var SnippetForm = React.createClass({
   blankAttrs: {
     title: '',
     language_id: 1,
-    image_url: '',
     body: '',
     desc: '',
     languages: []
@@ -59,7 +58,6 @@ var SnippetForm = React.createClass({
     this.setState({
       title: snippet.title,
       language_id: snippet.language_id,
-      image_url: snippet.image_url,
       body: snippet.body,
       desc: snippet.desc
     });
@@ -76,7 +74,6 @@ var SnippetForm = React.createClass({
       author_id: 1, // pass in current user as prop; current_user.id
       language_id: this.state.language_id,
       title: this.state.title.trim(),
-      image_url: this.state.image_url.trim(),
       body: this.state.body.trim(),
       desc: this.state.desc.trim()
     };
@@ -104,6 +101,10 @@ var SnippetForm = React.createClass({
   editSnippet: function(snippet) {
     var id = parseInt(this.props.params.snippetId);
     ApiUtil.updateSnippet(id, snippet);
+  },
+
+  imgUrl: function() {
+    return "/assets/" + this.state.language_id;
   },
 
   render: function() {
@@ -172,14 +173,7 @@ var SnippetForm = React.createClass({
           </article>
           <article className="snippet-col-right-pane">
             <div className="snippet-img-box">
-              <label htmlFor="snippet_image_url">Image URL</label>
-              <input
-                className="temp yellow"
-                type="text"
-                id="snippet_image_url"
-                placeholder="Image URL: (replace with Cloudinary!) "
-                valueLink={this.linkState("image_url")}
-              />
+              <img src={this.imgUrl()} className="snippet-img" />
             </div>
             <div>
               <label htmlFor="snippet_desc">Description</label>
