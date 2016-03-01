@@ -1,7 +1,6 @@
 .snippet-index {
   background: linear-gradient(#0d0e0c, black);
   color: #BBB;
-  font-family: 'menlo', Consolas, monospace;
   height: 100%;
   width: 100%;
 }
@@ -17,6 +16,7 @@
 
 .snippet-header-large {
   color: white;
+  font-family: 'menlo', Consolas, monospace;
   font-size: 40px;
   font-weight: 700;
   margin: 6px 0;
@@ -24,6 +24,7 @@
 
 .snippet-header-medium {
   color: #BBB;
+  font-family: 'menlo', Consolas, monospace;
   font-size: 24px;
   margin: 6px 0;
   height: 1em;
@@ -52,6 +53,7 @@
 
 .snippet-col-left-pane {
   flex: 0 0 800px;
+  font-family: 'menlo', Consolas, monospace;
   max-width: 800px;
   margin: 20px 20px 20px 0px;
 }

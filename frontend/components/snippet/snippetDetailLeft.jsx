@@ -23,6 +23,10 @@ var SnippetDetailLeft = React.createClass({
     this.history.push("snippets/" + id);
   },
 
+  doNothing: function(event) {
+    event.stopPropagation();
+  },
+
   render: function() {
     var snippet = this.props.snippet;
 
@@ -37,13 +41,16 @@ var SnippetDetailLeft = React.createClass({
         </header>
 
         <header className="snippet-header-text">
-          <p>Author:&nbsp;<span className="link-box"><Link to={"users/" + snippet.author_id}>{snippet.author}</Link></span></p>
+          <p>Author:&nbsp;
+            <span className="link-box" onClick={this.doNothing}>
+              <Link to={"users/" + snippet.author_id}>{snippet.author}</Link>
+            </span></p>
           <p>Views:&nbsp;{snippet.views}</p>
         </header>
 
         <SnippetBody snippet={snippet}/>
 
-        <div className="button-row">
+        <div className="button-row" onClick={this.doNothing}>
           <button 
             className="square-button"
             onClick={this.handleEdit}

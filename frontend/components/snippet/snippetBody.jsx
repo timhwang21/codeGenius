@@ -15,6 +15,7 @@ var SnippetBody = React.createClass({
 
   componentDidMount: function() {
     this.changeToken = AnnotationStore.addListener(this._onChange);
+    // hljs.initHighlighting();
   },
 
   componentWillUnmount: function() {
@@ -22,20 +23,25 @@ var SnippetBody = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps) {
-    // debugger; // why is this making my API spam requests?
-    ApiUtil.fetchAnnotationsForSnippet(newProps.snippet.id);
+    if (newProps.snippet !== this.props.snippet) {
+      ApiUtil.fetchAnnotationsForSnippet(newProps.snippet.id);
+    }
+  },
+
+  componentDidUpdate: function() {
+    // hljs.initHighlighting();
   },
 
   _onChange: function() {
     this.setState({annotations: AnnotationStore.allByIndex()});
   },
 
-
   makeBody: function(body) {
     var id = this.props.snippet.id;
     if (this.props.snippet.body) {
       var lines = body.split("\n");
 
+      // debugger;
       if (this.state.annotations.length !== 0) {
         var annotations = this.state.annotations;
         var annIdx = 0;
@@ -43,10 +49,10 @@ var SnippetBody = React.createClass({
         return lines.map(function(line, i) {
           var lineComponent;
           if (annIdx < annotations.length && annotations[annIdx].line_idx === i) {
-            annIdx++;
             lineComponent = line === "" ? 
               this.makeLine(id, line) :
-              this.makeAnnotatedLine(id, annIdx, line);
+              this.makeAnnotatedLine(id, annotations[annIdx], line);
+            annIdx++;
           } else { lineComponent = this.makeLine(id, line); }
           return (
             <div className="snippet-body-line" id={i} key={i}>
@@ -68,11 +74,11 @@ var SnippetBody = React.createClass({
     }
   },
 
-  makeAnnotatedLine: function(snippetId, annIdx, line) {
+  makeAnnotatedLine: function(snippetId, annotation, line) {
     return (
       <SnippetAnnotatedLine
         snippetId={snippetId}
-        annotationId={annIdx}
+        annotation={annotation}
         line={line} />
     );
   },
@@ -86,6 +92,7 @@ var SnippetBody = React.createClass({
   },
 
   render: function() {
+
     var snippet = this.props.snippet;
     return(
       <article className="snippet-body">

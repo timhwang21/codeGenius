@@ -35,15 +35,13 @@ var SnippetDetail = React.createClass({
 
   componentDidMount: function() {
     var id = parseInt(this.props.params.snippetId);
-
-    this.snippetChangeToken = SnippetStore.addListener(this._onChange);
+    this.changeToken = SnippetStore.addListener(this._onChange);
     ApiUtil.fetchSingleSnippet(id);
     animateScrollTop();
-    // hljs.initHighlightingOnLoad()
   },
 
   componentWillUnmount: function() {
-    this.snippetChangeToken.remove();
+    this.changeToken.remove();
   },
 
   componentWillReceiveProps: function(newProps) {

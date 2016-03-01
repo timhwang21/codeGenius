@@ -34,7 +34,7 @@ AnnotationStore.allByIndex = function() {
   return results.sort((i, j) => i.lineIdx - j.lineIdx); // TODO test me
 };
 
-AnnotationStore.findById = function(id) {
+AnnotationStore.find = function(id) {
   return _annotations[id];
 };
 
@@ -43,21 +43,20 @@ AnnotationStore.__onDispatch = function(payload) {
     case annotationConstants.ANNOTATIONS_FOR_SNIPPET_RECEIVED:
       resetAllAnnotations(payload.annotations);
       this.__emitChange();
+      // console.log("ANNOTATIONS_FOR_SNIPPET_RECEIVED");
       break;
     case annotationConstants.ANNOTATION_RECEIVED:
       resetAnnotation(payload.annotation);
       this.__emitChange();
+      // console.log("ANNOTATION_RECEIVED");
       break;
     case annotationConstants.ANNOTATION_REMOVED:
       removeAnnotation(payload.annotation);
       this.__emitChange();
+      // console.log("ANNOTATION_REMOVED");
       break;
   }
-
 };
-
-
-
 
 window.AnnotationStore = AnnotationStore;
 

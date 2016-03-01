@@ -1,9 +1,5 @@
 json.partial!('annotation', annotation: @annotation)
 
-json.extract!(
-  @annotation,
-  :body, :upvotes, :downvotes
-)
 
 # json.annotation_comments @annotation.annotation_comments do |comment|
 #   json.id comment.id
