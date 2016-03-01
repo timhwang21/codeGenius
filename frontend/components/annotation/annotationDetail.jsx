@@ -5,7 +5,7 @@ var AnnotationDetail = React.createClass({
   mixins: [History],
 
   handleBack: function() {
-    var id = this.props.snippetId;
+    var id = this.props.params.snippetId;
     this.history.push("snippets/" + id);
   },
 

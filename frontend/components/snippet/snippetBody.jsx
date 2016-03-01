@@ -7,6 +7,7 @@ var SnippetAnnotatedLine = require('./snippetAnnotatedLine');
 var SnippetBody = React.createClass({
   makeBody: function(body) {
     if (this.props.snippet.body) {
+      // debugger;
       var annotation_indices = this.props.snippet.annotations.map(annotation => annotation.line_idx); 
       var lines = body.split("\n");
       return lines.map(function(line, i) {

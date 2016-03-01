@@ -12,9 +12,7 @@ function resetSnippet(snippet) {
 
 function resetAllSnippets(snippets) {
   _snippets = {};
-  snippets.forEach(function(snippet) {
-    resetSnippet(snippet);
-  });
+  snippets.forEach(snippet => resetSnippet(snippet));
 }
 
 function removeSnippet(snippet) {
@@ -32,7 +30,6 @@ SnippetStore.all = function() {
 };
 
 SnippetStore.popular = function(take) {
-  // default value of take is take all
   take = typeof take == 'undefined' ? 
     results.length : 
     take; 
@@ -64,17 +61,14 @@ SnippetStore.find = function(id) {
 SnippetStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case snippetConstants.SNIPPETS_ALL_RECEIVED:
-      // console.log("SNIPPETS_ALL_RECEIVED");
       resetAllSnippets(payload.snippets);
       this.__emitChange();
       break;
     case snippetConstants.SNIPPET_RECEIVED:
-      // console.log("SNIPPET_RECEIVED");
       resetSnippet(payload.snippet);
       this.__emitChange();
       break;
     case snippetConstants.SNIPPET_REMOVED:
-      // console.log("SNIPPET_REMOVED");
       removeSnippet(payload.snippet);
       this.__emitChange();
       break;
