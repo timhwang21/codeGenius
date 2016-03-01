@@ -4,6 +4,8 @@ var Link = require('react-router').Link;
 var SnippetLine = require('./snippetLine');
 var SnippetAnnotatedLine = require('./snippetAnnotatedLine');
 
+var AnnotationStore = require('../../stores/annotationStore');
+
 var SnippetBody = React.createClass({
   makeBody: function(body) {
     if (this.props.snippet.body) {

@@ -19,12 +19,36 @@ function removeAnnotation(annotation) {
   delete _annotations[annotation.id];
 }
 
-SnippetStore.findById = function(id) {
-  return _snippets[id];
+AnnotationStore.allByIndex = function() {
+  var results = [];
+  for (var prop in _annotations) {
+    if (_annotations.hasOwnProperty(prop)) {
+      results.push(_annotations[prop]);
+    }
+  }
+  return results.sort((i, j) => i.lineIdx - j.lineIdx); // TODO test me
 };
 
-SnippetStore.findBySnippetIdAndLineIdx = function(snippetId, lineIdx) {
+AnnotationStore.findById = function(id) {
+  return _annotations[id];
+};
 
+AnnotationStore.__onDispatch = function(payload) {
+  switch(payload.actionType) {
+    case annotationConstants.ANNOTATIONS_FOR_SNIPPET_RECEIVED:
+      debugger;
+      resetAllAnnotations(payload.annotations);
+      this.__emitChange();
+      break;
+    case annotationConstants.ANNOTATION_RECEIVED:
+      resetAnnotation(payload.annotation);
+      this.__emitChange();
+      break;
+    case annotationConstants.ANNOTATION_REMOVED:
+      removeAnnotation(payload.annotation);
+      this.__emitChange();
+      break;
+  }
 
 };
 

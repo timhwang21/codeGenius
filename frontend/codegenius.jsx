@@ -7,13 +7,6 @@ var IndexRoute = require('react-router').IndexRoute;
 var hashHistory = require('react-router').hashHistory;
 // var browserHistory = require('react-router').browserHistory;
 
-// UTILITY
-var ApiUtil = require('./util/ApiUtil'); // take out later
-// var UserStore = require('./stores/userStore');
-// var AnnotationStore = require('./stores/annotationStore');
-// var SnippetCommentStore = require('./stores/snippetCommentStore');
-// var AnnotationCommentStore = require('./stores/annotationCommentStore');
-// var AnnotationCommentStore = require('./stores/annotationCommentStore');
 
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
