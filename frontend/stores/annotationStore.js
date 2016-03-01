@@ -12,12 +12,17 @@ function resetAnnotation(annotation) {
 
 function resetAllAnnotations(annotations) {
   _annotations = {};
+  // debugger;
   annotations.forEach(annotation => resetAnnotation(annotation));
 }
 
 function removeAnnotation(annotation) {
   delete _annotations[annotation.id];
 }
+
+AnnotationStore.all = function() {
+  return _annotations;
+};
 
 AnnotationStore.allByIndex = function() {
   var results = [];
@@ -36,7 +41,6 @@ AnnotationStore.findById = function(id) {
 AnnotationStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case annotationConstants.ANNOTATIONS_FOR_SNIPPET_RECEIVED:
-      debugger;
       resetAllAnnotations(payload.annotations);
       this.__emitChange();
       break;

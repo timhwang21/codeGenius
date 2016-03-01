@@ -106,8 +106,9 @@ var IndexLeft = React.createClass({
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            cillum dolore eu fugiat nulla pariatur. If you've read this far, stop wasting 
+            your time and actually review the site. Why would you even read nine identical 
+            blocks of lorem ipsum? Get a life.
           </div>
         </article>
       </article>

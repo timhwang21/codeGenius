@@ -106,8 +106,12 @@
   word-wrap: break-word;
 }
 
-.annotated-line:hover {
+.snippet-body-line:hover .annotated-line {
   background: rgba(255, 255, 100, 0.5);
+}
+
+.snippet-body-line:hover .line-number {
+  color: #FFFF64;
 }
 
 .annotation-link {

@@ -46,8 +46,8 @@ var SnippetDetail = React.createClass({
     this.snippetChangeToken.remove();
   },
 
-  componentWillReceiveProps: function(nextProps) {
-    ApiUtil.fetchSingleSnippet(nextProps.params.snippetId);
+  componentWillReceiveProps: function(newProps) {
+    ApiUtil.fetchSingleSnippet(newProps.params.snippetId);
   },
 
   _onChange: function() {
