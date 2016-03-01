@@ -1,0 +1,742 @@
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/annotation/annotation.scss */
+.annotation-header {
+  background: #39382F;
+  color: white;
+  font-family: 'menlo', Consolas, monospace;
+  font-size: 20px;
+  margin: 6px 0 20px 0;
+  padding: 0 4px;
+}
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header {
+  background: black;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* line 9, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.nav-link {
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-right: 1px solid black;
+  color: #99a7ee;
+  display: inline-block;
+  padding: 2px 3px 1px 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: .1s;
+  white-space: nowrap;
+}
+
+/* line 22, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header div, .header nav {
+  display: flex;
+  align-items: center;
+}
+
+/* line 27, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header-primary {
+  background: #1D1E19;
+  height: 50px;
+  padding: 0 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 37, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header-searchbar {
+  width: 20%;
+}
+
+/* line 41, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header-logo {
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  width: 202px;
+  z-index: 1;
+}
+
+/* line 49, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header-actions {
+  width: 20%;
+  justify-content: flex-end;
+}
+
+/* line 54, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header-nav {
+  height: 34px;
+  padding: 0 30%;
+  align-content: center;
+  justify-content: space-between;
+}
+
+/* TODO - for dropdown lists */
+/* line 63, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.nav-menu-sub {
+  left: 36em;
+  top: 5em;
+  background: black;
+  position: absolute;
+  width: 120px;
+  flex-direction: column;
+  z-index: 1;
+}
+
+/* line 73, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.nav-menu-sub div {
+  width: 100%;
+}
+
+/* line 77, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.nav-menu-sub-link {
+  /*nav-menu-sub-link*/
+  display: block;
+  width: 100%;
+  padding: .3em .8em;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: left;
+}
+
+/*For styling icons, etc. eventually. temporary!*/
+/* line 88, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/header.scss */
+.header-actions div {
+  background: red;
+}
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/index.scss */
+.index-text, .index-article {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 6, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/index.scss */
+.index-text {
+  padding: 6px;
+}
+
+/* line 10, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/index.scss */
+.index-text div:nth-child(even), .index-article div:nth-child(even) {
+  margin-top: 1em;
+}
+
+/* line 14, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/index.scss */
+.index-article {
+  color: #BBB;
+  font-size: 12px;
+  margin: 4px 0 20px 0;
+}
+
+/* line 20, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/index.scss */
+.index-article div:not(:first-child) {
+  margin-top: 1em;
+}
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-intro {
+  border: 1px solid #222;
+  color: #BBB;
+  display: flex;
+  font-size: 12px;
+  margin: 4px 0 20px 0;
+  padding: 4px 0;
+}
+
+/* line 10, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-intro-img {
+  padding: 6px;
+  align-items: center;
+  font-size: 64px;
+  font-family: 'menlo', Consolas, monospace;
+  font-weight: 100;
+  color: white;
+}
+
+/* line 19, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* line 25, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-list-item {
+  background: #111;
+  border: 1px solid #222;
+  display: inline-block;
+  box-sizing: border-box;
+  font-family: 'menlo', Consolas, monospace;
+  margin: 0 0px 20px 0px;
+  position: relative;
+  z-index: 0;
+}
+
+/* line 37, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-large {
+  width: 500px;
+  height: 300px;
+}
+
+/* line 42, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-med-wide {
+  width: 500px;
+  height: 133px;
+}
+
+/* line 47, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-med {
+  width: 240px;
+  height: 133px;
+}
+
+/* line 52, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-small {
+  width: 500px;
+  height: 45px;
+}
+
+/* line 57, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-small * {
+  display: inline-block;
+}
+
+/* line 61, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-overlay {
+  display: block;
+  opacity: 0.2;
+  /*position: absolute;*/
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  z-index: 2;
+  transition: .2s;
+}
+
+/* line 75, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-list-item:hover .popular-link {
+  color: #F6F7EE;
+}
+
+/* line 79, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-large:hover .popular-overlay {
+  opacity: 0.4;
+  transition: .2s;
+}
+
+/* line 84, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-link {
+  color: #BBB;
+  display: block;
+  font-size: 18px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+/* line 94, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-snippet-title {
+  font-weight: 700;
+  padding: 10px 0 0 10px;
+}
+
+/* line 99, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/index/popular.scss */
+.popular-snippet-detail {
+  font-size: 14px;
+  font-weight: 100;
+  padding: 0 0 0 10px;
+}
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/landing/landing.scss */
+* {
+  /*overflow: hidden;*/
+}
+
+/*
+.landing {
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  font-family: 'menlo', Consolas, monospace;
+}
+
+.landing-background {
+  background: linear-gradient(90deg,#222,#000);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.landing-container{
+  color: #bbb;
+  font-size: 16px;
+  width: 60em;
+  margin-left: -30em;
+  transform-origin: 50% 0%;
+  transition: transform 200ms;
+  transform:  perspective(800px) rotateX(40deg) rotateY(-5deg) rotateZ(5deg);
+  transform-style: preserve-3d;
+  position: absolute;
+  left: 50%;
+}
+
+.landing-overlay{
+  background: linear-gradient(90deg, transparentize(#222, 0.5), transparentize(#000, 1)), rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.landing-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50vh;
+}
+
+.landing-col{
+  position: relative;
+  width: 49%;
+  height: 40em;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: 2em;
+  vertical-align: top;
+  text-align: left;
+}
+
+.landing-content {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  margin-top: -100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-content * {
+  justify-content: center;
+}
+
+.landing-content-title{
+  margin-bottom: 120px;
+}
+
+.landing-div{
+  font-size: 16px;
+  margin: 4px;
+}
+
+.landing-blue {
+  color: #66D9EF;
+  padding: 0 .6em;
+}
+
+.landing-red {
+  color: #F92672;
+  padding: 0 .6em;
+}
+
+.landing-input {
+  background-color: transparent;
+  // background-color: rgba(100, 100, 100, 0.5);
+  border: none;
+  border-bottom: solid 2px white;
+  outline: none;
+  width: 8em;
+}*/
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-index {
+  background: linear-gradient(#0d0e0c, black);
+  color: #BBB;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 8, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 1000px;
+  margin: 0px auto;
+  padding: 30px;
+}
+
+/* line 17, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-header-large {
+  color: white;
+  font-family: 'menlo', Consolas, monospace;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 6px 0;
+}
+
+/* line 25, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-header-medium {
+  color: #BBB;
+  font-family: 'menlo', Consolas, monospace;
+  font-size: 24px;
+  margin: 6px 0;
+  height: 1em;
+}
+
+/* line 33, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-header-text {
+  color: #9A9A9A;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Futura';
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* line 42, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-img-box {
+  border: 2px solid white;
+  margin-bottom: 60px;
+  height: 280px;
+  width: 280px;
+}
+
+/* line 49, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 54, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-col-left-pane {
+  flex: 0 0 800px;
+  font-family: 'menlo', Consolas, monospace;
+  max-width: 800px;
+  margin: 20px 20px 20px 0px;
+}
+
+/* line 61, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-col-right-pane {
+  font-family: "Open Sans", Arial, sans-serif;
+  flex: 0 0 360px;
+  margin: 20px 0px 20px 20px;
+}
+
+/* line 68, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-body {
+  background: #1D1E19;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  margin: 20px 0;
+  padding: 1.5em 1.5em 1.5em 1em;
+}
+
+/* line 77, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-body-edit {
+  background: #1D1E19;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  margin: 20px 0;
+  padding: 1.5em 1.5em 1.5em 3.85em;
+}
+
+/* line 86, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-body-line * {
+  display: inline-block;
+}
+
+/* line 90, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.line-number {
+  color: #BBB;
+  box-sizing: border-box;
+  margin-right: .75em;
+  text-align: right;
+  vertical-align: top;
+  width: 1.9em;
+}
+
+/* line 99, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.line {
+  max-width: 51.5em;
+  padding: 0 .2em;
+  word-wrap: break-word;
+}
+
+/* line 105, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.annotated-line {
+  background: #39382F;
+  max-width: 700px;
+  padding: 0 .2em;
+  word-wrap: break-word;
+}
+
+/* line 112, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-body-line:hover .annotated-line {
+  background: rgba(255, 255, 100, 0.5);
+}
+
+/* line 116, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-body-line:hover .line-number, .snippet-body-line:hover .line .annotation-link {
+  color: #FFFF64;
+}
+
+/* line 120, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.annotation-link {
+  color: white;
+}
+
+/* line 124, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_detail.scss */
+.snippet-desc {
+  width: 360px;
+}
+/* line 1, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/snippet/snippet_form.scss */
+.snippet-select-language-box {
+  height: 38px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 18, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+html, body, header, nav, a, ul, li, pre, code,
+img, div, p, form, fieldset, label, input, textarea, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  box-sizing: inherit;
+  color: inherit;
+  display: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+/* line 34, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+html {
+  box-sizing: border-box;
+  color: #F6F7EE;
+  font-family: "Open Sans", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  background: black;
+  text-decoration: none;
+}
+
+/* line 44, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+html, body, #root, .app {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 49, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+a {
+  color: #99a7ee;
+}
+
+/* line 53, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+label {
+  display: none;
+}
+
+/* line 57, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+/* line 62, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+button:focus {
+  outline: 0 !important;
+}
+
+/*::selection {
+  background: #909090;
+}
+*/
+/* line 70, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.link-box {
+  resize: none;
+}
+
+/* line 74, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.link-box:hover > * {
+  background: #39382F;
+  border-right: 1px solid #F6F7EE;
+  color: #F6F7EE;
+  cursor: pointer;
+}
+
+/* line 81, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.app {
+  display: block;
+}
+
+/* line 85, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+}
+
+/* line 91, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+ul {
+  list-style: none;
+}
+
+/* line 95, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+pre, .word-wrap {
+  white-space: pre-wrap;
+  /* css-3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+
+/* line 103, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+}
+
+/* line 112, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.index {
+  color: #BBB;
+  width: 100%;
+}
+
+/* line 117, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.col-left-pane {
+  flex: 0 0 500px;
+  margin: 20px 10px 20px 0px;
+}
+
+/* line 122, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.col-right-pane {
+  flex: 0 0 500px;
+  margin: 20px 0px 20px 10px;
+}
+
+/* line 127, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.header-small {
+  color: #BBB;
+  font-family: 'Futura';
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 6px 0;
+}
+
+/* line 135, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.header-large {
+  color: white;
+  font-family: 'Futura-CondensedMedium';
+  font-size: 30px;
+  margin: 6px 0;
+}
+
+/* line 142, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.body-link {
+  transition: .1s;
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-right: 1px solid transparent;
+  display: inline-block;
+  font-size: 12px;
+}
+
+/* line 151, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.yellow {
+  color: #FFFF64;
+}
+
+/* line 155, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0;
+  width: 30%;
+}
+
+/* line 162, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.square-button {
+  -moz-transition: .15s;
+  -webkit-transition: .15s;
+  transition: .15s;
+  background: 0 0;
+  border: 2px solid #BBB;
+  box-sizing: border-box;
+  color: #BBB;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Futura';
+  font-size: inherit;
+  line-height: inherit;
+  text-align: center;
+  padding: .25em .5em;
+  vertical-align: top;
+  -webkit-appearance: none;
+}
+
+/* line 181, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.square-button:not(:last-child) {
+  margin: 0 .5em 0 0;
+}
+
+/* line 185, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.square-button:hover {
+  background: #39382F;
+  /*color: #F6F7EE;*/
+}
+
+/* line 190, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.btn-submit {
+  border: 2px solid #0ecb27;
+  color: #0ecb27;
+}
+
+/* line 195, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.btn-submit:hover {
+  background: rgba(14, 203, 39, 0.4);
+}
+
+/* line 199, /Users/timothy/Desktop/AppAcademy/codeGenius/app/assets/stylesheets/application.scss */
+.btn-noborder {
+  border: none;
+}
