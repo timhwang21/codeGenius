@@ -2,6 +2,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 var History = require('react-router').History;
 
+var SnippetBody = require('./snippetBody');
 
 var SnippetDetailLeft = React.createClass({
   mixins: [History],
@@ -14,14 +15,14 @@ var SnippetDetailLeft = React.createClass({
 
   handleBack: function(event) {
     event.preventDefault();
-    this.history.goBack();
+    this.history.push("/");
   },
 
   render: function() {
     var snippet = this.props.snippet;
 
     return (
-      <article className="snippet-col-left-pane">
+      <article className="snippet-col-left-pane" onClick={this.unfocusSnippet}>
         <header className="snippet-header-large">
           {snippet.title}
         </header>
@@ -35,11 +36,7 @@ var SnippetDetailLeft = React.createClass({
           <p>Views:&nbsp;{snippet.views}</p>
         </header>
 
-        <article className="snippet-body">
-          <pre><code>
-            {snippet.body}
-          </code></pre>
-        </article>
+        <SnippetBody snippet={snippet}/>
 
         <div className="button-row">
           <button 

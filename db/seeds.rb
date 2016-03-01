@@ -69,7 +69,7 @@ Snippet.create!(
   title: "def timBSearch",
   views: 99999,
   body:
-  <<-code,
+  <<-code.chomp,
 Array.prototype.bsearch = function(target) {
     if (this === [] || (this.length === 1 && this[mid] !== target)) {return -1;}
 
@@ -101,7 +101,7 @@ Array.prototype.bsearch = function(target) {
     title: problems[i],
     views: rand(1000),
     body: 
-    <<-code,
+    <<-code.chomp,
 def #{problems[i]}(n)
   puts "Too hard"
   self.destruct

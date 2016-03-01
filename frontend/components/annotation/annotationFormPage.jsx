@@ -4,9 +4,9 @@ var AnnotationForm = require('./annotationForm');
 var AnnotationFormPage = React.createClass({
   render: function() {
     return(
-      <section className="snippet-index">
+      <article className="snippet-col-right-pane">
         <AnnotationForm params={this.props.params}/>
-      </section>
+      </article>
     );
   }
 });

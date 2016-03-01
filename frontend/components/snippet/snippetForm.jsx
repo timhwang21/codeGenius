@@ -37,7 +37,7 @@ var SnippetForm = React.createClass({
     }
     this.languageChangeToken = LanguageStore.addListener(this._onLanguageChange);
     ApiUtil.fetchAllLanguages();
-      this.refs.snippetTitle.focus();
+    this.refs.snippetTitle.focus();
   },
 
   componentWillUnmount: function() {
@@ -61,6 +61,7 @@ var SnippetForm = React.createClass({
       body: snippet.body,
       desc: snippet.desc
     });
+    this.snippetChangeToken.remove();
   },
 
   _onLanguageChange: function() {
@@ -89,7 +90,8 @@ var SnippetForm = React.createClass({
 
   handleBack: function(event) {
     event.preventDefault();
-    this.history.goBack();
+    var id = parseInt(this.props.params.snippetId);
+    this.history.push("snippets/" + id);
   },
 
   createSnippet: function(snippet) {
@@ -131,24 +133,25 @@ var SnippetForm = React.createClass({
             <label htmlFor="snippet_language_id">Language</label>
             <div className="snippet-select-language-box">
               <select id="snippet_language_id" valueLink={this.linkState("language_id")}>
-                {this.state.languages.map(function (language, i) {
-                  return (
+                {this.state.languages.map((language, i) => 
+                  (
                     <option 
                       value={language.id} 
                       key={i}
                     >
                       {language.name}
-                    </option>);
-                })}
+                    </option>
+                  )
+                )}
               </select>
             </div>
 
-            <div className="snippet-body yellow">
+            <div className="snippet-body-edit yellow">
               <label htmlFor="snippet_body">Body</label>
               <textarea 
                 id="snippet_body"
                 rows="20" 
-                cols="68" 
+                cols="88" 
                 placeholder="Enter code here... "
                 valueLink={this.linkState("body")} />
             </div>

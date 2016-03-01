@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229193110) do
+ActiveRecord::Schema.define(version: 20160229212036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160229193110) do
   end
 
   add_index "annotations", ["author_id"], name: "index_annotations_on_author_id", using: :btree
+  add_index "annotations", ["line_idx", "snippet_id"], name: "index_annotations_on_line_idx_and_snippet_id", unique: true, using: :btree
   add_index "annotations", ["snippet_id"], name: "index_annotations_on_snippet_id", using: :btree
 
   create_table "languages", force: :cascade do |t|

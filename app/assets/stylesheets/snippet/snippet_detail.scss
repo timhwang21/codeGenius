@@ -50,8 +50,8 @@
 }
 
 .snippet-col-left-pane {
-  flex: 0 0 600px;
-  max-width: 600px;
+  flex: 0 0 800px;
+  max-width: 800px;
   margin: 20px 20px 20px 0px;
 }
 
@@ -64,11 +64,54 @@
 
 .snippet-body {
   background: #1D1E19;
+  border-radius: 4px;
   color: white;
   font-size: 14px;
   margin: 20px 0;
-  padding: 1.5em;
+  padding: 1.5em 1.5em 1.5em 1em;
+}
+
+.snippet-body-edit {
+  background: #1D1E19;
   border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  margin: 20px 0;
+  padding: 1.5em 1.5em 1.5em 3.85em;
+}
+
+.snippet-body-line * {
+  display: inline-block;
+}
+
+.line-number {
+  color: #BBB;
+  box-sizing: border-box;
+  margin-right: .75em;
+  text-align: right;
+  vertical-align: top;
+  width: 1.9em;
+}
+
+.line {
+  max-width: 51.5em;
+  padding: 0 .2em;
+  word-wrap: break-word;
+}
+
+.annotated-line {
+  background: #39382F;
+  max-width: 700px;
+  padding: 0 .2em;
+  word-wrap: break-word;
+}
+
+.annotated-line:hover {
+  background: rgba(255, 255, 100, 0.5);
+}
+
+.annotation-link {
+  color: white;
 }
 
 .snippet-desc {

@@ -6,17 +6,17 @@
 #  author_id  :integer          not null
 #  snippet_id :integer          not null
 #  body       :text             not null
-#  start_idx  :integer          not null
-#  end_idx    :integer          not null
 #  upvotes    :integer          default(0)
 #  downvotes  :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  line_idx   :integer          not null
 #
 
 class Annotation < ActiveRecord::Base
   validates :author_id, :snippet_id, :body, :line_idx, presence: true
   validates :upvotes, :downvotes, numericality: { only_integer: true }
+  validates :line_idx, uniqueness: { scope: :snippet_id, message: "Line already annotated" }
 
   belongs_to(
     :author, 
