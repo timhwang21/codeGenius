@@ -8,6 +8,7 @@
 
 .snippet-wrapper {
   display: flex;
+  height: 100%;
   justify-content: center;
   width: 1000px;
   margin: 0px auto;
@@ -110,7 +111,7 @@
   background: rgba(255, 255, 100, 0.5);
 }
 
-.snippet-body-line:hover .line-number, .snippet-body-line:hover .line {
+.snippet-body-line:hover .line-number, .snippet-body-line:hover .line .annotation-link {
   color: #FFFF64;
 }
 

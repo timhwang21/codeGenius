@@ -4,11 +4,6 @@ var History = require('react-router').History;
 var AnnotationDetail = React.createClass({
   mixins: [History],
 
-  handleBack: function() {
-    var id = this.props.params.snippetId;
-    this.history.push("snippets/" + id);
-  },
-
   render: function() {
     return (
       <article className="snippet-col-right-pane">
@@ -16,10 +11,12 @@ var AnnotationDetail = React.createClass({
 
         <button 
           className="square-button btn-noborder"
-          onClick={this.handleBack}
+          onClick={this.handleClick}
         >
-          Eventually clicking anywhere on the page will bring you back to the snippet index but for now you have to manually click this awful button
+          test
         </button>
+
+        <a href="http://www.google.com">Testtest</a>
       </article>
     );
   }

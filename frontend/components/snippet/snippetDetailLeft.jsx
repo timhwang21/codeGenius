@@ -18,6 +18,11 @@ var SnippetDetailLeft = React.createClass({
     this.history.push("/");
   },
 
+  unfocusSnippet: function(event) {
+    var id = this.props.snippet.id;
+    this.history.push("snippets/" + id);
+  },
+
   render: function() {
     var snippet = this.props.snippet;
 

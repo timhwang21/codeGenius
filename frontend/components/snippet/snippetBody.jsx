@@ -8,7 +8,6 @@ var AnnotationStore = require('../../stores/annotationStore');
 
 var SnippetBody = React.createClass({
   getInitialState: function() {
-    // debugger;
     return ({
       annotations: AnnotationStore.allByIndex().length > 0 ? AnnotationStore.allByIndex : []
     });
@@ -31,7 +30,9 @@ var SnippetBody = React.createClass({
     this.setState({annotations: AnnotationStore.allByIndex()});
   },
 
+
   makeBody: function(body) {
+    var id = this.props.snippet.id;
     if (this.props.snippet.body) {
       var lines = body.split("\n");
 
@@ -44,9 +45,9 @@ var SnippetBody = React.createClass({
           if (annIdx < annotations.length && annotations[annIdx].line_idx === i) {
             annIdx++;
             lineComponent = line === "" ? 
-              this.makeLine(line) :
-              this.makeAnnotatedLine(this.props.snippet.id, annIdx, line);
-          } else { lineComponent = this.makeLine(line); }
+              this.makeLine(id, line) :
+              this.makeAnnotatedLine(id, annIdx, line);
+          } else { lineComponent = this.makeLine(id, line); }
           return (
             <div className="snippet-body-line" id={i} key={i}>
               <span className="line-number noselect">{i}</span> 
@@ -59,7 +60,7 @@ var SnippetBody = React.createClass({
           return (
             <div className="snippet-body-line" id={i} key={i}>
               <span className="line-number noselect">{i}</span> 
-              {this.makeLine(line)}
+              {this.makeLine(id, line)}
             </div>
           );
         }.bind(this));
@@ -72,14 +73,15 @@ var SnippetBody = React.createClass({
       <SnippetAnnotatedLine
         snippetId={snippetId}
         annotationId={annIdx}
-        line={line}
-      />
+        line={line} />
     );
   },
 
-  makeLine: function(line) {
+  makeLine: function(snippetId, line) {
     return (
-      <SnippetLine line={line} />
+      <SnippetLine 
+        snippetId={snippetId}
+        line={line} />
     );
   },
 
