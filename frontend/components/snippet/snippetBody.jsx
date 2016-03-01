@@ -8,7 +8,10 @@ var AnnotationStore = require('../../stores/annotationStore');
 
 var SnippetBody = React.createClass({
   getInitialState: function() {
-    return {annotations: []};
+    // debugger;
+    return ({
+      annotations: AnnotationStore.allByIndex().length > 0 ? AnnotationStore.allByIndex : []
+    });
   },
 
   componentDidMount: function() {
@@ -30,34 +33,57 @@ var SnippetBody = React.createClass({
 
   makeBody: function(body) {
     if (this.props.snippet.body) {
-      var annotation_indices = this.props.snippet.annotations.map(annotation => annotation.line_idx); 
       var lines = body.split("\n");
-      var snippetIdx = 0;
 
-      // with each line, check if this.state.snippets[snippetIdx].lineIdx == line
-      // if match, insert snippet, and snippetIdx++
+      if (this.state.annotations.length !== 0) {
+        var annotations = this.state.annotations;
+        var annIdx = 0;
 
-      return lines.map(function(line, i) {
-        return (
-          <div className="snippet-body-line" id={i} key={i}>
-            <span className="line-number noselect">{i}</span> 
-            {
-              (annotation_indices.includes(i) && line !== "") ?
-              <SnippetAnnotatedLine 
-                snippetId={this.props.snippet.id}
-                annotationId={i}
-                line={line}
-                /> :
-              <SnippetLine line={line}/>
-            }
-          </div>
-        );
-      }.bind(this));
+        return lines.map(function(line, i) {
+          var lineComponent;
+          if (annIdx < annotations.length && annotations[annIdx].line_idx === i) {
+            annIdx++;
+            lineComponent = line === "" ? 
+              this.makeLine(line) :
+              this.makeAnnotatedLine(this.props.snippet.id, annIdx, line);
+          } else { lineComponent = this.makeLine(line); }
+          return (
+            <div className="snippet-body-line" id={i} key={i}>
+              <span className="line-number noselect">{i}</span> 
+              {lineComponent}
+            </div>
+          );
+        }.bind(this));
+      } else {
+        return lines.map(function(line, i) {
+          return (
+            <div className="snippet-body-line" id={i} key={i}>
+              <span className="line-number noselect">{i}</span> 
+              {this.makeLine(line)}
+            </div>
+          );
+        }.bind(this));
+      }
     }
   },
 
+  makeAnnotatedLine: function(snippetId, annIdx, line) {
+    return (
+      <SnippetAnnotatedLine
+        snippetId={snippetId}
+        annotationId={annIdx}
+        line={line}
+      />
+    );
+  },
+
+  makeLine: function(line) {
+    return (
+      <SnippetLine line={line} />
+    );
+  },
+
   render: function() {
-    debugger;
     var snippet = this.props.snippet;
     return(
       <article className="snippet-body">
