@@ -11,7 +11,9 @@ var SnippetLine = React.createClass({
       <span className="line" onClick={this.handleClick}>
         <Link
           className="annotation-link"
-          to={"/snippets/" + this.props.snippetId + "/annotations/new"}
+          to={{
+            pathname: "/snippets/" + this.props.snippetId + "/annotations/new", 
+            query: { title: this.props.line }}}
           >
           {this.props.line}
         </Link>

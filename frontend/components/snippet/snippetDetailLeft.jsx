@@ -11,18 +11,15 @@ var SnippetDetailLeft = React.createClass({
   },
 
   handleEdit: function(event) {
-    event.preventDefault();
     var id = this.props.snippet.id;
     this.context.router.push("snippets/" + id + "/edit");
   },
 
   handleBack: function(event) {
-    event.preventDefault();
     this.context.router.push("/");
   },
 
   handleDelete: function(event) {
-    event.preventDefault();
     var id = this.props.snippet.id;
     ApiUtil.destroySnippet(id);
     this.context.router.push("/");

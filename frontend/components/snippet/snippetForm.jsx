@@ -1,5 +1,4 @@
 var React = require('react');
-var History = require('react-router').History;
 var Link = require('react-router').Link;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ApiUtil = require('../../util/ApiUtil.js');
@@ -7,7 +6,7 @@ var SnippetStore = require('../../stores/snippetStore.js');
 var LanguageStore = require('../../stores/languageStore.js');
 
 var SnippetForm = React.createClass({
-  mixins: [History, LinkedStateMixin],
+  mixins: [LinkedStateMixin],
 
   blankAttrs: {
     title: '',
@@ -15,6 +14,10 @@ var SnippetForm = React.createClass({
     body: '',
     desc: '',
     languages: []
+  },
+
+  contextTypes: {
+    router: React.PropTypes.object
   },
 
   getInitialState: function() {
@@ -54,7 +57,8 @@ var SnippetForm = React.createClass({
   },
 
   _onSnippetChange: function() {
-    var snippet = SnippetStore.find(this.props.params.snippetId);
+    var id = this.props.params.snippetId;
+    var snippet = SnippetStore.find(id);
     this.setState({
       title: snippet.title,
       language_id: snippet.language_id,
@@ -82,7 +86,7 @@ var SnippetForm = React.createClass({
     if (this.props.params.snippetId) {
       var id = this.props.params.snippetId;
       this.editSnippet(snippet);
-      this.history.push("snippets/" + id);
+      this.context.router.push("snippets/" + id);
     } else {
       this.createSnippet(snippet);
     }
@@ -91,12 +95,12 @@ var SnippetForm = React.createClass({
   handleBack: function(event) {
     event.preventDefault();
     var id = parseInt(this.props.params.snippetId);
-    this.history.push("snippets/" + id);
+    this.context.router.push("snippets/" + id);
   },
 
   createSnippet: function(snippet) {
     ApiUtil.createSnippet(snippet, function(id) {
-      this.history.push("snippets/" + id);
+      this.context.router.push("snippets/" + id);
     }.bind(this));
   },
 
@@ -111,7 +115,7 @@ var SnippetForm = React.createClass({
 
   render: function() {
     return(
-      <form hidden className="snippet-form">
+      <form className="snippet-form">
         <div className="snippet-wrapper">
           <article className="snippet-col-left-pane">
             <div>

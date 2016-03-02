@@ -34,8 +34,13 @@ var AnnotationDetail = React.createClass({
     event.stopPropagation();
   },
 
+  handleEdit: function(event) {
+    var snippetId = parseInt(this.props.params.snippetId);
+    var annotationId = parseInt(this.props.params.annotationId);
+    this.context.router.push("snippets/" + snippetId + "/annotations/" + annotationId + "/edit");
+  },
+
   handleDelete: function(event) {
-    event.preventDefault();
     var snippetId = parseInt(this.props.params.snippetId);
     var annotationId = parseInt(this.props.params.annotationId);
     ApiUtil.destroyAnnotation(annotationId);
