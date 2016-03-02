@@ -104,7 +104,7 @@ var AnnotationForm = React.createClass({
   render: function() {
     return (
       <form>  
-        <header className="annotation-header word-wrap">{this.state.title}</header>
+        <header className="annotation-header-edit word-wrap">{this.state.title}</header>
 
         <div className="annotation-body yellow word-wrap">
           <label htmlFor="annotation_body">Body</label>
