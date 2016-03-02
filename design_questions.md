@@ -1,1 +1,0 @@
-1. For JSON APIs, what are the benefits / downsides to nest?

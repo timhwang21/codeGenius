@@ -12,7 +12,6 @@
   name = Faker::Name.name
   User.create!(
     username: Faker::Internet.user_name(name, %w(. _)),
-    email: Faker::Internet.safe_email(name),
     body: Faker::Hipster.paragraph(3),
     iq: rand(1000),
     password: '123qwe'

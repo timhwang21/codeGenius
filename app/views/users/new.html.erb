@@ -1,41 +1,59 @@
-<h2>Sign Up</h2>
+<div class="login-container">
 
-<form action="<%= users_url %>" method="post">
-  <%= auth_token_input %>
-  <label>
-    Username
-    <input type="text" name="user[username]" value="">
-  </label>
+  <video 
+    class="bgvid" 
+    id="bgvid" 
+    autoPlay 
+    loop
+    poster="/assets/bgvideo-frame">
+    <source src="http://res.cloudinary.com/code-genius/video/upload/v1456952528/codeGeniusBG_t5anlq.mp4" type="video/mp4"/>
+  </video>
 
-  <br>
+  <div class="login-form-container">
 
-  <label>
-    Email
-    <input type="email" name="user[email]" value="">
-  </label>
+    <img class="login-form-logo" src="/assets/codegenius-logo-transparent" height="142" width="508">
 
-  <br>
+    <form class="login-form" action="<%= users_url %>" method="post">
+      <%= auth_token_input %>
 
-  <label>
-    Profile Picture
-    <input type="text" name="user[image_url]" value="">
-  </label>
+      <div class="login-form-element">
+        <label>Username</label>
+        <span id="var">var<%= "&nbsp;".html_safe %></span> 
+        Username<%= "&nbsp;".html_safe %>
+        <span id="equals">=<%= "&nbsp;".html_safe %></span> 
 
-  <br>
+        <input 
+          type="text" 
+          name="user[username]" 
+          class="login-form-input"
+          value=""
+          autofocus>
+        ;
+      </div>
 
-  <label>
-    Description
-    <textarea name="user[body]" value=""></textarea>
-  </label>
+      <div class="login-form-element">
+        <label>Password</label>
+        <span id="var">var<%= "&nbsp;".html_safe %></span> 
+        Password<%= "&nbsp;".html_safe %>
+        <span id="equals">=<%= "&nbsp;".html_safe %></span> 
 
-  <br>
+        <input 
+          type="password" 
+          name="user[password]" 
+          class="login-form-input"
+          value="">
+        ;
+      </div>
 
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label>
+      <input type="submit" class="square-button btn-submit login-button" id="btn-1" value="Sign Up">
+    </form>
 
-  <br>
+    <form method="get" action="<%= new_session_url %>">
+      <input type="submit" class="square-button btn-noborder login-button" id="btn-2" value="Sign In">
+    </form>
+         
+  </div>
 
-  <input type="submit" value="Sign Up">
-</form>
+</div>
+
+

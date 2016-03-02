@@ -1,7 +1,5 @@
 var React = require('react');
 
-var headerLogo = "/assets/codegenius-logo-small";
-
 var HeaderPrimary = require("./headerPrimary");
 var HeaderNav = require("./headerNav");
 var LanguageDropDown = require("./languageDropDown");
