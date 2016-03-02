@@ -24,9 +24,8 @@ var AnnotationForm = React.createClass({
         return annotation;
       }
     }
-    debugger;
     return {
-      title: '',
+      title: this.props.title,
       body: ''
     };
   },
@@ -44,8 +43,11 @@ var AnnotationForm = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps) {
-    if (!newProps.params.annotationId && this.props.params.annotationId) {
-      this.setState(this.blankAttrs);
+    if (!this.props.params.annotationId) {
+      this.setState({
+        title: newProps.title,
+        body: ''
+      });
     }
   },
 
@@ -95,7 +97,6 @@ var AnnotationForm = React.createClass({
   },
 
   render: function() {
-    // debugger;
     return (
       <form>  
         <header className="annotation-header">{this.state.title}</header>

@@ -8,6 +8,9 @@ TODO
 Users - pass in current user information
 Search
 Navbar (searchbar) + dropdowns
+session controller - @current_user
+  session json view - pull attributes of @current_user out, e.g. session_token
+  session store - pulls out session_token
 
 
 Dropdowns
