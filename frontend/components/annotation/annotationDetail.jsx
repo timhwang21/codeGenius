@@ -1,12 +1,9 @@
 var React = require('react');
-var History = require('react-router').History;
 
 var AnnotationStore = require('../../stores/annotationStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 
 var AnnotationDetail = React.createClass({
-  mixins: [History],
-
   getInitialState: function() {
     var id = parseInt(this.props.params.annotationId);
     return ({

@@ -1,26 +1,29 @@
 var React = require('react');
 var Link = require('react-router').Link;
-var History = require('react-router').History;
 
 var SnippetBody = require('./snippetBody');
 
 var SnippetDetailLeft = React.createClass({
-  mixins: [History],
+
+  contextTypes: {
+    // router: React.PropTypes.func
+    router: React.PropTypes.object
+  },
 
   handleEdit: function(event) {
     event.preventDefault();
     var id = this.props.snippet.id;
-    this.history.push("snippets/" + id + "/edit");
+    this.context.router.push("snippets/" + id + "/edit");
   },
 
   handleBack: function(event) {
     event.preventDefault();
-    this.history.push("/");
+    this.context.router.push("/");
   },
 
   unfocusSnippet: function(event) {
     var id = this.props.snippet.id;
-    this.history.push("snippets/" + id);
+    this.context.router.push("snippets/" + id);
   },
 
   doNothing: function(event) {

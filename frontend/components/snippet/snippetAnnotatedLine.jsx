@@ -1,15 +1,14 @@
 var React = require('react');
 var Link = require('react-router').Link;
-var History = require('react-router').History;
 
 var SnippetAnnotatedLine = React.createClass({
-  mixins: [History],
 
   handleClick: function(event) {
     event.stopPropagation();
   },
 
   render: function() {
+    //if history param == param for annotation, {state} = highlighted; if not, {state} = ""
     return(
       <span className="annotated-line" onClick={this.handleClick}>
         <Link

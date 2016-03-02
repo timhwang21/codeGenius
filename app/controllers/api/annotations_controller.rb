@@ -17,7 +17,7 @@ class Api::AnnotationsController < ApplicationController
   end
 
   def update
-    @annotation = Annotation.find(params[:id])
+    @annotation = Annotation.find(params[:id]) # current_user.annotations.find(params[:id])
     if @annotation.update_attributes(annotation_comments)
       render :show
     else

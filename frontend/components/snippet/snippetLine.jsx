@@ -1,10 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
-var History = require('react-router').History;
 
 var SnippetLine = React.createClass({
-  mixins: [History],
-
   handleClick: function(event) {
     event.stopPropagation();
   },
