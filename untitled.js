@@ -1,7 +1,7 @@
 QUESTIONS
 
 left off on: annotation form, trying to fetch title. Passed as query string; is there a better way?
-
+Why is idx query string returning undefined?
 
 TODO
 

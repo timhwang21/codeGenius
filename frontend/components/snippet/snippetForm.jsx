@@ -76,7 +76,6 @@ var SnippetForm = React.createClass({
     event.preventDefault();
 
     var snippet = {
-      author_id: 1, // pass in current user as prop; current_user.id
       language_id: this.state.language_id,
       title: this.state.title.trim(),
       body: this.state.body.trim(),
@@ -99,6 +98,7 @@ var SnippetForm = React.createClass({
   },
 
   createSnippet: function(snippet) {
+    snippet.author_id = 1; // pass in current user as prop; current_user.id
     ApiUtil.createSnippet(snippet, function(id) {
       this.context.router.push("snippets/" + id);
     }.bind(this));

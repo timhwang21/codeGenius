@@ -7,11 +7,6 @@ var AnnotationStore = require('../../stores/annotationStore.js');
 var AnnotationForm = React.createClass({
   mixins: [LinkedStateMixin],
 
-  blankAttrs: {
-    title: '',
-    body: ''
-  },
-
   contextTypes: {
     router: React.PropTypes.object
   },
@@ -36,6 +31,7 @@ var AnnotationForm = React.createClass({
       this.changeToken = AnnotationStore.addListener(this._onChange);
       ApiUtil.fetchSingleAnnotation(id);
     }
+    this.refs.annotationBody.focus();
   },
 
   componentWillUnmount: function() {
@@ -63,37 +59,47 @@ var AnnotationForm = React.createClass({
 
   handleSubmit: function(event) {
     event.preventDefault();
+    var snippetId = this.props.params.snippetId;
     console.log("Submitted!")
-    // var snippet = {
-    //   author_id: 1, // pass in current user as prop; current_user.id
-    //   language_id: this.state.language_id,
-    //   title: this.state.title.trim(),
-    //   body: this.state.body.trim(),
-    //   desc: this.state.desc.trim()
-    // };
+    var annotation = {
+      title: this.state.title.trim(),
+      body: this.state.body.trim(),
+    };
 
-    // if (this.props.params.snippetId) {
-    //   var id = this.props.params.snippetId;
-    //   this.editSnippet(snippet);
-    //   this.context.router.push("snippets/" + id);
-    // } else {
-    //   this.createSnippet(snippet);
-    // }
+    if (this.props.params.annotationId) {
+      var annotationId = this.props.params.annotationId;
+      this.editAnnotation(annotation);
+      this.context.router.push("snippets/" + snippetId + "/annotations/" + annotationId);
+    } else {
+      this.createAnnotation(annotation);
+    }
   },
 
   handleBack: function(event) {
     event.preventDefault();
     var snippetId = parseInt(this.props.params.snippetId);
     var annotationId = parseInt(this.props.params.annotationId);
-    this.context.router.push("snippets/" + snippetId + "/annotations/" + annotationId);
+    var route = "";
+    if (annotationId) {
+      route = "/annotations/" + annotationId;
+    }
+    this.context.router.push("snippets/" + snippetId + route);
   },
 
   createAnnotation: function(annotation) {
-    return true;
+    var snippetId = this.props.params.snippetId;
+    annotation.author_id = 1;
+    annotation.snippet_id = parseInt(snippetId);
+    annotation.line_idx = 0;
+    ApiUtil.createAnnotation(annotation, function(id) {
+      this.context.router.push("snippets/" + snippetId + /annotations/ + id);
+    }.bind(this));
   },
 
   editAnnotation: function(annotation) {
-    return true;
+    var id = parseInt(this.props.params.annotationId);
+    debugger;
+    ApiUtil.updateAnnotation(id, annotation);
   },
 
   render: function() {
@@ -104,10 +110,11 @@ var AnnotationForm = React.createClass({
         <div className="annotation-body yellow">
           <label htmlFor="annotation_body">Body</label>
           <textarea 
+            ref="annotationBody"
             id="annotation_body"
             rows="10" 
-            cols="40" 
-            placeholder="Enter code here... "
+            cols="43"
+            placeholder="Enter annotation here... "
             valueLink={this.linkState("body")} />
         </div>
 

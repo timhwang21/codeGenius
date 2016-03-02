@@ -12,7 +12,6 @@ function resetAnnotation(annotation) {
 
 function resetAllAnnotations(annotations) {
   _annotations = {};
-  // debugger;
   annotations.forEach(annotation => resetAnnotation(annotation));
 }
 
@@ -31,7 +30,8 @@ AnnotationStore.allByIndex = function() {
       results.push(_annotations[prop]);
     }
   }
-  return results.sort((i, j) => i.lineIdx - j.lineIdx); // TODO test me
+  // debugger;
+  return results.sort((i, j) => parseInt(i.line_idx) - parseInt(j.line_idx));
 };
 
 AnnotationStore.find = function(id) {

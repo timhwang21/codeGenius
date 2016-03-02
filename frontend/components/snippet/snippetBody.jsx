@@ -41,7 +41,6 @@ var SnippetBody = React.createClass({
     if (this.props.snippet.body) {
       var lines = body.split("\n");
 
-      // debugger;
       if (this.state.annotations.length !== 0) {
         var annotations = this.state.annotations;
         var annIdx = 0;
@@ -66,7 +65,7 @@ var SnippetBody = React.createClass({
           return (
             <div className="snippet-body-line" id={i} key={i}>
               <span className="line-number noselect">{i}</span> 
-              {this.makeLine(id, line)}
+              {this.makeLine(id, line, i)}
             </div>
           );
         }.bind(this));
@@ -83,11 +82,12 @@ var SnippetBody = React.createClass({
     );
   },
 
-  makeLine: function(snippetId, line) {
+  makeLine: function(snippetId, line, lineIdx) {
     return (
       <SnippetLine 
         snippetId={snippetId}
-        line={line} />
+        line={line}
+        lineIdx={String(lineIdx)} />
     );
   },
 

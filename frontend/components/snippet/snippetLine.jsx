@@ -6,6 +6,9 @@ var SnippetLine = React.createClass({
     event.stopPropagation();
   },
 
+  // TODO: Why does lineIdx return undefined?
+  // query: { title: this.props.line, idx: this.props.lineIdx }}}
+
   render: function() {
     return(
       <span className="line" onClick={this.handleClick}>
