@@ -7,10 +7,16 @@ var AnnotationFormPage = React.createClass({
     event.stopPropagation();
   },
 
+  parseTitle: function(query) {
+    return query.slice(7);
+  },
+
   render: function() {
+    var query = this.props.location.search;
+
     return(
       <article className="snippet-col-right-pane" onClick={this.doNothing}>
-        <AnnotationForm params={this.props.params}/>
+        <AnnotationForm params={this.props.params} title={this.parseTitle(query)}/>
       </article>
     );
   }

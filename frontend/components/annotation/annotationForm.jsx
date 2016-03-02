@@ -24,6 +24,7 @@ var AnnotationForm = React.createClass({
         return annotation;
       }
     }
+    debugger;
     return {
       title: '',
       body: ''

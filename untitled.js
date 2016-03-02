@@ -1,7 +1,6 @@
 QUESTIONS
 
-left off on: annotation form, trying to fetch title
-this.props.location.query is undefined for some reason
+left off on: annotation form, trying to fetch title. Passed as query string; is there a better way?
 
 
 TODO
