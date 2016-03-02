@@ -27,7 +27,7 @@ var routes = (
     
     <Route path="snippets/:snippetId" component={SnippetDetail}>
       <IndexRoute component={SnippetDetailRight} />
-      <Route path="annotations/new" component={AnnotationFormPage} />
+      <Route path="annotations/new/:lineIdx" component={AnnotationFormPage} />
       <Route path="annotations/:annotationId" component={AnnotationDetail} />
       <Route path="annotations/:annotationId/edit" component={AnnotationFormPage} />
     </Route>

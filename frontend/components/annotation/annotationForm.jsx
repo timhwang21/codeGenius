@@ -60,7 +60,6 @@ var AnnotationForm = React.createClass({
   handleSubmit: function(event) {
     event.preventDefault();
     var snippetId = this.props.params.snippetId;
-    console.log("Submitted!")
     var annotation = {
       title: this.state.title.trim(),
       body: this.state.body.trim(),
@@ -88,9 +87,10 @@ var AnnotationForm = React.createClass({
 
   createAnnotation: function(annotation) {
     var snippetId = this.props.params.snippetId;
+    var lineIdx = this.props.params.lineIdx;
     annotation.author_id = 1;
     annotation.snippet_id = parseInt(snippetId);
-    annotation.line_idx = 0;
+    annotation.line_idx = parseInt(lineIdx);
     ApiUtil.createAnnotation(annotation, function(id) {
       this.context.router.push("snippets/" + snippetId + /annotations/ + id);
     }.bind(this));
@@ -98,16 +98,15 @@ var AnnotationForm = React.createClass({
 
   editAnnotation: function(annotation) {
     var id = parseInt(this.props.params.annotationId);
-    debugger;
     ApiUtil.updateAnnotation(id, annotation);
   },
 
   render: function() {
     return (
       <form>  
-        <header className="annotation-header">{this.state.title}</header>
+        <header className="annotation-header word-wrap">{this.state.title}</header>
 
-        <div className="annotation-body yellow">
+        <div className="annotation-body yellow word-wrap">
           <label htmlFor="annotation_body">Body</label>
           <textarea 
             ref="annotationBody"

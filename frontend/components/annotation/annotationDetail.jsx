@@ -51,7 +51,7 @@ var AnnotationDetail = React.createClass({
     return (
       <section className="snippet-col-right-pane" onClick={this.doNothing}>
         <header className="annotation-header">{this.state.annotation.title}</header>
-        <article className="annotation-body">{this.state.annotation.body}</article>
+        <article className="annotation-body word-wrap">{this.state.annotation.body}</article>
 
         <div className="button-row" onClick={this.doNothing}>
           <button 

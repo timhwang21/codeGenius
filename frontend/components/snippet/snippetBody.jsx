@@ -49,10 +49,10 @@ var SnippetBody = React.createClass({
           var lineComponent;
           if (annIdx < annotations.length && annotations[annIdx].line_idx === i) {
             lineComponent = line === "" ? 
-              this.makeLine(id, line) :
+              this.makeLine(id, line, i) :
               this.makeAnnotatedLine(id, annotations[annIdx], line);
             annIdx++;
-          } else { lineComponent = this.makeLine(id, line); }
+          } else { lineComponent = this.makeLine(id, line, i); }
           return (
             <div className="snippet-body-line" id={i} key={i}>
               <span className="line-number noselect">{i}</span> 
@@ -87,7 +87,7 @@ var SnippetBody = React.createClass({
       <SnippetLine 
         snippetId={snippetId}
         line={line}
-        lineIdx={String(lineIdx)} />
+        lineIdx={lineIdx} />
     );
   },
 
