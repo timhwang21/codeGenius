@@ -1,12 +1,12 @@
 var React = require('react');
 var Link = require('react-router').Link;
+var ApiUtil = require('../../util/ApiUtil');
 
 var SnippetBody = require('./snippetBody');
 
 var SnippetDetailLeft = React.createClass({
 
   contextTypes: {
-    // router: React.PropTypes.func
     router: React.PropTypes.object
   },
 
@@ -21,9 +21,11 @@ var SnippetDetailLeft = React.createClass({
     this.context.router.push("/");
   },
 
-  unfocusSnippet: function(event) {
+  handleDelete: function(event) {
+    event.preventDefault();
     var id = this.props.snippet.id;
-    this.context.router.push("snippets/" + id);
+    ApiUtil.destroySnippet(id);
+    this.context.router.push("/");
   },
 
   doNothing: function(event) {
@@ -34,7 +36,7 @@ var SnippetDetailLeft = React.createClass({
     var snippet = this.props.snippet;
 
     return (
-      <article className="snippet-col-left-pane" onClick={this.unfocusSnippet}>
+      <article className="snippet-col-left-pane">
         <header className="snippet-header-large">
           {snippet.title}
         </header>
@@ -66,6 +68,13 @@ var SnippetDetailLeft = React.createClass({
             onClick={this.handleBack}
           >
             Back
+          </button>
+
+          <button 
+            className="square-button btn-delete"
+            onClick={this.handleDelete}
+          >
+            Delete
           </button>
         </div>
       </article>

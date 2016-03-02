@@ -124,3 +124,24 @@
 .snippet-desc {
   width: 360px;
 }
+/*
+.snippet-transition-enter {
+  opacity: .01;
+  border: 5px solid red;
+}
+
+.snippet-transition-enter.snippet-transition-enter-active {
+  opacity: 1;
+  border: 5px solid green;
+  transition: opacity 2000ms linear;
+}
+
+.snippet-transition-leave {
+  opacity: 1;
+}
+
+.snippet-transition-leave.snippet-transition-leave-active {
+  opacity: .01;
+  transition: opacity 2000ms linear;
+}
+*/

@@ -11,7 +11,7 @@ var AnnotationApiUtil = {
     );
   },
 
-  fetchSingleAnnotation: function(id) {
+  fetchSingleAnnotation: function(id) { // do I even need this?
     $.get(
       "api/annotations/" + id,
       {},

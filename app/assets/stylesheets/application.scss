@@ -195,6 +195,15 @@ pre, .word-wrap {
   background: rgba(14,203,39,0.4);
 }
 
+.btn-delete {
+  border: none;
+}
+
+.btn-delete:hover {
+  background: rgba(255,20,20,0.3);
+  color: rgb(255,20,20);
+}
+
 .btn-noborder {
   border: none;
 }

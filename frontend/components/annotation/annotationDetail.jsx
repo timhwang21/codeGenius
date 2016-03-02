@@ -4,6 +4,10 @@ var AnnotationStore = require('../../stores/annotationStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 
 var AnnotationDetail = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object
+  },
+
   getInitialState: function() {
     var id = parseInt(this.props.params.annotationId);
     return ({
@@ -26,15 +30,23 @@ var AnnotationDetail = React.createClass({
     this.setState({annotation: AnnotationStore.find(id)});
   },
 
+  doNothing: function(event) {
+    event.stopPropagation();
+  },
+
+  handleDelete: function(event) {
+    event.preventDefault();
+    var snippetId = parseInt(this.props.params.snippetId);
+    var annotationId = parseInt(this.props.params.annotationId);
+    ApiUtil.destroyAnnotation(annotationId);
+    this.context.router.push("snippets/" + snippetId);
+  },
+
   render: function() {
     return (
-      <article className="snippet-col-right-pane">
+      <section className="snippet-col-right-pane" onClick={this.doNothing}>
         <header className="annotation-header">{this.state.annotation.title}</header>
-        <div>{this.state.annotation.body}</div>
-
-
-
-        <a href="http://www.google.com">Testtest</a>
+        <article className="annotation-body">{this.state.annotation.body}</article>
 
         <div className="button-row" onClick={this.doNothing}>
           <button 
@@ -45,13 +57,13 @@ var AnnotationDetail = React.createClass({
           </button>
 
           <button 
-            className="square-button btn-noborder"
-            onClick={this.handleBack}
+            className="square-button btn-delete"
+            onClick={this.handleDelete}
           >
             Delete
           </button>
         </div>
-      </article>
+      </section>
     );
   }
 });

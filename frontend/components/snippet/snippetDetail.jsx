@@ -1,5 +1,6 @@
 var React = require('react');
 var Link = require('react-router').Link;
+// var ReactTransition = require('react-addons-css-transition-group');
 // var hljs = require('highlight.js');
 
 var SnippetDetailLeft = require('./snippetDetailLeft');
@@ -24,6 +25,11 @@ var SnippetDetail = React.createClass({
   childContextTypes: {
     imgUrl: React.PropTypes.string,
     desc: React.PropTypes.string
+  },
+
+  contextTypes: {
+    // router: React.PropTypes.func
+    router: React.PropTypes.object
   },
 
   getChildContext: function() { // I'm afraid desc will be undefined if snippet isn't fetched yet
@@ -53,6 +59,11 @@ var SnippetDetail = React.createClass({
     this.setState({snippet: SnippetStore.find(id)});
   },
 
+  unfocusSnippet: function(event) {
+    var id = this.props.params.snippetId;
+    this.context.router.push("snippets/" + id);
+  },
+
   imgUrl: function() {
     var snippet = this.state.snippet;
     if (typeof snippet.language_id !== 'undefined') {
@@ -63,7 +74,7 @@ var SnippetDetail = React.createClass({
   render: function() {
     var snippet = this.state.snippet;
     return (
-      <section className="snippet-index">
+      <section className="snippet-index" onClick={this.unfocusSnippet}>
         <div className="snippet-wrapper">
           <SnippetDetailLeft snippet={snippet} />
           {this.props.children}
