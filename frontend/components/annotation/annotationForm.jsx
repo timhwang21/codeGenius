@@ -8,7 +8,8 @@ var AnnotationForm = React.createClass({
   mixins: [LinkedStateMixin],
 
   contextTypes: {
-    router: React.PropTypes.object
+    router: React.PropTypes.object,
+    currentUser: React.PropTypes.object
   },
 
   getInitialState: function() {
@@ -88,7 +89,7 @@ var AnnotationForm = React.createClass({
   createAnnotation: function(annotation) {
     var snippetId = this.props.params.snippetId;
     var lineIdx = this.props.params.lineIdx;
-    annotation.author_id = 1;
+    annotation.author_id = this.context.currentUser.id;
     annotation.snippet_id = parseInt(snippetId);
     annotation.line_idx = parseInt(lineIdx);
     ApiUtil.createAnnotation(annotation, function(id) {

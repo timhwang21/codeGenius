@@ -9,7 +9,6 @@ var SnippetDetailLeft = React.createClass({
   contextTypes: {
     router: React.PropTypes.object,
     currentUser: React.PropTypes.object,
-    loggedIn: React.PropTypes.bool,
   },
 
   handleEdit: function(event) {

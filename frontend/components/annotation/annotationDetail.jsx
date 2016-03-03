@@ -1,11 +1,13 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var AnnotationStore = require('../../stores/annotationStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 
 var AnnotationDetail = React.createClass({
   contextTypes: {
-    router: React.PropTypes.object
+    router: React.PropTypes.object,
+    currentUser: React.PropTypes.object
   },
 
   getInitialState: function() {
@@ -47,12 +49,9 @@ var AnnotationDetail = React.createClass({
     this.context.router.push("snippets/" + snippetId);
   },
 
-  render: function() {
-    return (
-      <section className="snippet-col-right-pane" onClick={this.doNothing}>
-        <header className="annotation-header">{this.state.annotation.title}</header>
-        <article className="annotation-body word-wrap">{this.state.annotation.body}</article>
-
+  createButtonRow: function() {
+    if (this.context.currentUser.id === this.state.annotation.author_id) {
+      return (
         <div className="button-row" onClick={this.doNothing}>
           <button 
             className="square-button"
@@ -68,6 +67,25 @@ var AnnotationDetail = React.createClass({
             Delete
           </button>
         </div>
+      );
+    }
+  },
+
+  render: function() {
+    return (
+      <section className="snippet-col-right-pane" onClick={this.doNothing}>
+        <header className="annotation-header">{this.state.annotation.title}</header>
+
+        <header className="snippet-header-text">
+          <p>Author:&nbsp;
+            <span className="link-box" onClick={this.doNothing}>
+              <Link to={"users/" + this.state.annotation.author_id}>{this.state.annotation.author}</Link>
+            </span></p>
+        </header>
+
+        <article className="annotation-body word-wrap">{this.state.annotation.body}</article>
+
+        {this.createButtonRow()}
       </section>
     );
   }
