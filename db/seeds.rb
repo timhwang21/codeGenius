@@ -21,17 +21,25 @@ end
 
 # Make languages
 languages = %w(
-  Trumpscript
-  Java
-  Javascript
+  Ada
+  Bash
   C#
   C++
-  Python
-  PHP
-  Swift
-  Ruby
-  R
+  Clojure
+  Go
   Haskell
+  HTML
+  Java
+  Javascript
+  PHP
+  Processing
+  Python
+  R
+  React.js
+  Ruby
+  Scala
+  Swift
+  Trumpscript
 )
 
 languages.each {|language| Language.create!(name: language)}
