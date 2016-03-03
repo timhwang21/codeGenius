@@ -4,13 +4,17 @@ var errorActions = require('../../actions/errorActions');
 var SessionApiUtil = {
   fetchNewSession: function(userParams, callback) {
     $.post(
-      "api/session/new",
+      "api/session",
       {user: userParams},
       function(fetchedUser) {
-        sessionActions.receiveUser(fetchedUser);
+        if (Object.keys(fetchedUser).length > 0) {
+          sessionActions.receiveUser(fetchedUser);
+        }
         callback && callback();
       }).fail(function() {
-        errorActions.receiveAuthError("Invalid email / password.")
+        console.log("Fail!");
+        // errorActions.receiveAuthError("Invalid email / password.")
+        // Why is this requesting from 'sessioncontroller'?
       })
   },
 

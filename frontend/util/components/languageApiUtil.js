@@ -5,9 +5,7 @@ var LanguageApiUtil = {
     $.get(
       "api/languages", 
       {}, 
-      function(data) {
-        languageActions.receiveAllLanguages(data);
-      }
+      data => languageActions.receiveAllLanguages(data)
     );
   },
 
@@ -15,9 +13,7 @@ var LanguageApiUtil = {
     $.get(
       "api/languages/" + id,
       {},
-      function(data) {
-        languageActions.receiveSingleLanguage(data);
-      }
+      data => anguageActions.receiveSingleLanguage(data)
     );
   },
 
@@ -25,22 +21,17 @@ var LanguageApiUtil = {
     $.post(
       "/api/languages", 
       {language: language}, 
-      function(data) {
-        languageActions.receiveSingleLanguage(data);
-      }
+      data => languageActions.receiveSingleLanguage(data)
     );
   },
 
   updateLanguage: function(id, language) {
-    language.id = id;
     $.ajax({
       url: "/api/languages/" + id,
       type: 'PATCH',
       data: {language: language},
-      success: function(data) {
-        languageActions.receiveSingleLanguage(data);
-      },
-      error: function(data) {console.log("Failed to update", data)}
+      success: data => languageActions.receiveSingleLanguage(data),
+      error: data => console.log("Failed to update", data)
     });
   },
 
@@ -48,10 +39,8 @@ var LanguageApiUtil = {
     $.ajax({
       url: "/api/languages/" + id,
       type: 'DELETE',
-      success: function(data) {
-        languageActions.removeLanguage(data);
-      },
-      error: function(data) {console.log("Failed to delete", data)}
+      success: data => languageActions.removeLanguage(data),
+      error: data => console.log("Failed to delete", data)
     });
   }
 };

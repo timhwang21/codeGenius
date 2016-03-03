@@ -5,9 +5,7 @@ var SnippetApiUtil = {
     $.get(
       "api/snippets", 
       {}, 
-      function(data) {
-        snippetActions.receiveAllSnippets(data);
-      }
+      data => snippetActions.receiveAllSnippets(data)
     );
   },
 
@@ -15,9 +13,7 @@ var SnippetApiUtil = {
     $.get(
       "api/snippets/" + id,
       {},
-      function(data) {
-        snippetActions.receiveSingleSnippet(data);
-      }
+      data => snippetActions.receiveSingleSnippet(data)
     );
   },
 
@@ -33,15 +29,12 @@ var SnippetApiUtil = {
   },
 
   updateSnippet: function(id, snippet) {
-    snippet.id = id;
     $.ajax({
       url: "/api/snippets/" + id,
       type: 'PATCH',
       data: {snippet: snippet},
-      success: function(data) {
-        snippetActions.receiveSingleSnippet(data);
-      },
-      error: function(data) {console.log("Failed to update", data)}
+      success: data => snippetActions.receiveSingleSnippet(data),
+      error: data => console.log("Failed to update", data)
     });
   },
 
@@ -49,10 +42,8 @@ var SnippetApiUtil = {
     $.ajax({
       url: "/api/snippets/" + id,
       type: 'DELETE',
-      success: function(data) {
-        snippetActions.removeSnippet(data);
-      },
-      error: function(data) {console.log("Failed to delete", data)}
+      success: data => snippetActions.removeSnippet(data),
+      error: data => console.log("Failed to delete", data)
     });
   }
 };

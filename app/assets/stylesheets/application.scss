@@ -62,10 +62,10 @@ button:focus, select {
   outline: 0 !important;
 }
 
-/*::selection {
+::selection {
   background: #909090;
 }
-*/
+
 .link-box {
   resize: none;
 }
@@ -80,7 +80,6 @@ button:focus, select {
 .app {
   display: block;
   background: linear-gradient(#0d0e0c, black);
-
 }
 
 .wrapper {
@@ -184,7 +183,7 @@ pre, .word-wrap {
 }
 
 .square-button:hover {
-  background: #39382F;
+  background: rgba(57, 56, 47, 0.3);
   /*color: #F6F7EE;*/
 }
 
@@ -194,7 +193,7 @@ pre, .word-wrap {
 }
 
 .btn-submit:hover {
-  background: rgba(14,203,39,0.4);
+  background: rgba(14,203,39,0.3);
 }
 
 .btn-delete {

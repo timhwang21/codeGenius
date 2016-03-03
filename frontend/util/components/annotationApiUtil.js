@@ -5,9 +5,7 @@ var AnnotationApiUtil = {
     $.get(
       "api/snippets/" + snippetId + "/annotations",
       {},
-      function(data) {
-        annotationActions.receiveAnnotationsForSnippet(data);
-      }
+      data => annotationActions.receiveAnnotationsForSnippet(data)
     );
   },
 
@@ -15,9 +13,7 @@ var AnnotationApiUtil = {
     $.get(
       "api/annotations/" + id,
       {},
-      function(data) {
-        annotationActions.receiveSingleAnnotation(data);
-      }
+      data => annotationActions.receiveSingleAnnotation(data)
     );
   },
 
@@ -33,15 +29,12 @@ var AnnotationApiUtil = {
   },
 
   updateAnnotation: function(id, annotation) {
-    annotation.id = id;
     $.ajax({
       url: "/api/annotations/" + id,
       type: 'PATCH',
       data: {annotation: annotation},
-      success: function(data) {
-        annotationActions.receiveSingleAnnotation(data);
-      },
-      error: function(data) {console.log("Failed to update", data)}
+      success: data => annotationActions.receiveSingleAnnotation(data),
+      error: data => console.log("Failed to update", data)
     });
   },
 
@@ -49,10 +42,8 @@ var AnnotationApiUtil = {
     $.ajax({
       url: "/api/annotations/" + id,
       type: 'DELETE',
-      success: function(data) {
-        annotationActions.removeAnnotation(data);
-      },
-      error: function(data) {console.log("Failed to delete", data)}
+      success: data => annotationActions.removeAnnotation(data),
+      error: data => console.log("Failed to delete", data)
     });
   }
 };

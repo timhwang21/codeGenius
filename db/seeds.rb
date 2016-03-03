@@ -8,6 +8,13 @@
 
 
 # Make fake users
+User.create!(
+  username: "Demosthenes",
+  body: "My name is Demosthenes, and I'm all about the demos.",
+  iq: 592,
+  password: 'demodemo'
+)
+
 10.times do 
   name = Faker::Name.name
   User.create!(
@@ -17,7 +24,6 @@
     password: '123qwe'
   )
 end
-
 
 # Make languages
 languages = %w(

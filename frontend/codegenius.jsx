@@ -21,7 +21,9 @@ var SnippetFormPage = require('./components/snippet/snippetFormPage');
 var AnnotationDetail = require('./components/annotation/annotationDetail');
 var AnnotationFormPage = require('./components/annotation/annotationFormPage');
 
-// var Landing = require('./components/landing.jsx');
+// var requireLoggedIn = function(nextState, transition, callback) {
+// } listen to sessionstore, see if anyone there, if not, transition to
+
 var routes = (
   <Route path="/" component={App}>
     <IndexRedirect to="main" />

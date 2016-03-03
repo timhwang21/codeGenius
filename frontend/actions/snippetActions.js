@@ -8,17 +8,19 @@ var snippetActions = {
       snippets: snippets
     });
   },
+
   receiveSingleSnippet: function(snippet) {
     Dispatcher.dispatch({
       actionType: snippetConstants.SNIPPET_RECEIVED,
       snippet: snippet
     });
   },
+  
   removeSnippet: function(snippet) {
     Dispatcher.dispatch({
       actionType: snippetConstants.SNIPPET_REMOVED,
       snippet: snippet
-    })
+    });
   }
 };
 
