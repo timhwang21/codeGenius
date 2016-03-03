@@ -18,7 +18,7 @@ var HeaderNav = React.createClass({
     if (this.context.loggedIn) {
       return(
         <div className="link-box">
-          <Link to="snippets/new" className="nav-link">
+          <Link to="main/snippets/new" className="nav-link">
           Add Snippet
           </Link>
         </div>

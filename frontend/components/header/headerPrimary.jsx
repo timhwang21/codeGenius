@@ -33,7 +33,7 @@ var HeaderPrimary = React.createClass({
         </div>
 
         <div className="header-logo">
-          <Link to="/">
+          <Link to="main/">
             <img src={headerLogo} height="38" width="202" />
           </Link>
         </div>

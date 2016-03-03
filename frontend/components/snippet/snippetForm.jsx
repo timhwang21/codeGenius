@@ -1,5 +1,4 @@
 var React = require('react');
-var Link = require('react-router').Link;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ApiUtil = require('../../util/ApiUtil.js');
 var SnippetStore = require('../../stores/snippetStore.js');
@@ -87,7 +86,7 @@ var SnippetForm = React.createClass({
     if (this.props.params.snippetId) {
       var id = this.props.params.snippetId;
       this.editSnippet(snippet);
-      this.context.router.push("snippets/" + id);
+      this.context.router.push("main/snippets/" + id);
     } else {
       this.createSnippet(snippet);
     }
@@ -96,13 +95,15 @@ var SnippetForm = React.createClass({
   handleBack: function(event) {
     event.preventDefault();
     var id = parseInt(this.props.params.snippetId);
-    this.context.router.push("snippets/" + id);
+    id ? 
+    this.context.router.push("main/snippets/" + id) :
+    this.context.router.push("main/");
   },
 
   createSnippet: function(snippet) {
     snippet.author_id = this.context.currentUser.id;
     ApiUtil.createSnippet(snippet, function(id) {
-      this.context.router.push("snippets/" + id);
+      this.context.router.push("main/snippets/" + id);
     }.bind(this));
   },
 

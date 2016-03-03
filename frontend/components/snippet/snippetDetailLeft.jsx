@@ -13,17 +13,17 @@ var SnippetDetailLeft = React.createClass({
 
   handleEdit: function(event) {
     var id = this.props.snippet.id;
-    this.context.router.push("snippets/" + id + "/edit");
+    this.context.router.push("main/snippets/" + id + "/edit");
   },
 
   handleBack: function(event) {
-    this.context.router.push("/");
+    this.context.router.push("/main/");
   },
 
   handleDelete: function(event) {
     var id = this.props.snippet.id;
     ApiUtil.destroySnippet(id);
-    this.context.router.push("/");
+    this.context.router.push("/main/");
   },
 
   doNothing: function(event) {
@@ -84,7 +84,7 @@ var SnippetDetailLeft = React.createClass({
         <header className="snippet-header-text">
           <p>Author:&nbsp;
             <span className="link-box" onClick={this.doNothing}>
-              <Link to={"users/" + snippet.author_id}>{snippet.author}</Link>
+              <Link to={"main/users/" + snippet.author_id}>{snippet.author}</Link>
             </span></p>
           <p>Views:&nbsp;{snippet.views}</p>
         </header>

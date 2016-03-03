@@ -20,7 +20,7 @@ var SnippetLine = React.createClass({
         <Link
           className="annotation-link"
           to={{
-            pathname: "/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx, 
+            pathname: "main/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx, 
             query: { title: this.props.line }}}
           >
           {this.props.line}

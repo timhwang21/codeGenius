@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
+var IndexRedirect = require('react-router').IndexRedirect;
 var hashHistory = require('react-router').hashHistory;
 // var browserHistory = require('react-router').browserHistory;
 
@@ -11,6 +12,7 @@ var hashHistory = require('react-router').hashHistory;
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
 var App = require('./components/app');
+var Main = require('./components/main');
 var AuthPage = require('./components/auth/authPage');
 var Index = require('./components/index/index');
 var SnippetDetail = require('./components/snippet/snippetDetail');
@@ -22,20 +24,21 @@ var AnnotationFormPage = require('./components/annotation/annotationFormPage');
 // var Landing = require('./components/landing.jsx');
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Index} />
-
+    <IndexRedirect to="main" />
     <Route path="auth" component={AuthPage} /> {/* eventually make this the index */}
 
-    <Route path="snippets/new" component={SnippetFormPage} />
-    
-    <Route path="snippets/:snippetId" component={SnippetDetail}>
-      <IndexRoute component={SnippetDetailRight} />
-      <Route path="annotations/new/:lineIdx" component={AnnotationFormPage} />
-      <Route path="annotations/:annotationId" component={AnnotationDetail} />
-      <Route path="annotations/:annotationId/edit" component={AnnotationFormPage} />
+    <Route path="main" component={Main}>
+      <IndexRoute component={Index} />
+      <Route path="snippets/new" component={SnippetFormPage} />
+      <Route path="snippets/:snippetId" component={SnippetDetail}>
+        <IndexRoute component={SnippetDetailRight} />
+        <Route path="annotations/new/:lineIdx" component={AnnotationFormPage} />
+        <Route path="annotations/:annotationId" component={AnnotationDetail} />
+        <Route path="annotations/:annotationId/edit" component={AnnotationFormPage} />
+      </Route>
+      
+      <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
     </Route>
-    
-    <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
   </Route>
   );
 

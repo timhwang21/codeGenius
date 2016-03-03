@@ -1,5 +1,4 @@
 var React = require('react');
-var Link = require('react-router').Link;
 // var ReactTransition = require('react-addons-css-transition-group');
 // var hljs = require('highlight.js');
 
@@ -61,7 +60,7 @@ var SnippetDetail = React.createClass({
 
   unfocusSnippet: function(event) {
     var id = this.props.params.snippetId;
-    this.context.router.push("snippets/" + id);
+    this.context.router.push("main/snippets/" + id);
   },
 
   imgUrl: function() {

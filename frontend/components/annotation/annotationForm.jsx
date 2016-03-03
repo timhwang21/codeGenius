@@ -1,5 +1,4 @@
 var React = require('react');
-var Link = require('react-router').Link;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ApiUtil = require('../../util/ApiUtil.js');
 var AnnotationStore = require('../../stores/annotationStore.js');
@@ -69,7 +68,7 @@ var AnnotationForm = React.createClass({
     if (this.props.params.annotationId) {
       var annotationId = this.props.params.annotationId;
       this.editAnnotation(annotation);
-      this.context.router.push("snippets/" + snippetId + "/annotations/" + annotationId);
+      this.context.router.push("main/snippets/" + snippetId + "/annotations/" + annotationId);
     } else {
       this.createAnnotation(annotation);
     }
@@ -83,7 +82,7 @@ var AnnotationForm = React.createClass({
     if (annotationId) {
       route = "/annotations/" + annotationId;
     }
-    this.context.router.push("snippets/" + snippetId + route);
+    this.context.router.push("main/snippets/" + snippetId + route);
   },
 
   createAnnotation: function(annotation) {
@@ -93,7 +92,7 @@ var AnnotationForm = React.createClass({
     annotation.snippet_id = parseInt(snippetId);
     annotation.line_idx = parseInt(lineIdx);
     ApiUtil.createAnnotation(annotation, function(id) {
-      this.context.router.push("snippets/" + snippetId + /annotations/ + id);
+      this.context.router.push("main/snippets/" + snippetId + /annotations/ + id);
     }.bind(this));
   },
 

@@ -39,14 +39,14 @@ var AnnotationDetail = React.createClass({
   handleEdit: function(event) {
     var snippetId = parseInt(this.props.params.snippetId);
     var annotationId = parseInt(this.props.params.annotationId);
-    this.context.router.push("snippets/" + snippetId + "/annotations/" + annotationId + "/edit");
+    this.context.router.push("main/snippets/" + snippetId + "/annotations/" + annotationId + "/edit");
   },
 
   handleDelete: function(event) {
     var snippetId = parseInt(this.props.params.snippetId);
     var annotationId = parseInt(this.props.params.annotationId);
     ApiUtil.destroyAnnotation(annotationId);
-    this.context.router.push("snippets/" + snippetId);
+    this.context.router.push("main/snippets/" + snippetId);
   },
 
   createButtonRow: function() {
@@ -79,7 +79,7 @@ var AnnotationDetail = React.createClass({
         <header className="snippet-header-text">
           <p>Author:&nbsp;
             <span className="link-box" onClick={this.doNothing}>
-              <Link to={"users/" + this.state.annotation.author_id}>{this.state.annotation.author}</Link>
+              <Link to={"main/users/" + this.state.annotation.author_id}>{this.state.annotation.author}</Link>
             </span></p>
         </header>
 

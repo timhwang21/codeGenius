@@ -16,7 +16,7 @@ var PopularListItem = React.createClass({
     var overlayId = (this.props.klass === "popular-small" ? 0 : snippet.language_id);
     return(
       <li className={"popular-list-item " + this.props.klass}>
-        <Link to={"snippets/" + snippet.id} className="popular-link">
+        <Link to={"main/snippets/" + snippet.id} className="popular-link">
           <span className="popular-link-information">
             <span className="popular-snippet-title">
               {snippet.title}
