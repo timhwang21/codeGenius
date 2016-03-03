@@ -7,6 +7,10 @@ var SnippetAnnotatedLine = require('./snippetAnnotatedLine');
 var AnnotationStore = require('../../stores/annotationStore');
 
 var SnippetBody = React.createClass({
+  contextTypes: {
+    lines: React.PropTypes.array
+  },
+
   getInitialState: function() {
     return ({
       annotations: AnnotationStore.allByIndex().length > 0 ? AnnotationStore.allByIndex : []
@@ -39,7 +43,7 @@ var SnippetBody = React.createClass({
   makeBody: function(body) {
     var id = this.props.snippet.id;
     if (this.props.snippet.body) {
-      var lines = body.split("\n");
+      var lines = this.context.lines;
 
       if (this.state.annotations.length !== 0) {
         var annotations = this.state.annotations;

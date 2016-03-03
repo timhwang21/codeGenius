@@ -3,6 +3,7 @@ var React = require('react');
 var SnippetDetailRight = React.createClass({
   contextTypes: {
     imgUrl: React.PropTypes.string,
+    lines: React.PropTypes.array,
     desc: React.PropTypes.string
   },
 

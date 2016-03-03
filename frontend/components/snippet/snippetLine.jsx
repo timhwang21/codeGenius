@@ -7,25 +7,17 @@ var SnippetLine = React.createClass({
   },
 
   handleClick: function(event) {
+    this.context.router.push("main/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx)
     event.stopPropagation();
-    // this.context.router.push(
-    //   "/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx
-    // );
-    // // Change so clicking line itself will link
   },
 
   render: function() {
     return(
-      <span className="line" onClick={this.handleClick}>
-        <Link
-          className="annotation-link"
-          to={{
-            pathname: "main/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx, 
-            query: { title: this.props.line }}}
-          >
+      <div className="line-wrapper" onClick={this.handleClick}>
+        <span className="line">
           {this.props.line}
-        </Link>
-      </span>
+        </span>
+      </div>
     );
   }
 });

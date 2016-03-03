@@ -23,17 +23,18 @@ var SnippetDetail = React.createClass({
 
   childContextTypes: {
     imgUrl: React.PropTypes.string,
+    lines: React.PropTypes.array,
     desc: React.PropTypes.string
   },
 
   contextTypes: {
-    // router: React.PropTypes.func
     router: React.PropTypes.object
   },
 
-  getChildContext: function() { // I'm afraid desc will be undefined if snippet isn't fetched yet
+  getChildContext: function() { 
     return {
       imgUrl: this.imgUrl(),
+      lines: this.state.snippet.body ? this.state.snippet.body.split("\n") : undefined,
       desc: this.state.snippet.desc
     };
   },
