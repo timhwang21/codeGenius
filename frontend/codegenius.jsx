@@ -10,18 +10,21 @@ var hashHistory = require('react-router').hashHistory;
 
 // COMPONENTS
 // var Search = require('./components/Search.jsx');
-var App = require('./components/app.jsx');
-var Index = require('./components/index/index.jsx');
-var SnippetDetail = require('./components/snippet/snippetDetail.jsx');
-var SnippetDetailRight = require('./components/snippet/snippetDetailRight.jsx');
-var SnippetFormPage = require('./components/snippet/snippetFormPage.jsx');
-var AnnotationDetail = require('./components/annotation/annotationDetail.jsx');
-var AnnotationFormPage = require('./components/annotation/annotationFormPage.jsx');
+var App = require('./components/app');
+var AuthPage = require('./components/auth/authPage');
+var Index = require('./components/index/index');
+var SnippetDetail = require('./components/snippet/snippetDetail');
+var SnippetDetailRight = require('./components/snippet/snippetDetailRight');
+var SnippetFormPage = require('./components/snippet/snippetFormPage');
+var AnnotationDetail = require('./components/annotation/annotationDetail');
+var AnnotationFormPage = require('./components/annotation/annotationFormPage');
 
 // var Landing = require('./components/landing.jsx');
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Index} />
+
+    <Route path="auth" component={AuthPage} /> {/* eventually make this the index */}
 
     <Route path="snippets/new" component={SnippetFormPage} />
     

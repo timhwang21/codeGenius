@@ -3,8 +3,23 @@ var Link = require('react-router').Link;
 
 var headerLogo = "/assets/codegenius-logo-small";
 
+var SessionStore = require('../../stores/sessionStore');
+
 var HeaderPrimary = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired,
+    currentUser: React.PropTypes.object,
+    loggedIn: React.PropTypes.func,
+    handleLogOut: React.PropTypes.func,
+    redirectToAuth: React.PropTypes.func
+  },
+
+  // headerActions: function() {
+  //   if (Object.keys.this.context.currentUser.le) {}
+  // }
+
   render: function() {
+    debugger;
     return(
       <div className="header-primary">
         <div className="header-searchbar">
@@ -19,13 +34,13 @@ var HeaderPrimary = React.createClass({
 
         <div className="header-actions">
           <div className="action-notification">
-            Notif
+            {this.context.currentUser.username}
           </div>
-          <div className="user-info">
-            IMG
-            <div className="user-iq">
-              100
-            </div>
+          <img 
+            className="user-profile-small"
+            src={"assets/" + this.context.currentUser.image_url} />
+          <div className="user-iq">
+            {this.context.currentUser.iq}
           </div>
         </div>
       </div>

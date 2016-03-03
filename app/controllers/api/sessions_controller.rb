@@ -1,5 +1,10 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
   def new
+  end
+
+  def check
+    @user = current_user if signed_in?
+    render :create
   end
 
   def create
@@ -10,15 +15,10 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to "/"
-    else
-      flash.now[:errors] = ["Invalid username or password"]
-      render :new
     end
   end
 
   def destroy
     sign_out
-    redirect_to new_session_url
   end
 end

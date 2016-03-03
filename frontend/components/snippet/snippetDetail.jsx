@@ -18,7 +18,7 @@ var SnippetDetail = React.createClass({
   getInitialState: function() {
     var id = parseInt(this.props.params.snippetId);
     return ({
-      snippet: SnippetStore.find(id) ? SnippetStore.find(id) : {}
+      snippet: SnippetStore.find(id) || {}
     });
   },
 

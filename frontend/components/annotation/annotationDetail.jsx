@@ -11,7 +11,7 @@ var AnnotationDetail = React.createClass({
   getInitialState: function() {
     var id = parseInt(this.props.params.annotationId);
     return ({
-      annotation: AnnotationStore.find(id) ? AnnotationStore.find(id) : {}
+      annotation: AnnotationStore.find(id) || {}
     });
   },
 

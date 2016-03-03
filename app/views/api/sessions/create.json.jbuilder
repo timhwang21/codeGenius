@@ -1,3 +1,3 @@
 if @user
-  json.extract! @user, :username, :iq, :snippets, :annotations
+  json.extract! @user, :username, :image_url, :iq, :body, :snippets, :annotations
 end

@@ -23,21 +23,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      # redirect_to api_user_url(@user.id)
-      redirect_to user_url(@user.id)
+      redirect_to "/"
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
-    end
-  end
-
-  def show
-    @user = User.find(params[:id])
-    if @user.nil?
-      flash[:errors] = "User not found"
-      redirect_to root_url
-    else
-      render :show
     end
   end
 

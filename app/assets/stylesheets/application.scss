@@ -58,7 +58,7 @@ textarea {
   overflow:hidden;
 }
 
-button:focus {
+button:focus, select {
   outline: 0 !important;
 }
 

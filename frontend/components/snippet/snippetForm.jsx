@@ -21,15 +21,15 @@ var SnippetForm = React.createClass({
   },
 
   getInitialState: function() {
+    var snippet;
     if (this.props.params.snippetId) {
       var id = parseInt(this.props.params.snippetId);
-      if (SnippetStore.find(id)) {
-        var snippet = SnippetStore.find(id);
-        snippet.languages = [];
-        return snippet;
-      } 
+      snippet = SnippetStore.find(id) || this.blankAttrs;
+    } else {
+      snippet = this.blankAttrs; 
     }
-    return this.blankAttrs;
+      snippet.languages = LanguageStore.all() || [];
+      return snippet;
   },
 
   componentDidMount: function() {
@@ -130,13 +130,13 @@ var SnippetForm = React.createClass({
               />
             </div>
 
-            <header className="snippet-header-medium">
-              Select Language:
-            </header>
-
             <label htmlFor="snippet_language_id">Language</label>
             <div className="snippet-select-language-box">
-              <select id="snippet_language_id" valueLink={this.linkState("language_id")}>
+              
+              <select 
+                className="snippet-language-select yellow"
+                id="snippet_language_id" 
+                valueLink={this.linkState("language_id")}>
                 {this.state.languages.map((language, i) => 
                   (
                     <option 

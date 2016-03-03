@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     # resources :snippet_comments, only: [:show, :update, :destroy] 
     resources :annotations, only: [:create, :show, :update, :destroy] 
 
+    resource :session, only: [:new, :create, :destroy]
+
+    get 'session/check', :to => 'sessions#check'
   end
 
 end
