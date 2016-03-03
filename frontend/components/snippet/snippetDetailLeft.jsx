@@ -7,7 +7,9 @@ var SnippetBody = require('./snippetBody');
 var SnippetDetailLeft = React.createClass({
 
   contextTypes: {
-    router: React.PropTypes.object
+    router: React.PropTypes.object,
+    currentUser: React.PropTypes.object,
+    loggedIn: React.PropTypes.bool,
   },
 
   handleEdit: function(event) {
@@ -27,6 +29,44 @@ var SnippetDetailLeft = React.createClass({
 
   doNothing: function(event) {
     event.stopPropagation();
+  },
+
+  createButtonRow: function() {
+    // debugger;
+    if (this.context.currentUser.id === this.props.snippet.author_id) {
+      return (
+        <div className="button-row" onClick={this.doNothing}>
+          <button 
+            className="square-button"
+            onClick={this.handleEdit} >
+            Edit
+          </button>
+
+          <button 
+            className="square-button btn-noborder"
+            onClick={this.handleBack} >
+            Back
+          </button>
+
+          <button 
+            className="square-button btn-delete"
+            onClick={this.handleDelete} >
+            Delete
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="button-row" onClick={this.doNothing}>
+          <button 
+            className="square-button btn-noborder"
+            onClick={this.handleBack} >
+            Back
+          </button>
+        </div>
+      );
+    }
+
   },
 
   render: function() {
@@ -52,28 +92,8 @@ var SnippetDetailLeft = React.createClass({
 
         <SnippetBody snippet={snippet}/>
 
-        <div className="button-row" onClick={this.doNothing}>
-          <button 
-            className="square-button"
-            onClick={this.handleEdit}
-          >
-            Edit
-          </button>
+        {this.createButtonRow()}
 
-          <button 
-            className="square-button btn-noborder"
-            onClick={this.handleBack}
-          >
-            Back
-          </button>
-
-          <button 
-            className="square-button btn-delete"
-            onClick={this.handleDelete}
-          >
-            Delete
-          </button>
-        </div>
       </article>
     );
   }

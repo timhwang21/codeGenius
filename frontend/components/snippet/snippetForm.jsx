@@ -17,7 +17,9 @@ var SnippetForm = React.createClass({
   },
 
   contextTypes: {
-    router: React.PropTypes.object
+    router: React.PropTypes.object,
+    currentUser: React.PropTypes.object,
+    loggedIn: React.PropTypes.bool,
   },
 
   getInitialState: function() {
@@ -98,7 +100,7 @@ var SnippetForm = React.createClass({
   },
 
   createSnippet: function(snippet) {
-    snippet.author_id = 1; // pass in current user as prop; current_user.id
+    snippet.author_id = this.context.currentUser.id;
     ApiUtil.createSnippet(snippet, function(id) {
       this.context.router.push("snippets/" + id);
     }.bind(this));

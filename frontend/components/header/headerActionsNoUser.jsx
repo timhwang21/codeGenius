@@ -3,9 +3,6 @@ var Link = require('react-router').Link;
 
 var HeaderActionsNoUser = React.createClass({
   contextTypes: {
-    currentUser: React.PropTypes.object,
-    loggedIn: React.PropTypes.bool,
-    handleLogOut: React.PropTypes.func,
     redirectToAuth: React.PropTypes.func
   },
 
@@ -13,10 +10,12 @@ var HeaderActionsNoUser = React.createClass({
     return (
       <div className="header-actions">
         <div className="action-notification">
-          Login
-        </div>
-        <div className="user-iq">
-          Something
+          <button 
+            className="square-button btn-submit"
+            onClick={this.context.redirectToAuth}
+          >
+            Enter
+          </button>
         </div>
       </div>
     );
