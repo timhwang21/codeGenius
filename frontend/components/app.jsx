@@ -13,7 +13,7 @@ var App = React.createClass({
   childContextTypes: {
     currentUser: React.PropTypes.object,
     handleLogOut: React.PropTypes.func,
-    loggedIn: React.PropTypes.func,
+    loggedIn: React.PropTypes.bool,
     redirectToAuth: React.PropTypes.func,
     requireLoggedIn: React.PropTypes.func
   },
@@ -22,7 +22,7 @@ var App = React.createClass({
     return {
       currentUser: this.state.currentUser,
       handleLogOut: this.handleLogOut,
-      loggedIn: this.loggedIn,
+      loggedIn: this.state.loggedIn,
       redirectToAuth: this.redirectToAuth,
       requireLoggedIn: this.requireLoggedIn
     };
@@ -31,6 +31,7 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       currentUser: {},
+      loggedIn: false
     }
   },
 
@@ -48,7 +49,7 @@ var App = React.createClass({
   },
 
   requireLoggedIn: function(callback) {
-    if (!this.loggedIn()) {
+    if (!this.state.loggedIn) {
       this.redirectToAuth;
     }
   },
@@ -58,14 +59,10 @@ var App = React.createClass({
     this.context.router.replace("/");
   },
 
-  loggedIn: function() {
-    debugger;
-    !!this.context.currentUser.username;
-  },
-
   _onChange: function() {
     this.setState({
       currentUser: SessionStore.getUser(),
+      loggedIn: SessionStore.loggedIn()
     });
   },
 

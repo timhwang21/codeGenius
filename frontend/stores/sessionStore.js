@@ -14,6 +14,10 @@ SessionStore.getUser = function() {
   return _user;
 }
 
+SessionStore.loggedIn = function() {
+  return Object.keys(_user).length > 0;
+}
+
 SessionStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case sessionConstants.LOG_USER_IN:

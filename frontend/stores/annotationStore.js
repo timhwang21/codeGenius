@@ -30,7 +30,6 @@ AnnotationStore.allByIndex = function() {
       results.push(_annotations[prop]);
     }
   }
-  // debugger;
   return results.sort((i, j) => parseInt(i.line_idx) - parseInt(j.line_idx));
 };
 

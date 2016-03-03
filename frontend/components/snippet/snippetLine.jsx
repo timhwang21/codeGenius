@@ -2,12 +2,17 @@ var React = require('react');
 var Link = require('react-router').Link;
 
 var SnippetLine = React.createClass({
-  handleClick: function(event) {
-    event.stopPropagation();
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
   },
 
-  // TODO: Why does lineIdx return undefined?
-  // query: { title: this.props.line, idx: this.props.lineIdx }}}
+  handleClick: function(event) {
+    event.stopPropagation();
+    // this.context.router.push(
+    //   "/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx
+    // );
+    // // Change so clicking line itself will link
+  },
 
   render: function() {
     return(
