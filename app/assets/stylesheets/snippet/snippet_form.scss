@@ -3,10 +3,11 @@
 }
 
 .snippet-language-select {
-  background: none;
+  background: url("/assets/select_arrow.png") no-repeat right black;
   border: none;
   cursor: pointer;
   font-family: 'menlo', Consolas, monospace;
   font-size: 24px;
   -webkit-appearance: none;
+  width: 188px;
 }

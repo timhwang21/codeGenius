@@ -132,7 +132,6 @@ var SnippetForm = React.createClass({
 
             <label htmlFor="snippet_language_id">Language</label>
             <div className="snippet-select-language-box">
-              
               <select 
                 className="snippet-language-select yellow"
                 id="snippet_language_id" 
