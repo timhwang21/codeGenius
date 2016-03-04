@@ -21,6 +21,9 @@ var SnippetFormPage = require('./components/snippet/snippetFormPage');
 var AnnotationDetail = require('./components/annotation/annotationDetail');
 var AnnotationFormPage = require('./components/annotation/annotationFormPage');
 var UserDetail = require('./components/user/userDetail');
+var UserBody = require('./components/user/userBody');
+var UserBodyForm = require('./components/user/userBodyForm');
+
 
 // var requireLoggedIn = function(nextState, transition, callback) {
 // } listen to sessionstore, see if anyone there, if not, transition to
@@ -42,7 +45,10 @@ var routes = (
       
       <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
 
-      <Route path="user/:userId" component={UserDetail} />
+      <Route path="user/:userId" component={UserDetail}>
+        <IndexRoute component={UserBody} />
+        <Route path="edit" component={UserBodyForm} />
+      </Route>
     </Route>
   </Route>
   );

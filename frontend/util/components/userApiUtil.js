@@ -19,7 +19,7 @@ var UserApiUtil = {
 
   createUser: function(userParams, callback) {
     $.post(
-      "api/snippets",
+      "api/users",
       {user: userParams},
       function(data) {
         userActions.receiveSingleUser(data);
@@ -30,7 +30,7 @@ var UserApiUtil = {
 
   updateUser: function(id, user) {
     $.ajax({
-      url: "api/snippets/" + id,
+      url: "api/users/" + id,
       type: "PATCH", 
       data: {user: user},
       success: data => userActions.receiveSingleUser(data),
@@ -40,7 +40,7 @@ var UserApiUtil = {
 
   destroyUser: function(id) {
     $.ajax({
-      url: "api/snippets/" + id,
+      url: "api/users/" + id,
       type: "DELETE", 
       success: data => userActions.removeUser(data),
       error: data => console.log("Failed to delete", data)

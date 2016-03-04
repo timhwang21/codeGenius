@@ -11,6 +11,16 @@ var UserDetail = React.createClass({
     currentUser: React.PropTypes.object,
   },
 
+  childContextTypes: {
+    body: React.PropTypes.string
+  },
+
+  getChildContext: function() {
+    return {
+      body: this.state.user.body
+    };
+  },
+
   getInitialState: function() {
     var id = parseInt(this.props.params.userId);
     return ({
@@ -45,22 +55,6 @@ var UserDetail = React.createClass({
       return "/assets/no_image";
     }
   },
-
-  createEditButton: function() {
-    if (this.context.currentUser.id === parseInt(this.props.params.userId)) {
-      return (
-        <div className="button-row" onClick={this.doNothing}>
-          <button 
-            className="square-button"
-            onClick={this.handleEdit} >
-            Edit
-          </button>
-        </div>
-      );
-    }
-  },
-
-
 
   // right component
 
@@ -149,11 +143,9 @@ var UserDetail = React.createClass({
             <header className="user-header-medium">
               {"About " + this.state.user.username}
             </header>
-            <div className="user-body">
-              {this.state.user.body}
-            </div>
             
-            {this.createEditButton()}
+            {this.props.children}
+            
 
           </article>
 

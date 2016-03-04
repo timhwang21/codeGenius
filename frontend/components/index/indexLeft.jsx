@@ -13,7 +13,7 @@ var IndexLeft = React.createClass({
         </ul>
 
         <header className="header-large">
-          <p>Sample article 1</p>
+          <p>Adding & annotating snippets</p>
         </header>
 
         <article className="index-article">

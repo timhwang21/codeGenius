@@ -86,7 +86,6 @@ var SnippetForm = React.createClass({
     if (this.props.params.snippetId) {
       var id = this.props.params.snippetId;
       this.editSnippet(snippet);
-      this.context.router.push("main/snippets/" + id);
     } else {
       this.createSnippet(snippet);
     }
@@ -110,6 +109,7 @@ var SnippetForm = React.createClass({
   editSnippet: function(snippet) {
     var id = parseInt(this.props.params.snippetId);
     ApiUtil.updateSnippet(id, snippet);
+    this.context.router.push("main/snippets/" + id);
   },
 
   imgUrl: function() {
