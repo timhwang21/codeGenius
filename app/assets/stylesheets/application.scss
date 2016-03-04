@@ -106,12 +106,14 @@ pre, .word-wrap {
   -khtml-user-select: none;    /* Konqueror */
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* IE/Edge */
-  user-select: none;           
+  user-select: none;
+  user-drag: none;
 }
 
 .index {
   color: #BBB;
   width: 100%;
+
 }
 
 .col-left-pane {
@@ -183,7 +185,7 @@ pre, .word-wrap {
 }
 
 .square-button:hover {
-  background: rgba(57, 56, 47, 0.3);
+  background: rgba(97, 96, 87, 0.3);
   /*color: #F6F7EE;*/
 }
 
@@ -201,10 +203,28 @@ pre, .word-wrap {
 }
 
 .btn-delete:hover {
-  background: rgba(255,20,20,0.3);
+  background: rgba(225,20,20,0.3);
   color: rgb(255,20,20);
 }
 
 .btn-noborder {
   border: none;
+}
+
+@keyframes fade-in {
+  0% { 
+    opacity: 0; 
+  }
+  100% { 
+    opacity: 1; 
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% { 
+    opacity: 0; 
+  }
+  100% { 
+    opacity: 1; 
+  }
 }

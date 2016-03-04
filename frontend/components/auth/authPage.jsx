@@ -20,6 +20,10 @@ var AuthPage = React.createClass({
     return this.blankAttrs;
   },
 
+  componentDidMount: function() {
+    this.refs.username.focus();
+  },
+
   handleSignUp: function(event) {
     event.preventDefault();
 
@@ -40,9 +44,28 @@ var AuthPage = React.createClass({
     };
 
     ApiUtil.fetchNewSession(userParams, function() {
-      this.context.router.push("/");
-    }.bind(this)); // check bind
+      this.context.router.push("/main");
+    }.bind(this));
+  },
 
+  handleDemo: function(event) {
+    event.preventDefault();
+
+    // change to have fancy typing
+    var userParams = {
+      username: 'demosthenes',
+      password: 'demodemo'
+    };
+
+    ApiUtil.fetchNewSession(userParams, function() {
+      this.context.router.push("/main");
+    }.bind(this)); 
+  },
+
+  handleBack: function(event) {
+    event.preventDefault();
+
+    this.context.router.goBack();
   },
 
   render: function() {
@@ -59,7 +82,7 @@ var AuthPage = React.createClass({
 
         <div className="login-form-container">
 
-          <img className="login-form-logo" src="/assets/codegenius-logo-transparent" height="142" width="508" />
+          <img className="login-form-logo noselect" src="/assets/codegenius-logo-transparent" height="189" width="678" draggable="false"/>
 
           <form className="login-form">
 
@@ -72,8 +95,8 @@ var AuthPage = React.createClass({
               <input 
                 type="text" 
                 className="login-form-input"
-                valueLink={this.linkState("username")}
-                autofocus />
+                ref="username"
+                valueLink={this.linkState("username")} />
               ;
             </div>
 
@@ -94,17 +117,37 @@ var AuthPage = React.createClass({
               <button 
                 className="square-button btn-submit login-button" 
                 onClick={this.handleSignUp}
+                id="btn1"
                 value="Sign Up" >
                 Sign Up
               </button>
 
               <button 
-                className="square-button btn-noborder login-button" 
+                className="square-button btn-submit login-button" 
                 onClick={this.handleSignIn}
+                id="btn2"
                 value="Sign In" >
                 Sign In
               </button>
+
+              <button 
+                className="square-button login-button" 
+                onClick={this.handleDemo}
+                id="btn3"
+                value="Demo" >
+                Demo
+              </button>
+
+
+              <button 
+                className="square-button btn-noborder login-button" 
+                onClick={this.handleBack}
+                id="btn4"
+                value="Back" >
+                Back
+              </button>
             </div>
+
           </form>
                
         </div>

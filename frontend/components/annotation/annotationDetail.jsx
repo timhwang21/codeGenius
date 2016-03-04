@@ -27,6 +27,10 @@ var AnnotationDetail = React.createClass({
     this.changeToken.remove();
   },
 
+  componentWillReceiveProps: function(newProps) {
+    debugger;
+  },
+
   _onChange: function() {
     var id = parseInt(this.props.params.annotationId);
     this.setState({annotation: AnnotationStore.find(id)});
@@ -73,7 +77,7 @@ var AnnotationDetail = React.createClass({
 
   render: function() {
     return (
-      <section className="snippet-col-right-pane" onClick={this.doNothing}>
+      <section className="snippet-col-right-pane annotation-detail" onClick={this.doNothing}>
         <header className="annotation-header">{this.state.annotation.title}</header>
 
         <header className="snippet-header-text">

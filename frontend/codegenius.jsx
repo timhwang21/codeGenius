@@ -27,7 +27,7 @@ var UserDetail = require('./components/user/userDetail');
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRedirect to="main" />
+    <IndexRedirect to="auth" />
     <Route path="auth" component={AuthPage} /> {/* eventually make this the index */}
 
     <Route path="main" component={Main}>
@@ -42,7 +42,7 @@ var routes = (
       
       <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
 
-      <Route path="users/:userId" component={UserDetail} />
+      <Route path="user/:userId" component={UserDetail} />
     </Route>
   </Route>
   );

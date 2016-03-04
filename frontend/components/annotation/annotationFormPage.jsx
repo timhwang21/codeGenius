@@ -12,7 +12,7 @@ var AnnotationFormPage = React.createClass({
 
   render: function() {
     return(
-      <article className="snippet-col-right-pane" onClick={this.doNothing}>
+      <article className="snippet-col-right-pane annotation-form-page" onClick={this.doNothing}>
         <AnnotationForm params={this.props.params} />
       </article>
     );
