@@ -20,6 +20,7 @@ var SnippetDetailRight = require('./components/snippet/snippetDetailRight');
 var SnippetFormPage = require('./components/snippet/snippetFormPage');
 var AnnotationDetail = require('./components/annotation/annotationDetail');
 var AnnotationFormPage = require('./components/annotation/annotationFormPage');
+var UserDetail = require('./components/user/userDetail');
 
 // var requireLoggedIn = function(nextState, transition, callback) {
 // } listen to sessionstore, see if anyone there, if not, transition to
@@ -40,6 +41,8 @@ var routes = (
       </Route>
       
       <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
+
+      <Route path="users/:userId" component={UserDetail} />
     </Route>
   </Route>
   );

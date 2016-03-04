@@ -20,7 +20,13 @@ function removeUser(user) {
 }
 
 UserStore.all = function() {
-  return _users;
+  var results = [];
+  for (var prop in _users) {
+    if (_users.hasOwnProperty(prop)) {
+      results.push(_users[prop]);
+    }
+  }
+  return results;
 };
 
 UserStore.find = function(id) {

@@ -9,7 +9,8 @@
 
 # Make fake users
 User.create!(
-  username: "Demosthenes",
+  username: "demosthenes",
+  image_url: "demo_profile",
   body: "My name is Demosthenes, and I'm all about the demos.",
   iq: 592,
   password: 'demodemo'

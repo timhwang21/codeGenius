@@ -9,9 +9,9 @@ var UserApiUtil = {
     );
   },
 
-  fetchSingleUser: function() {
+  fetchSingleUser: function(id) {
     $.get(
-      "api/users",
+      "api/users/" + id,
       {},
       data => userActions.receiveSingleUser(data)
     );

@@ -5,8 +5,8 @@ var React = require('react');
 var SnippetDetailLeft = require('./snippetDetailLeft');
 var SnippetDetailRight = require('./snippetDetailRight');
 
-var SnippetStore = require('../../stores/snippetStore.js');
-var ApiUtil = require('../../util/ApiUtil.js');
+var SnippetStore = require('../../stores/snippetStore');
+var ApiUtil = require('../../util/ApiUtil');
 
 var animateScrollTop = function() {
   $("html, body").animate({scrollTop: "0px"}, 200);

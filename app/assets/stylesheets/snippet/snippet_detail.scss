@@ -8,7 +8,6 @@
   display: flex;
   height: 100%;
   justify-content: center;
-  width: 1000px;
   margin: 0px auto;
   padding: 30px;
 }
@@ -58,9 +57,9 @@
 }
 
 .snippet-col-right-pane {
-  font-family: "Open Sans", Arial, sans-serif;
-
   flex: 0 0 360px;
+  font-family: "Open Sans", Arial, sans-serif;
+  max-width: 360px;
   margin: 20px 0px 20px 20px;
 }
 

@@ -12,9 +12,7 @@ function resetLanguage(language) {
 
 function resetAllLanguages(languages) {
   _languages = {};
-  languages.forEach(function(language) {
-    resetLanguage(language);
-  });
+  languages.forEach(language => resetLanguage(language));
 }
 
 function removeLanguage(language) {

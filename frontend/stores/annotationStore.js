@@ -19,9 +19,9 @@ function removeAnnotation(annotation) {
   delete _annotations[annotation.id];
 }
 
-AnnotationStore.all = function() {
-  return _annotations;
-};
+// AnnotationStore.all = function() {
+//   return _annotations;
+// };
 
 AnnotationStore.allByIndex = function() {
   var results = [];
