@@ -74,19 +74,55 @@ var UserDetail = React.createClass({
 
   makeSnippetList: function() {
     var snippets = this.state.user.snippets;
+    var that = this;
     if (snippets) {
-
-
+      return snippets.map((snippet, i) => that.makeSnippetListItem(snippet, i));
     }
+  },
 
+  makeSnippetListItem: function(snippet, i) {
+    return (
+      <div>
+        <header className="snippet-header-medium">
+          {snippet.title}
+        </header>
+
+        <header>
+          {snippet.language}
+        </header>
+      </div>
+    );
   },
 
   makeAnnotationList: function() {
     var annotations = this.state.user.annotations;
+    var that = this;
     if (annotations) {
-      
-      
+      return annotations.map((annotation, i) => that.makeAnnotationListItem(annotation, i));
     }
+  },
+
+  makeAnnotationListItem: function(annotation, i) {
+    var body;
+
+    if (annotation.body.length > 20) {
+      body = annotation.body.slice(0, 20) + "...";
+    } else {
+      body = annotation.body;
+    }
+
+    return (
+      <div>
+        <header className="snippet-header-medium">
+          {annotation.snippet_title}
+        </header>
+
+        <header>
+          {body}
+        </header>
+      </div>
+    );
+
   },
 
   render: function() {
@@ -124,10 +160,10 @@ var UserDetail = React.createClass({
           <article className="user-col-right-pane">
             <Tabs>
               <Tabs.Panel title={"Snippets (" + this.numSnippets() + ")"}>
-                <header>Snippets</header>
+                <header>{this.makeSnippetList()}</header>
               </Tabs.Panel>
               <Tabs.Panel title={"Annotations (" + this.numAnnotations() + ")"}>
-                <header>Annotations</header>
+                <header>{this.makeAnnotationList()}</header>
               </Tabs.Panel>
 
             </Tabs>
