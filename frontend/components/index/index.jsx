@@ -52,8 +52,7 @@ var Index = React.createClass({
 
   makePopularList: function(snippets, klass) {
     var that = this;
-    var output = snippets.map((snippet, i) => that.makePopularItem(snippet, i, klass));
-    return output;
+    return snippets.map((snippet, i) => that.makePopularItem(snippet, i, klass));
   },
 
   render: function() {

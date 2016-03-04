@@ -2,6 +2,7 @@ var React = require('react');
 
 var UserStore = require('../../stores/userStore');
 var ApiUtil = require('../../util/ApiUtil');
+var Tabs = require('react-simpletabs');
 
 var UserDetail = React.createClass({
 
@@ -59,7 +60,37 @@ var UserDetail = React.createClass({
     }
   },
 
+
+
+  // right component
+
+  numSnippets: function() {
+    return this.state.user.snippets ? this.state.user.snippets.length : 0;
+  },
+
+  numAnnotations: function() {
+    return this.state.user.annotations ? this.state.user.annotations.length : 0;
+  },
+
+  makeSnippetList: function() {
+    var snippets = this.state.user.snippets;
+    if (snippets) {
+
+
+    }
+
+  },
+
+  makeAnnotationList: function() {
+    var annotations = this.state.user.annotations;
+    if (annotations) {
+      
+      
+    }
+  },
+
   render: function() {
+    // debugger;
     return(
       <section className="user-index">
         <div className="user-wrapper">
@@ -91,7 +122,15 @@ var UserDetail = React.createClass({
           </article>
 
           <article className="user-col-right-pane">
-            Hello world
+            <Tabs>
+              <Tabs.Panel title={"Snippets (" + this.numSnippets() + ")"}>
+                <header>Snippets</header>
+              </Tabs.Panel>
+              <Tabs.Panel title={"Annotations (" + this.numAnnotations() + ")"}>
+                <header>Annotations</header>
+              </Tabs.Panel>
+
+            </Tabs>
 
           </article>
         </div>
