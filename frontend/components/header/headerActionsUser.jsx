@@ -12,13 +12,13 @@ var HeaderActionsUser = React.createClass({
   render: function() {
     return (
       <div className="header-actions">
-        <div className="action-notification">
+        <div className="action-notification noselect">
           {this.context.currentUser.username}
         </div>
         <img 
-          className="user-profile-small"
+          className="user-profile-small noselect"
           src={"assets/" + this.context.currentUser.image_url} />
-        <div className="user-iq">
+        <div className="user-iq noselect">
           {this.context.currentUser.iq} &nbsp;▾
         </div>
       </div>

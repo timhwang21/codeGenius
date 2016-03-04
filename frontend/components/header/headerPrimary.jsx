@@ -32,7 +32,7 @@ var HeaderPrimary = React.createClass({
           <p>SEARCHBAR GOES HERE</p>
         </div>
 
-        <div className="header-logo">
+        <div className="header-logo noselect">
           <Link to="main/">
             <img src={headerLogo} height="38" width="202" />
           </Link>
