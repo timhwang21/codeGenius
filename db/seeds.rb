@@ -8,6 +8,8 @@
 
 
 # Make fake users
+
+
 User.create!(
   username: "demosthenes",
   image_url: "demo_profile",

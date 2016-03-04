@@ -13,6 +13,11 @@ var SnippetDetailRight = React.createClass({
         <div className="snippet-img-box">
           <img src={this.context.imgUrl} className="snippet-img" />
         </div>
+
+        <header className="snippet-header-medium">
+          Description
+        </header>
+
         <div className="snippet-desc word-wrap">
           {this.context.desc}
         </div>

@@ -27,9 +27,9 @@ var AnnotationDetail = React.createClass({
     this.changeToken.remove();
   },
 
-  componentWillReceiveProps: function(newProps) {
-    debugger;
-  },
+  // componentWillReceiveProps: function(newProps) {
+  //   debugger;
+  // },
 
   _onChange: function() {
     var id = parseInt(this.props.params.annotationId);

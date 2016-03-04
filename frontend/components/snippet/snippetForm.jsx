@@ -184,6 +184,11 @@ var SnippetForm = React.createClass({
             <div className="snippet-img-box">
               <img src={this.imgUrl()} className="snippet-img" />
             </div>
+
+            <header className="snippet-header-medium">
+              Edit description...
+            </header>
+
             <div>
               <label htmlFor="snippet_desc">Description</label>
               <textarea 
