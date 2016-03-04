@@ -38,6 +38,14 @@ var SnippetApiUtil = {
     });
   },
 
+  incrementViewCount: function(id) {
+    $.get(
+      "api/snippets/" + id + "/add_view",
+      {},
+      data => console.log("Incremented view", data)
+    );
+  },
+
   destroySnippet: function(id) {
     $.ajax({
       url: "/api/snippets/" + id,

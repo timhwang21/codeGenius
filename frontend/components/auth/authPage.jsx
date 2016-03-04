@@ -89,7 +89,7 @@ var AuthPage = React.createClass({
             <div className="login-form-element">
               <label>Username</label>
               <span id="var">var&nbsp;</span> 
-              Username&nbsp;
+              username&nbsp;
               <span id="equals">=&nbsp;</span> 
 
               <input 
@@ -103,7 +103,7 @@ var AuthPage = React.createClass({
             <div className="login-form-element">
               <label>Password</label>
               <span id="var">var&nbsp;</span> 
-              Password&nbsp;
+              password&nbsp;
               <span id="equals">=&nbsp;</span> 
 
               <input 

@@ -43,6 +43,7 @@ var SnippetDetail = React.createClass({
     var id = parseInt(this.props.params.snippetId);
     this.changeToken = SnippetStore.addListener(this._onChange);
     ApiUtil.fetchSingleSnippet(id);
+    ApiUtil.incrementViewCount(id);
     animateScrollTop();
   },
 

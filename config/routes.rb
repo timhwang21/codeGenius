@@ -16,12 +16,14 @@ Rails.application.routes.draw do
       resources :annotations, only: [:index]
     end
 
+    get 'snippets/:id/add_view', as: 'snippet_add_view', to: 'snippets#add_view'
+
     # resources :snippet_comments, only: [:show, :update, :destroy] 
     resources :annotations, only: [:create, :show, :update, :destroy] 
 
     resource :session, only: [:create, :destroy]
 
-    get 'session/check', :to => 'sessions#check'
+    get 'session/check', to: 'sessions#check'
   end
 
 end

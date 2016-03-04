@@ -36,6 +36,11 @@ class Api::SnippetsController < ApplicationController
     render :show
   end
 
+  def add_view
+    Snippet.increment_counter(:views, params[:id])
+    render json: "Success"
+  end
+
   private
 
   def snippet_params
