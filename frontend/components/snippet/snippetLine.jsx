@@ -3,12 +3,15 @@ var Link = require('react-router').Link;
 
 var SnippetLine = React.createClass({
   contextTypes: {
-    router: React.PropTypes.object.isRequired
+    router: React.PropTypes.object.isRequired,
+    loggedIn: React.PropTypes.bool
   },
 
   handleClick: function(event) {
-    this.context.router.push("main/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx)
-    event.stopPropagation();
+    if (this.context.loggedIn) {
+      this.context.router.push("main/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx)
+      event.stopPropagation();
+    }
   },
 
   render: function() {

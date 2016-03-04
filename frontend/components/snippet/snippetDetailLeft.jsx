@@ -11,11 +11,6 @@ var SnippetDetailLeft = React.createClass({
     currentUser: React.PropTypes.object,
   },
 
-  handleEdit: function(event) {
-    var id = this.props.snippet.id;
-    this.context.router.push("main/snippets/" + id + "/edit");
-  },
-
   handleBack: function(event) {
     this.context.router.push("/main/");
   },
@@ -35,12 +30,6 @@ var SnippetDetailLeft = React.createClass({
     if (this.context.currentUser.id === this.props.snippet.author_id) {
       return (
         <div className="button-row" onClick={this.doNothing}>
-          <button 
-            className="square-button"
-            onClick={this.handleEdit} >
-            Edit
-          </button>
-
           <button 
             className="square-button btn-noborder"
             onClick={this.handleBack} >
