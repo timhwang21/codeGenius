@@ -7,6 +7,8 @@ var Tabs = require('react-simpletabs');
 var TabMaker = React.createClass({
   contextTypes: {
     router: React.PropTypes.object,
+    currentUser: React.PropTypes.object,
+    userId: React.PropTypes.string
   },
 
   numSnippets: function() {
@@ -80,6 +82,14 @@ var TabMaker = React.createClass({
           </header>
         </div>
 
+        {this.makeSnippetEditButton(snippet)}
+      </div>
+    );
+  },
+
+  makeSnippetEditButton: function(snippet) {
+    if (this.context.currentUser.id === parseInt(this.context.userId)) {
+      return (
         <div className="tab-button-row">
           <button 
             className="square-button btn-small btn-noborder"
@@ -88,8 +98,8 @@ var TabMaker = React.createClass({
             Edit
           </button>
         </div>
-      </div>
-    );
+      );
+    }
   },
 
   makeAnnotationList: function(annotations) {
@@ -142,6 +152,14 @@ var TabMaker = React.createClass({
           {body}
         </content>
 
+        {this.makeAnnotationEditButton(annotation)}
+      </div>
+    );
+  }, 
+
+  makeAnnotationEditButton: function(annotation) {
+    if (this.context.currentUser.id === parseInt(this.context.userId)) {
+      return (
         <div className="tab-button-row">
           <button 
             className="square-button btn-small btn-noborder"
@@ -150,9 +168,9 @@ var TabMaker = React.createClass({
             Edit
           </button>
         </div>
-      </div>
-    );
-  }, 
+      );
+    }
+  },
 
   render: function() {
     return (

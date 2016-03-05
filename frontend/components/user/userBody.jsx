@@ -29,7 +29,7 @@ var UserBody = React.createClass({
   render: function() {
     return (
       <div className="user-body word-wrap">
-        {this.context.body}
+        {this.context.body || "Tell us about yourself!"}
         {this.createEditButton()}
 
       </div>

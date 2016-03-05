@@ -13,12 +13,14 @@ var UserDetail = React.createClass({
   },
 
   childContextTypes: {
-    body: React.PropTypes.string
+    body: React.PropTypes.string,
+    userId: React.PropTypes.string
   },
 
   getChildContext: function() {
     return {
-      body: this.state.user.body
+      body: this.state.user.body,
+      userId: this.props.params.userId
     };
   },
 
