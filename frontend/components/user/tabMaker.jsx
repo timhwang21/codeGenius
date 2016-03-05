@@ -28,8 +28,30 @@ var TabMaker = React.createClass({
 
   makeSnippetList: function(snippets) {
     var that = this;
-    if (snippets) {
+    if (snippets && snippets.length > 0) {
       return snippets.map((snippet, i) => that.makeSnippetListItem(snippet, i));
+    } else {
+      return (
+        <div className="user-tab-row empty" key="0" id="0">
+          <div className="user-tab-header-container">
+            <header className="user-tab-header-medium">
+              <div className="tab-link-box">
+                No snippets!
+              </div>
+            </header>
+
+            <header className="user-tab-header-small">
+              <div className="tab-link-box">
+                <Link
+                  to={"main/snippets/new"}
+                  className="tab-link">
+                  Go write one!
+                </Link>
+              </div>
+            </header>
+          </div>
+        </div>
+      );
     }
   },
 
@@ -72,8 +94,21 @@ var TabMaker = React.createClass({
 
   makeAnnotationList: function(annotations) {
     var that = this;
-    if (annotations) {
+    if (annotations && annotations.length > 0) {
       return annotations.map((annotation, i) => that.makeAnnotationListItem(annotation, i));
+    } else {
+      return (
+        <div className="user-tab-row empty" key="0" id="0">
+          <div className="user-tab-header-container">
+            <header className="user-tab-header-medium">
+              <div className="tab-link-box">
+                No annotations!
+              </div>
+            </header>
+          </div>
+
+        </div>
+      );
     }
   },
 

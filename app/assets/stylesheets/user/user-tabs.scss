@@ -69,6 +69,10 @@
   border: none;
 }
 
+.empty {
+  margin-bottom: 15px;
+}
+
 .user-body {
   color: white;
   font-family: 'Open Sans', Arial, sans-serif;
@@ -81,7 +85,7 @@
 }
 
 .user-tab-header-medium {
-  color: white;
+  /*color: white;*/
   font-family: 'menlo', Consolas, monospace;
   font-size: 24px;
   height: 1em;
@@ -126,8 +130,7 @@
 .tab-button-row {
   display: flex;
   justify-content: flex-start;
-  margin: 6px 30px;
-  width: 90%;
+  margin: 6px 24px;
   visibility: hidden;
   transition: opacity .2s linear;
   -webkit-transition: opacity .2s linear;
@@ -140,7 +143,8 @@
 }
 
 .user-tab-row:hover {
-  background: #39382F;
+  background: #29281F;
+  /*color: white;*/
   transition: background .2s linear;
   -webkit-transition: background .2s linear;
 }

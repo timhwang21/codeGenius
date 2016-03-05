@@ -33,6 +33,18 @@ var AuthPage = React.createClass({
     };
 
     console.log("Params", userParams);
+    ApiUtil.createUser(userParams, this.handleSignInAfterSignUp)
+  },
+
+  handleSignInAfterSignUp: function(id) {
+    var userParams = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    ApiUtil.fetchNewSession(userParams, function() {
+      this.context.router.push("/main/user/" + id);
+    }.bind(this));
   },
 
   handleSignIn: function(event) {
