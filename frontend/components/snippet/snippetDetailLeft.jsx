@@ -84,7 +84,9 @@ var SnippetDetailLeft = React.createClass({
         <header className="snippet-header-text">
           <p>Author:&nbsp;
             <span className="link-box" onClick={this.doNothing}>
-              <Link to={"main/users/" + snippet.author_id}>{snippet.author}</Link>
+              <Link to={"main/user/" + snippet.author_id} className="show-link">
+                {snippet.author}
+              </Link>
             </span></p>
           <p>Views:&nbsp;{snippet.views}</p>
         </header>

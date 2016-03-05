@@ -1,8 +1,9 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var UserStore = require('../../stores/userStore');
 var ApiUtil = require('../../util/ApiUtil');
-var Tabs = require('react-simpletabs');
+var TabMaker = require('./tabMaker');
 
 var UserDetail = React.createClass({
 
@@ -66,61 +67,8 @@ var UserDetail = React.createClass({
     return this.state.user.annotations ? this.state.user.annotations.length : 0;
   },
 
-  makeSnippetList: function() {
-    var snippets = this.state.user.snippets;
-    var that = this;
-    if (snippets) {
-      return snippets.map((snippet, i) => that.makeSnippetListItem(snippet, i));
-    }
-  },
-
-  makeSnippetListItem: function(snippet, i) {
-    return (
-      <div>
-        <header className="snippet-header-medium">
-          {snippet.title}
-        </header>
-
-        <header>
-          {snippet.language}
-        </header>
-      </div>
-    );
-  },
-
-  makeAnnotationList: function() {
-    var annotations = this.state.user.annotations;
-    var that = this;
-    if (annotations) {
-      return annotations.map((annotation, i) => that.makeAnnotationListItem(annotation, i));
-    }
-  },
-
-  makeAnnotationListItem: function(annotation, i) {
-    var body;
-
-    if (annotation.body.length > 20) {
-      body = annotation.body.slice(0, 20) + "...";
-    } else {
-      body = annotation.body;
-    }
-
-    return (
-      <div>
-        <header className="snippet-header-medium">
-          {annotation.snippet_title}
-        </header>
-
-        <header>
-          {body}
-        </header>
-      </div>
-    );
-
-  },
 
   render: function() {
-    // debugger;
     return(
       <section className="user-index">
         <div className="user-wrapper">
@@ -149,18 +97,7 @@ var UserDetail = React.createClass({
 
           </article>
 
-          <article className="user-col-right-pane">
-            <Tabs>
-              <Tabs.Panel title={"Snippets (" + this.numSnippets() + ")"}>
-                <header>{this.makeSnippetList()}</header>
-              </Tabs.Panel>
-              <Tabs.Panel title={"Annotations (" + this.numAnnotations() + ")"}>
-                <header>{this.makeAnnotationList()}</header>
-              </Tabs.Panel>
-
-            </Tabs>
-
-          </article>
+          <TabMaker user={this.state.user} />
         </div>
       </section>
     );

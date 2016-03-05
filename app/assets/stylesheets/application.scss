@@ -45,7 +45,7 @@ html, body, #root, .app {
   width: 100%;
 }
 
-a {
+.nav-link, .body-link, .show-link {
   color: #99a7ee;
 }
 
@@ -187,6 +187,10 @@ pre, .word-wrap {
 .square-button:hover {
   background: rgba(97, 96, 87, 0.3);
   /*color: #F6F7EE;*/
+}
+
+.btn-small {
+  font-size: 12px;
 }
 
 .btn-submit {

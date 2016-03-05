@@ -83,7 +83,9 @@ var AnnotationDetail = React.createClass({
         <header className="snippet-header-text">
           <p>Author:&nbsp;
             <span className="link-box" onClick={this.doNothing}>
-              <Link to={"main/users/" + this.state.annotation.author_id}>{this.state.annotation.author}</Link>
+              <Link to={"main/user/" + this.state.annotation.author_id} className="show-link">
+                {this.state.annotation.author}
+              </Link>
             </span></p>
         </header>
 
