@@ -66,6 +66,10 @@
   margin: 0 20px;
 }
 
+.user-iq {
+  align-items: center;
+}
+
 .search-dropdown {
   background: #1D1E19;
   display: flex;
@@ -117,11 +121,10 @@
   height: 34px;
   padding: 0 30%;
 
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
-/* TODO - for dropdown lists */
 .nav-menu-sub {
   left: 36em;
   top: 5em;
@@ -137,7 +140,6 @@
 }
 
 .nav-menu-sub-link { 
-  /*nav-menu-sub-link*/
   display: block;
   width: 100%;
   padding: .3em .8em;
