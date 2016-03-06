@@ -55,6 +55,7 @@ var App = React.createClass({
   },
 
   handleLogOut: function() {
+    localStorage.removeItem('currentUser');
     ApiUtil.destroySession();
   },
 

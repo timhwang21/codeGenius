@@ -25,8 +25,6 @@ var SessionApiUtil = {
       url: "api/session",
       type: "DELETE", 
       success: function() {
-        localStorage.removeItem('currentUser');
-
         sessionActions.receiveLogoutRequest();
         callback && callback();
       }

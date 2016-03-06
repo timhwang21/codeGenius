@@ -37,10 +37,19 @@ function requireAuth(nextState, replace) {
   }
 }
 
+function requireLoggedOut(nextState, replace) {
+  if (localStorage.currentUser) {
+    replace({
+      pathname: '/main',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
+
 var routes = (
   <Route path="/" component={App}>
     <IndexRedirect to="auth" />
-    <Route path="auth" component={AuthPage} /> {/* eventually make this the index */}
+    <Route path="auth" component={AuthPage} onEnter={requireLoggedOut} /> 
 
     <Route path="main" component={Main}>
       <IndexRoute component={Index} />

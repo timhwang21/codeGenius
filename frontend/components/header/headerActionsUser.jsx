@@ -38,8 +38,6 @@ var HeaderActionsUser = React.createClass({
     return (
       <div className="header-actions noselect" onClick={this.handleClick}>
         <div className="user-profile-bar" >
-          {this.context.currentUser.username}
-
           <img 
             className="user-profile-small"
             src={"assets/" + this.context.currentUser.image_url} />

@@ -38,15 +38,19 @@
 }
 
 .header-logo {
-  margin: 0 auto;
-  position: relative;
+  /*margin: 0 auto;*/
+  /*position: relative;*/
   height: 100%;
   width: 202px;
   z-index: 1;
 }
 
+.header-actions-container {
+  width: 16%;
+  justify-content: flex-end;
+}
+
 .header-actions {
-  flex: 0 0 225px;
   justify-content: center;
 }
 
