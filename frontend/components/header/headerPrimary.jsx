@@ -6,6 +6,14 @@ var headerLogo = "/assets/codegenius-logo-small";
 var SessionStore = require('../../stores/sessionStore');
 var HeaderActionsNoUser = require('./headerActionsNoUser');
 var HeaderActionsUser = require('./headerActionsUser');
+var SearchBar = require('./search/searchBar');
+
+var RESULTS = [
+  'Ruby',
+  'Java',
+  'Python',
+  'Swift'
+];
 
 var HeaderPrimary = React.createClass({
   contextTypes: {
@@ -29,7 +37,7 @@ var HeaderPrimary = React.createClass({
     return(
       <div className="header-primary">
         <div className="header-searchbar">
-          <p>SEARCHBAR GOES HERE</p>
+          <SearchBar results={RESULTS}/>
         </div>
 
         <div className="header-logo noselect">

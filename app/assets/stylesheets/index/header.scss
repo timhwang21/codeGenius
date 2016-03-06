@@ -54,10 +54,22 @@
   margin: 0 20px;
 }
 
+.search-dropdown {
+  background: #1D1E19;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  border: 2px solid red;
+  padding: .5em;
+  z-index: 1;
+}
+
 .header-dropdown {
   background: #1D1E19;
   display: flex;
-  /*align-items: flex-start;*/
   justify-content: flex-start;
   flex-direction: column;
   position: absolute;

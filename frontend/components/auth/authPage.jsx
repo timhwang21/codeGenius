@@ -77,24 +77,22 @@ var AuthPage = React.createClass({
     that = this;
 
     var username = "demosthenes".split("");
-    var pw = "demodemo".split("");
+    var password = "demodemo".split("");
     var time = 50;
 
     username.forEach(function (letter) {
       time += 50;
       setTimeout(function () {
-        var username = that.state.username;
-        that.setState({username: username + letter});
+        that.setState({username: that.state.username + letter});
       }, time);
     });
 
     time += 500;
 
-    pw.forEach(function (letter) {
+    password.forEach(function (letter) {
       time += 50;
       setTimeout(function () {
-        var password = that.state.password;
-        that.setState({password: password + letter});
+        that.setState({password: that.state.password + letter});
       }, time);
     });
 
