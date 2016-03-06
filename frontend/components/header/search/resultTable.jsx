@@ -15,6 +15,9 @@ var ResultTable = React.createClass({
                 {snippet.title}
               </Link>
             </div>
+            <div className="search-row-language">
+              {snippet.language}
+            </div>
           </div>
         );
       }

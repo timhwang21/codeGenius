@@ -14,7 +14,6 @@
 
 .header div, .header nav {
   display: flex;
-  align-items: center;
 }
 
 .header-primary {  
@@ -24,6 +23,7 @@
 
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header-searchbar, .header-logo, .header-actions-container {
@@ -43,6 +43,7 @@
   height: 100%;
   width: 202px;
   z-index: 1;
+  align-items: center;
 }
 
 .header-actions-container {
@@ -81,9 +82,15 @@
 }
 
 .search-row {
+  flex-direction: column;
+  align-items: flex-start;
   font-size: 14px;
   width: 100%;
   padding: .25em .5em;
+}
+
+.search-row-language {
+  font-size: 12px;
 }
 
 .header-dropdown {
