@@ -10,10 +10,28 @@ var HeaderActionsUser = React.createClass({
     redirectToAuth: React.PropTypes.func
   },
 
+  getInitialState: function() {
+    return {display: "none"};
+  },
+
   handleClick: function(event) {
     event.preventDefault();
-    // replace with showing dropdown + signout
-    this.context.router.push('main/user/' + this.context.currentUser.id)
+    if (this.state.display == "none") {
+      this.setState({display: "flex"})
+    } else {
+      this.setState({display: "none"})
+    }
+  },
+
+  // div 
+  //   className="snippet-img-box" 
+  //   style={{backgroundImage: "url(" + image_url + ")"}}
+  // /
+
+  handleLogoutClick: function(event) {
+    event.preventDefault();
+    this.context.handleLogOut();
+    this.context.redirectToAuth();
   },
 
   render: function() {
@@ -29,6 +47,25 @@ var HeaderActionsUser = React.createClass({
 
         <div className="user-iq">
           {this.context.currentUser.iq} &nbsp;▾
+        </div>
+
+        <div className="header-dropdown" style={{display: this.state.display}}>
+          <div className="dropdown-row">
+            <div className="link-box">
+              <Link 
+                to={"main/user/" + this.context.currentUser.id}
+                className="show-link">
+                View Profile
+              </Link>
+            </div>
+          </div>
+          <div className="dropdown-row">
+            <div className="link-box">
+              <div className="show-link" onClick={this.handleLogoutClick}>
+                Sign Out
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

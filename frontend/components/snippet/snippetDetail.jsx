@@ -86,8 +86,3 @@ var SnippetDetail = React.createClass({
 });
 
 module.exports = SnippetDetail;
-
-// div 
-//   className="snippet-img-box" 
-//   style={{backgroundImage: "url(" + image_url + ")"}}
-// /

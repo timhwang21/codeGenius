@@ -7,16 +7,9 @@
 }
 
 .nav-link {
-  border-top-left-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border-right: 1px solid black;
-  color: #99a7ee;
-  display: inline-block;
   padding: 2px 3px 1px 3px;
   font-size: 12px;
   text-transform: uppercase;
-  transition: .1s;
-  white-space: nowrap;
 }
 
 .header div, .header nav {
@@ -31,7 +24,6 @@
 
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .header-searchbar {
@@ -62,12 +54,31 @@
   margin: 0 20px;
 }
 
+.header-dropdown {
+  background: #1D1E19;
+  display: flex;
+  /*align-items: flex-start;*/
+  justify-content: flex-start;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  /*border: 2px solid red;*/
+  padding: .5em;
+  z-index: 1;
+}
+
+.dropdown-row {
+  width: 100%;
+  padding: .25em 1em;
+}
+
 .header-nav {
   height: 34px;
   padding: 0 30%;
 
   align-content: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* TODO - for dropdown lists */

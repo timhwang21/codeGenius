@@ -28,6 +28,15 @@ var UserBodyForm = require('./components/user/userBodyForm');
 // var requireLoggedIn = function(nextState, transition, callback) {
 // } listen to sessionstore, see if anyone there, if not, transition to
 
+function requireAuth(nextState, replace) {
+  if (!localStorage.currentUser) {
+    replace({
+      pathname: '/auth',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
+
 var routes = (
   <Route path="/" component={App}>
     <IndexRedirect to="auth" />
@@ -35,19 +44,19 @@ var routes = (
 
     <Route path="main" component={Main}>
       <IndexRoute component={Index} />
-      <Route path="snippets/new" component={SnippetFormPage} />
+      <Route path="snippets/new" component={SnippetFormPage} onEnter={requireAuth} />
       <Route path="snippets/:snippetId" component={SnippetDetail}>
         <IndexRoute component={SnippetDetailRight} />
-        <Route path="annotations/new/:lineIdx" component={AnnotationFormPage} />
+        <Route path="annotations/new/:lineIdx" component={AnnotationFormPage} onEnter={requireAuth} />
         <Route path="annotations/:annotationId" component={AnnotationDetail} />
-        <Route path="annotations/:annotationId/edit" component={AnnotationFormPage} />
+        <Route path="annotations/:annotationId/edit" component={AnnotationFormPage} onEnter={requireAuth}/>
       </Route>
       
-      <Route path="snippets/:snippetId/edit" component={SnippetFormPage} />
+      <Route path="snippets/:snippetId/edit" component={SnippetFormPage} onEnter={requireAuth}/>
 
       <Route path="user/:userId" component={UserDetail}>
         <IndexRoute component={UserBody} />
-        <Route path="edit" component={UserBodyForm} />
+        <Route path="edit" component={UserBodyForm} onEnter={requireAuth}/>
       </Route>
     </Route>
   </Route>

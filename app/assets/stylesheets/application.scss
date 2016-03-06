@@ -46,7 +46,13 @@ html, body, #root, .app {
 }
 
 .nav-link, .body-link, .show-link {
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-right: 1px solid black;
+  display: inline-block;
   color: #99a7ee;
+  transition: .1s;
+  white-space: nowrap;
 }
 
 label {
@@ -142,11 +148,6 @@ pre, .word-wrap {
 }
 
 .body-link {
-  transition: .1s;
-  border-top-left-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border-right: 1px solid rgba(0, 0, 0, 0);
-  display: inline-block;
   font-size: 12px;
 }
 

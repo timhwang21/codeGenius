@@ -6,11 +6,22 @@ var LanguageDropDown = require("./languageDropDown");
 var TypeDropDown = require("./typeDropDown");
 
 var Header = React.createClass({
+  contextTypes: {
+    loggedIn: React.PropTypes.bool,
+  },
+  
+  createNewSnippetBar: function() {
+    if (this.context.loggedIn) {
+      return(
+        <HeaderNav />
+      );
+    }
+  },
   render: function() {
     return(
       <header className="header">
         <HeaderPrimary />
-        <HeaderNav />
+        {this.createNewSnippetBar()}
       </header>
     );
   }

@@ -21,39 +21,3 @@
 .annotation-body {
   margin-top: 20px;
 }
-
-.annotation-detail {
-  -webkit-animation: annotation-fade-in .2s linear;
-  -moz-animation: annotation-fade-in .2s linear;
-  -ms-animation: annotation-fade-in .2s linear;
-  -o-animation: annotation-fade-in .2s linear;
-  animation: annotation-fade-in .2s linear;
-}
-
-.annotation-form-page {
-  -webkit-animation: fade-in .2s linear;
-  -moz-animation: fade-in .2s linear;
-  -ms-animation: fade-in .2s linear;
-  -o-animation: fade-in .2s linear;
-  animation: fade-in .2s linear;
-}
-
-@keyframes annotation-fade-in {
-  0% { 
-    opacity: 0; 
-    transform: translateX(20px);
-  }
-  100% { 
-    opacity: 1; 
-  }
-}
-
-@-webkit-keyframes annotation-fade-in {
-  0% { 
-    opacity: 0; 
-    transform: translateX(20px);
-  }
-  100% { 
-    opacity: 1; 
-  }
-}

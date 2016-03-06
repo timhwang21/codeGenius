@@ -56,7 +56,6 @@ var App = React.createClass({
 
   handleLogOut: function() {
     ApiUtil.destroySession();
-    this.context.router.replace("/");
   },
 
   _onChange: function() {

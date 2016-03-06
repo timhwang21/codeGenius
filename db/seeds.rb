@@ -83,7 +83,7 @@ Snippet.create!(
   author_id: 1,
   language_id: 3,
   title: "def timBSearch",
-  views: 99999,
+  views: 15,
   body:
   <<-code.chomp,
 Array.prototype.bsearch = function(target) {
@@ -115,7 +115,7 @@ Array.prototype.bsearch = function(target) {
     author_id: author_id,
     language_id: language_id,
     title: problems[i],
-    views: rand(1000),
+    views: rand(10),
     body: 
     <<-code.chomp,
 def #{problems[i]}(n)

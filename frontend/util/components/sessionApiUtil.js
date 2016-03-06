@@ -8,6 +8,8 @@ var SessionApiUtil = {
       {user: userParams},
       function(fetchedUser) {
         if (Object.keys(fetchedUser).length > 0) {
+          localStorage.setItem('currentUser', fetchedUser.username);
+
           sessionActions.receiveUser(fetchedUser);
         }
         callback && callback();
@@ -23,6 +25,8 @@ var SessionApiUtil = {
       url: "api/session",
       type: "DELETE", 
       success: function() {
+        localStorage.removeItem('currentUser');
+
         sessionActions.receiveLogoutRequest();
         callback && callback();
       }
