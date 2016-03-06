@@ -11,8 +11,8 @@ var SessionApiUtil = {
           localStorage.setItem('currentUser', fetchedUser.username);
 
           sessionActions.receiveUser(fetchedUser);
+          callback && callback();
         }
-        callback && callback();
       }).fail(function() {
         console.log("Fail!");
         // errorActions.receiveAuthError("Invalid email / password.")

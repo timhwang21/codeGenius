@@ -38,7 +38,7 @@ var AuthPage = React.createClass({
       username: this.state.username,
       password: this.state.password
     };
-    
+    debugger;
     ApiUtil.createUser(userParams, this.handleSignInAfterSignUp)
   },
 
@@ -48,9 +48,9 @@ var AuthPage = React.createClass({
       password: this.state.password
     };
 
-    localStorage.setItem('currentUser', this.state.username);
 
     ApiUtil.fetchNewSession(userParams, function() {
+      localStorage.setItem('currentUser', this.state.username);
       this.context.router.push("/main/user/" + id);
     }.bind(this));
   },
@@ -65,16 +65,16 @@ var AuthPage = React.createClass({
       password: this.state.password
     };
 
-    localStorage.setItem('currentUser', this.state.username);
 
     ApiUtil.fetchNewSession(userParams, function() {
+      localStorage.setItem('currentUser', this.state.username);
       this.context.router.push("/main");
     }.bind(this));
   },
 
   handleDemo: function(event) {
     event.preventDefault();
-    that = this;
+    var that = this;
 
     var username = "demosthenes".split("");
     var password = "demodemo".split("");
