@@ -15,8 +15,6 @@ var SessionApiUtil = {
         }
       }).fail(function() {
         console.log("Fail!");
-        // errorActions.receiveAuthError("Invalid email / password.")
-        // Why is this requesting from 'sessioncontroller'?
       })
   },
 
@@ -38,6 +36,8 @@ var SessionApiUtil = {
       function(currentUser) {
         if (Object.keys(currentUser).length !== 0) {
           sessionActions.receiveUser(currentUser);
+        } else {
+          localStorage.removeItem('currentUser');
         }
       }
     );

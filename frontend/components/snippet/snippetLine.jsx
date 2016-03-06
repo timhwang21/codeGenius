@@ -8,7 +8,7 @@ var SnippetLine = React.createClass({
   },
 
   handleClick: function(event) {
-    if (this.context.loggedIn) {
+    if (this.context.loggedIn && this.props.line.trim().length > 0) {
       this.context.router.push("main/snippets/" + this.props.snippetId + "/annotations/new/" + this.props.lineIdx)
       event.stopPropagation();
     }
