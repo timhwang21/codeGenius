@@ -190,6 +190,10 @@ pre, .word-wrap {
   /*color: #F6F7EE;*/
 }
 
+.square-button:active {
+  background: rgba(97, 96, 87, 0.75);
+}
+
 .btn-small {
   font-size: 12px;
 }
@@ -203,12 +207,21 @@ pre, .word-wrap {
   background: rgba(14,203,39,0.3);
 }
 
+.btn-submit:active {
+  background: rgba(14,203,39,0.5);
+}
+
 .btn-delete {
   border: none;
 }
 
 .btn-delete:hover {
   background: rgba(225,20,20,0.3);
+  color: rgb(255,20,20);
+}
+
+.btn-delete:active {
+  background: rgba(225,20,20,0.5);
   color: rgb(255,20,20);
 }
 
