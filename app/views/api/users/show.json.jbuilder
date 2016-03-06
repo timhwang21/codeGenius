@@ -29,6 +29,7 @@ json.annotations @user.annotations do |annotation|
   json.id annotation.id
   json.snippet_id annotation.snippet_id
   json.snippet_title annotation.snippet.title
+  json.title annotation.snippet.body.split("\n")[annotation.line_idx]
   json.line_idx annotation.line_idx
   json.body annotation.body
   json.upvotes annotation.upvotes

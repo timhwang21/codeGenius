@@ -123,6 +123,7 @@ var TabMaker = React.createClass({
   },
 
   makeAnnotationListItem: function(annotation, i) {
+    debugger;
     var body = annotation.body;
     
     return (

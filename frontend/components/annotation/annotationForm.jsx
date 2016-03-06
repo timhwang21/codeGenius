@@ -21,6 +21,7 @@ var AnnotationForm = React.createClass({
       }
     }
     return {
+      title: '',
       body: ''
     };
   },
@@ -49,9 +50,7 @@ var AnnotationForm = React.createClass({
   _onChange: function() {
     var id = parseInt(this.props.params.annotationId);
     var annotation = AnnotationStore.find(id);
-    this.setState({
-      body: annotation.body
-    });
+    this.setState(annotation);
     this.changeToken.remove();
   },
 
@@ -102,6 +101,8 @@ var AnnotationForm = React.createClass({
     if (this.props.params.lineIdx) {
       var lineIdx = parseInt(this.props.params.lineIdx); 
       return (this.context.lines ? this.context.lines[lineIdx].trim() : undefined);      
+    } else {
+      return this.state.title;
     }
   },
 

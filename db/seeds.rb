@@ -129,7 +129,7 @@ end
     Annotation.create!(
       author_id: author_id,
       snippet_id: i + 1,
-      line_idx: j*2+rand(2),
+      line_idx: j,
       body: Faker::Hipster.paragraph(3),
       upvotes: rand(1..100),
       downvotes: rand(1..10)
