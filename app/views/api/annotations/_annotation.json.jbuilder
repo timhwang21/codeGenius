@@ -1,6 +1,6 @@
 json.extract!(
   annotation,
-  :id, :title, :author_id, :snippet_id, :line_idx, :body, :upvotes, :downvotes
+  :id, :author_id, :snippet_id, :line_idx, :body, :upvotes, :downvotes
 )
 
 json.author annotation.author.username

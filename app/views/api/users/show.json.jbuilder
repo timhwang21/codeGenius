@@ -27,7 +27,6 @@ end
 
 json.annotations @user.annotations do |annotation|
   json.id annotation.id
-  json.title annotation.title
   json.snippet_id annotation.snippet_id
   json.snippet_title annotation.snippet.title
   json.line_idx annotation.line_idx

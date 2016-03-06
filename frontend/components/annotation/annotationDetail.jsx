@@ -7,7 +7,8 @@ var ApiUtil = require('../../util/ApiUtil.js');
 var AnnotationDetail = React.createClass({
   contextTypes: {
     router: React.PropTypes.object,
-    currentUser: React.PropTypes.object
+    currentUser: React.PropTypes.object,
+    lines: React.PropTypes.array
   },
 
   getInitialState: function() {
@@ -75,10 +76,17 @@ var AnnotationDetail = React.createClass({
     }
   },
 
+  parseTitle: function() {
+    if (typeof this.state.annotation.line_idx !== 'undefined') {
+      var lineIdx = this.state.annotation.line_idx; 
+      return (this.context.lines ? this.context.lines[lineIdx].trim() : undefined);      
+    } 
+  },
+
   render: function() {
     return (
       <section className="snippet-col-right-pane annotation-detail" onClick={this.doNothing}>
-        <header className="annotation-header">{this.state.annotation.title}</header>
+        <header className="annotation-header">{this.parseTitle()}</header>
 
         <header className="snippet-header-text">
           <p>Author:&nbsp;

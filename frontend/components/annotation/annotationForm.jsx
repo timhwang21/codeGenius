@@ -21,7 +21,6 @@ var AnnotationForm = React.createClass({
       }
     }
     return {
-      title: '',
       body: ''
     };
   },
@@ -42,7 +41,6 @@ var AnnotationForm = React.createClass({
   componentWillReceiveProps: function(newProps) {
     if (!this.props.params.annotationId) {
       this.setState({
-        title: '',
         body: ''
       });
     }
@@ -52,7 +50,6 @@ var AnnotationForm = React.createClass({
     var id = parseInt(this.props.params.annotationId);
     var annotation = AnnotationStore.find(id);
     this.setState({
-      title: annotation.title,
       body: annotation.body
     });
     this.changeToken.remove();
@@ -62,7 +59,6 @@ var AnnotationForm = React.createClass({
     event.preventDefault();
     var snippetId = this.props.params.snippetId;
     var annotation = {
-      title: this.parseTitle(),
       body: this.state.body.trim(),
     };
 
@@ -106,8 +102,6 @@ var AnnotationForm = React.createClass({
     if (this.props.params.lineIdx) {
       var lineIdx = parseInt(this.props.params.lineIdx); 
       return (this.context.lines ? this.context.lines[lineIdx].trim() : undefined);      
-    } else {
-      return this.state.title;
     }
   },
 

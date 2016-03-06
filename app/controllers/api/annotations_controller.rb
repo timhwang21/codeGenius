@@ -37,7 +37,6 @@ class Api::AnnotationsController < ApplicationController
     params.require(:annotation).permit(
       :author_id, # TODO: remove; fish from current user
       :snippet_id, # TODO: remove, fish from page params
-      :title, 
       :body,
       :line_idx
     )
