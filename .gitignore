@@ -19,7 +19,8 @@
 
 # Ignore JS stuff
 node_modules
-
+bundle.js
+bundle.js.map
 
 # Ignore Rails stuff
 *.rbc
