@@ -18,98 +18,71 @@ var IndexLeft = React.createClass({
 
         <article className="index-article">
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            The purpose of codeGenius is to serve as an online knowledge base for code. 
+            Users can upload snippets of code for others to view and annotate. By 
+            annotating code snippets, users can provide more in-depth explanations for 
+            their code that may not be apparent at first glance. 
           </div>
 
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            After signing in, click on the "Add Snippet" link in the center of the nav 
+            bar to begin writing your first snippet! Try to give your snippet a descriptive 
+            title and description. Once you're finished, hit "Save." It's that easy! Now 
+            that your snippet is saved, you can edit or delete the snippet from its page.
           </div>
 
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Once you've successfully created your snippet, you can start annotating it! 
+            Click on any line in your snippet to begin writing an annotation. Annotations 
+            are explanations, thoughts, or general notes that are bound to individual lines 
+            of code in snippets. Try clicking on a line in your new snippet and adding your 
+            thoughts! Be sure to save once you've finished.
+          </div>
+
+          <div>
+            Congratulations! You're now ready to start annotating the world!
           </div>
         </article>
 
         <header className="header-large">
-          <p>Sample article 2</p>
+          <p>The story behind codeGenius</p>
         </header>
 
         <article className="index-article">
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            codeGenius is inspired by both Rapgenius, a lyrics annotation website, and 
+            Rosettacode.org, a website which provides solutions to programming problems 
+            in a wide variety of languages. The motivation to create codeGenius came from 
+            the fact that while websites like Rosettacode present a valuable resource 
+            for beginning programmers, they often fail to provide the in-depth guidance 
+            needed to promote a deep level of understanding. When I was first learning to 
+            program, I found myself wishing for more in-depth notes for the code I was 
+            reading. Why is this loop here? What does that function call do?
           </div>
 
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Thus, the motivation for codeGenius was born. By combining the annotation 
+            functionality of Rapgenius with Rosettacode's concept of programming 
+            chrestomathy, I hope to provide a valuable resource to aid the learning of 
+            other new programmers.
           </div>
 
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </div>
         </article>
 
         <header className="header-large">
-          <p>Sample article 3</p>
+          <p>Features to come</p>
         </header>
 
         <article className="index-article">
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            codeGenius was created in two weeks as a capstone project for App Academy. 
+            While the project is currently "complete," projects such as these are never 
+            truly finishes, and there are still many features that can be added to make 
+            codeGenius a more fully fledged site. Features planned for the short term 
+            include commenting, a voting system, a user IQ system, sorting by languages, 
+            syntax highlighting, and tagging functionality.
           </div>
 
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. If you've read this far, stop wasting 
-            your time and actually review the site. Why would you even read nine identical 
-            blocks of lorem ipsum? Get a life.
-          </div>
         </article>
       </article>
     );

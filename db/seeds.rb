@@ -44,7 +44,6 @@ languages = %w(
   Processing
   Python
   R
-  React.js
   Ruby
   Scala
   Swift
