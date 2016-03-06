@@ -30,7 +30,7 @@ var HeaderPrimary = React.createClass({
 
   getInitialState: function() {
     return {
-      searchbarStyle: {width: "20%"},
+      searchbarStyle: {width: "18.5%"},
       otherStyle: {display: "flex"},
       snippets: SnippetStore.all() ? SnippetStore.all() : []
     }
@@ -65,7 +65,7 @@ var HeaderPrimary = React.createClass({
       searchbarStyle: {
         background: "#1D1E19",
         borderBottom: "1px solid #39382F",
-        width: "20%",
+        width: "18.5%",
         fontSize: "16px"
       },
       otherStyle: {display: "flex"},

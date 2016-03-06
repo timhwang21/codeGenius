@@ -1,6 +1,6 @@
 var React = require('react');
 var Link = require('react-router').Link;
-var ApiUtil = require('../../util/apiUtil');
+var ApiUtil = require('../../util/ApiUtil');
 var Tabs = require('react-simpletabs');
 
 
