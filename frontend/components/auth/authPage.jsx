@@ -2,6 +2,13 @@ var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ApiUtil = require('../../util/ApiUtil.js');
 
+var background = {
+  background: "rgba(255,100,100,.25)"
+};
+
+var noBackground = {
+  background: "none"
+};
 
 var AuthPage = React.createClass({
   mixins: [LinkedStateMixin],
@@ -49,7 +56,9 @@ var AuthPage = React.createClass({
   },
 
   handleSignIn: function(event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
 
     var userParams = {
       username: this.state.username,
@@ -65,16 +74,34 @@ var AuthPage = React.createClass({
 
   handleDemo: function(event) {
     event.preventDefault();
+    that = this;
 
-    // change to have fancy typing
-    var userParams = {
-      username: 'demosthenes',
-      password: 'demodemo'
-    };
+    var username = "demosthenes".split("");
+    var pw = "demodemo".split("");
+    var time = 50;
 
-    ApiUtil.fetchNewSession(userParams, function() {
-      this.context.router.push("/main");
-    }.bind(this)); 
+    username.forEach(function (letter) {
+      time += 50;
+      setTimeout(function () {
+        var username = that.state.username;
+        that.setState({username: username + letter});
+      }, time);
+    });
+
+    time += 500;
+
+    pw.forEach(function (letter) {
+      time += 50;
+      setTimeout(function () {
+        var password = that.state.password;
+        that.setState({password: password + letter});
+      }, time);
+    });
+
+    time += 500;
+
+    setTimeout(this.handleSignIn, time);
+
   },
 
   handleBack: function(event) {
@@ -111,6 +138,7 @@ var AuthPage = React.createClass({
                 type="text" 
                 className="login-form-input"
                 ref="username"
+                id="user-username"
                 valueLink={this.linkState("username")} />
               ;
             </div>
@@ -124,6 +152,11 @@ var AuthPage = React.createClass({
               <input 
                 type="password" 
                 className="login-form-input"
+                id="user-password"
+                style={
+                  this.state.password.length > 0 && this.state.password.length < 6
+                  ? background
+                  : noBackground}
                 valueLink={this.linkState("password")} />
               ;
             </div>
