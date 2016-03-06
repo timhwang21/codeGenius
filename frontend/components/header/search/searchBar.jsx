@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var ResultTable = require('./resultTable');
@@ -12,6 +13,30 @@ var SearchBar = React.createClass({
     };
   },
 
+  makeResultTable: function() {
+    if (this.state.filterText !== '') {
+      return (        
+        <ResultTable
+          snippets={this.props.snippets}
+          filterText={this.state.filterText}/>
+      );
+    }
+  },
+
+  handleClick: function (event) {  
+    if (!ReactDOM.findDOMNode(this).contains(event.target)) {
+      this.setState({filterText: ''});
+    }
+  },
+
+  componentDidMount: function() {
+    document.addEventListener('click', this.handleClick, false);
+  },
+
+  componentWillUnmount: function() {
+    document.removeEventListener('click', this.handleClick, false);
+  },
+
   render: function() {
     return (
       <div>
@@ -19,15 +44,13 @@ var SearchBar = React.createClass({
           <input
             type="text"
             ref="filterTextInput"
-            placeholder="Search..."
+            className="searchbar yellow"
+            placeholder="⌕ Search codeGenius..."
             valueLink={this.linkState("filterText")}
           />
 
         </form>
-        <ResultTable
-          results={this.props.results}
-          filterText={this.state.filterText}
-        />
+        {this.makeResultTable()}
       </div>
     );
   }

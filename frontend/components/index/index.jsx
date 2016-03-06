@@ -4,7 +4,6 @@ var IndexLeft = require('./indexLeft.jsx');
 var IndexRight = require('./indexRight.jsx');
 var PopularListItem = require('./popularListItem');
 
-// var News = require('./news/news.jsx')
 var SnippetStore = require('../../stores/snippetStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 

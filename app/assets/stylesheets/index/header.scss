@@ -26,8 +26,15 @@
   justify-content: space-between;
 }
 
+.header-searchbar, .header-logo, .header-actions-container {
+  transition-duration: .2s;
+}
+
 .header-searchbar {
-  width: 20%;
+  background: #1D1E19;
+  border-radius: 2px;
+  border-bottom: 1px solid #39382F;
+  padding: 0 6px;
 }
 
 .header-logo {
@@ -62,9 +69,15 @@
   position: absolute;
   top: 50px;
   left: 15px;
-  border: 2px solid red;
   padding: .5em;
   z-index: 1;
+  width: 180px;
+}
+
+.search-row {
+  font-size: 14px;
+  width: 100%;
+  padding: .25em .5em;
 }
 
 .header-dropdown {

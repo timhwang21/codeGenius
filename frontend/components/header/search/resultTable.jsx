@@ -3,21 +3,32 @@ var Link = require('react-router').Link;
 
 var ResultTable = React.createClass({
   makeRows: function() {
-    return this.props.results.map(function(result, i) {
-      if (result.indexOf(this.props.filterText) >= 0) {
-        return(
-          <div className="dropdown-row" key={result}>
+    var rows = [];
+    this.props.snippets.forEach(function(snippet, i) {
+      if (snippet.title.toLowerCase().indexOf(this.props.filterText.toLowerCase()) >= 0) {
+        rows.push(
+          <div className="search-row" key={snippet.title}>
             <div className="link-box">
               <Link
-                to="#"
+                to={"main/snippets/" + snippet.id}
                 className="show-link">
-                {result}
+                {snippet.title}
               </Link>
             </div>
           </div>
         );
       }
     }.bind(this));
+
+    if (rows.length > 0) {
+      return rows.slice(0, 10);
+    } else {
+      return (
+        <div className="search-row" key="row">
+          No results
+        </div>
+      );
+    }
   },
 
   render: function() {
