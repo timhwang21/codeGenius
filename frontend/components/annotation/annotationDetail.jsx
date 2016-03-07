@@ -79,7 +79,10 @@ var AnnotationDetail = React.createClass({
   parseTitle: function() {
     if (typeof this.state.annotation.line_idx !== 'undefined') {
       var lineIdx = this.state.annotation.line_idx; 
-      return (this.context.lines ? this.context.lines[lineIdx].trim() : undefined);      
+      if (this.context.lines) {
+        var line = this.context.lines[lineIdx].trim();
+        return (line.length > 50 ? line.slice(0, 50) + "..." : line);
+      }
     } 
   },
 
