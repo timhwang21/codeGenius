@@ -65,7 +65,7 @@ var TabMaker = React.createClass({
               <Link
                 to={"main/snippets/" + snippet.id}
                 className="tab-link">
-                {snippet.title.length > 27 ? snippet.title.slice(0, 30) + "..." : snippet.title}
+                {snippet.title.trim().length > 27 ? snippet.title.trim().slice(0, 30) + "..." : snippet.title.trim()}
               </Link>
             </div>
           </header>
@@ -96,6 +96,11 @@ var TabMaker = React.createClass({
           >
             Edit
           </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="tab-button-row">
         </div>
       );
     }
@@ -132,7 +137,7 @@ var TabMaker = React.createClass({
               <Link
                 to={"main/snippets/" + annotation.snippet_id + "/annotations/" + annotation.id}
                 className="tab-link">
-                {annotation.title.length > 27 ? annotation.title.slice(0, 30) + "..." : annotation.title}
+                {annotation.title.trim().length > 27 ? annotation.title.trim().slice(0, 30) + "..." : annotation.title.trim()}
               </Link>
             </div>
           </header>
