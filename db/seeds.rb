@@ -850,6 +850,21 @@ println(str3)
 
 Snippet.create!(
   author_id: rand(1..User.all.length),
+  language_id: 15,
+  title: "end_world_hunger.rb",
+  views: rand(15)+10,
+  body:
+  <<-code.chomp,
+def end_world_hunger
+  puts "too hard"
+  self.destruct
+end
+  code
+  desc: "My noble attempt to use Ruby to end world hunger."
+)
+
+Snippet.create!(
+  author_id: rand(1..User.all.length),
   language_id: 18,
   title: "make_america_great_again",
   views: rand(15),
