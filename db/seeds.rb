@@ -6,11 +6,22 @@ User.create!(
   password: 'demodemo'
 )
 
-10.times do 
-  name = Faker::Name.name
+users = %w(
+  john.von.neumann
+  billgates2
+  guidoVanRossum
+  matz
+  dknuth
+  linus_torvalds
+  tim.berners.lee
+  d_ritchie
+)
+
+users.each_with_index do |user, i| 
   User.create!(
-    username: Faker::Internet.user_name(name, %w(. _)),
-    body: Faker::Hipster.paragraph(3),
+    username: user,
+    image_url: "profile_" + i.to_s,
+    body: "I am a human codeGenius user. Or am I? Run a Turing test!",
     iq: rand(1000),
     password: '123qwe'
   )
