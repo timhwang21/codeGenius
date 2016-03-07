@@ -31,6 +31,7 @@ var SearchBar = React.createClass({
 
   handleEsc: function (event) {
     if (event.keyCode === 27) {
+      this.setState({filterText: ''});
       this.refs.filterTextInput.blur();
     }
   },
