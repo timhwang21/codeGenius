@@ -2,7 +2,7 @@ var sessionActions = require('../../actions/sessionActions');
 var errorActions = require('../../actions/errorActions');
 
 var SessionApiUtil = {
-  fetchNewSession: function(userParams, callback) {
+  fetchNewSession: function(userParams, callback, failureCallback) {
     $.post(
       "api/session",
       {user: userParams},
@@ -12,9 +12,11 @@ var SessionApiUtil = {
 
           sessionActions.receiveUser(fetchedUser);
           callback && callback();
+        } else {
+          failureCallback();
         }
       }).fail(function() {
-        console.log("Fail!");
+        failureCallback();
       })
   },
 

@@ -86,6 +86,7 @@ var HeaderPrimary = React.createClass({
       <div className="header-primary">
         <div 
           className="header-searchbar" 
+          ref="searchbar"
           style={this.state.searchbarStyle}
           onFocus={this.handleFocusSearchbar}
           onBlur={this.handleBlurSearchbar} >

@@ -12,7 +12,7 @@ var ResultTable = React.createClass({
               <Link
                 to={"main/snippets/" + snippet.id}
                 className="show-link">
-                {snippet.title}
+                {snippet.title.length > 30 ? snippet.title.slice(0, 27) + "..." : snippet.title}
               </Link>
             </div>
             <div className="search-row-language">

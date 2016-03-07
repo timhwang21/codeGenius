@@ -53,6 +53,4 @@ UserStore.__onDispatch = function(payload) {
   }
 };
 
-window.UserStore = UserStore;
-
 module.exports = UserStore;

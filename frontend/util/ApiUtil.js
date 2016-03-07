@@ -14,6 +14,4 @@ ApiUtil = Object.assign(ApiUtil, LanguageApiUtil);
 ApiUtil = Object.assign(ApiUtil, AnnotationApiUtil);
 ApiUtil = Object.assign(ApiUtil, SessionApiUtil);
 
-window.ApiUtil = ApiUtil;
-
 module.exports = ApiUtil;

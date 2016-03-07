@@ -14,7 +14,7 @@ var HeaderActionsNoUser = React.createClass({
             className="square-button btn-submit"
             onClick={this.context.redirectToAuth}
           >
-            Enter
+            Sign In
           </button>
         </div>
       </div>

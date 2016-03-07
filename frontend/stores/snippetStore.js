@@ -75,6 +75,4 @@ SnippetStore.__onDispatch = function(payload) {
   }
 };
 
-window.SnippetStore = SnippetStore
-
 module.exports = SnippetStore;

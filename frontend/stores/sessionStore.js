@@ -31,6 +31,4 @@ SessionStore.__onDispatch = function(payload) {
   }
 }
 
-window.SessionStore = SessionStore;
-
 module.exports = SessionStore;

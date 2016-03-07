@@ -25,7 +25,6 @@ var TabMaker = React.createClass({
 
   handleAnnotationEdit: function(snippetId, annotationId) {
     this.context.router.push("main/snippets/" + snippetId + "/annotations/" + annotationId + "/edit");
-    console.log("mouse enter");
   },
 
   makeSnippetList: function(snippets) {
@@ -66,7 +65,7 @@ var TabMaker = React.createClass({
               <Link
                 to={"main/snippets/" + snippet.id}
                 className="tab-link">
-                {snippet.title.length > 30 ? snippet.title.slice(0, 30) + "..." : snippet.title}
+                {snippet.title.length > 27 ? snippet.title.slice(0, 30) + "..." : snippet.title}
               </Link>
             </div>
           </header>
@@ -123,7 +122,6 @@ var TabMaker = React.createClass({
   },
 
   makeAnnotationListItem: function(annotation, i) {
-    debugger;
     var body = annotation.body;
     
     return (
@@ -134,7 +132,7 @@ var TabMaker = React.createClass({
               <Link
                 to={"main/snippets/" + annotation.snippet_id + "/annotations/" + annotation.id}
                 className="tab-link">
-                {annotation.title.length > 30 ? annotation.title.slice(0, 30) + "..." : annotation.title}
+                {annotation.title.length > 27 ? annotation.title.slice(0, 30) + "..." : annotation.title}
               </Link>
             </div>
           </header>

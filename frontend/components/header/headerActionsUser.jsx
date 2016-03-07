@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Link = require('react-router').Link;
 
 var HeaderActionsUser = React.createClass({
@@ -7,7 +8,6 @@ var HeaderActionsUser = React.createClass({
     currentUser: React.PropTypes.object,
     loggedIn: React.PropTypes.bool,
     handleLogOut: React.PropTypes.func,
-    redirectToAuth: React.PropTypes.func
   },
 
   getInitialState: function() {
@@ -23,15 +23,24 @@ var HeaderActionsUser = React.createClass({
     }
   },
 
-  // div 
-  //   className="snippet-img-box" 
-  //   style={{backgroundImage: "url(" + image_url + ")"}}
-  // /
+  handleClickOutside: function (event) {
+    if (!ReactDOM.findDOMNode(this).contains(event.target)) {
+      this.setState({display: "none"});
+    }
+  },
 
   handleLogoutClick: function(event) {
     event.preventDefault();
     this.context.handleLogOut();
-    this.context.redirectToAuth();
+    this.context.router.push("main");
+  },
+
+  componentDidMount: function() {
+    document.addEventListener('click', this.handleClickOutside, false);
+  },
+
+  componentWillUnmount: function() {
+    document.removeEventListener('click', this.handleClickOutside, false);
   },
 
   render: function() {

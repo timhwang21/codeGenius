@@ -3,20 +3,17 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ApiUtil = require('../../util/ApiUtil.js');
 
 var background = {
+  borderBottom: "1px dotted rgba(255,100,100,.75)",
   background: "rgba(255,100,100,.25)"
 };
 
 var noBackground = {
+  borderBottom: "1px solid rgba(0,0,0,0)",
   background: "none"
 };
 
 var AuthPage = React.createClass({
   mixins: [LinkedStateMixin],
-
-  blankAttrs: {
-    username: '',
-    password: ''
-  },
 
   contextTypes: {
     router: React.PropTypes.object,
@@ -24,7 +21,11 @@ var AuthPage = React.createClass({
   },
 
   getInitialState: function() {
-    return this.blankAttrs;
+    return {
+      username: '',
+      password: '',
+      errors: '',
+    };
   },
 
   componentDidMount: function() {
@@ -38,8 +39,8 @@ var AuthPage = React.createClass({
       username: this.state.username,
       password: this.state.password
     };
-    debugger;
-    ApiUtil.createUser(userParams, this.handleSignInAfterSignUp)
+
+    ApiUtil.createUser(userParams, this.handleSignInAfterSignUp, this.handleInvalidRequest)
   },
 
   handleSignInAfterSignUp: function(id) {
@@ -53,6 +54,10 @@ var AuthPage = React.createClass({
       localStorage.setItem('currentUser', this.state.username);
       this.context.router.push("/main/user/" + id);
     }.bind(this));
+  },
+
+  handleInvalidRequest: function() {
+    this.setState({errors: "Invalid username or password!"})
   },
 
   handleSignIn: function(event) {
@@ -69,12 +74,17 @@ var AuthPage = React.createClass({
     ApiUtil.fetchNewSession(userParams, function() {
       localStorage.setItem('currentUser', this.state.username);
       this.context.router.push("/main");
-    }.bind(this));
+    }.bind(this), this.handleInvalidRequest);
   },
 
   handleDemo: function(event) {
     event.preventDefault();
     var that = this;
+
+    this.setState({
+      username: '',
+      password: ''
+    });
 
     var username = "demosthenes".split("");
     var password = "demodemo".split("");
@@ -100,12 +110,6 @@ var AuthPage = React.createClass({
 
     setTimeout(this.handleSignIn, time);
 
-  },
-
-  handleBack: function(event) {
-    event.preventDefault();
-
-    this.context.router.goBack();
   },
 
   render: function() {
@@ -159,6 +163,8 @@ var AuthPage = React.createClass({
               ;
             </div>
 
+            <div className="login-form-error">{this.state.errors}</div>
+
             <div className="login-button-row">
               <button 
                 className="square-button btn-submit login-button" 
@@ -184,14 +190,6 @@ var AuthPage = React.createClass({
                 Demo
               </button>
 
-
-              <button 
-                className="square-button btn-noborder login-button" 
-                onClick={this.handleBack}
-                id="btn4"
-                value="Back" >
-                Back
-              </button>
             </div>
 
           </form>

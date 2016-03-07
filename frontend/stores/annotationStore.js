@@ -57,6 +57,4 @@ AnnotationStore.__onDispatch = function(payload) {
   }
 };
 
-window.AnnotationStore = AnnotationStore;
-
 module.exports = AnnotationStore;

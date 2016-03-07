@@ -29,6 +29,12 @@ var SearchBar = React.createClass({
     }
   },
 
+  handleEsc: function (event) {
+    if (event.keyCode === 27) {
+      this.refs.filterTextInput.blur();
+    }
+  },
+
   componentDidMount: function() {
     document.addEventListener('click', this.handleClick, false);
   },
@@ -46,6 +52,7 @@ var SearchBar = React.createClass({
             ref="filterTextInput"
             className="searchbar yellow"
             placeholder="⌕ Search codeGenius..."
+            onKeyDown={this.handleEsc}
             valueLink={this.linkState("filterText")}
           />
 

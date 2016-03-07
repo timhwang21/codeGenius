@@ -17,7 +17,7 @@ var UserApiUtil = {
     );
   },
 
-  createUser: function(userParams, callback) {
+  createUser: function(userParams, callback, failureCallback) {
     $.post(
       "api/users",
       {user: userParams},
@@ -25,7 +25,9 @@ var UserApiUtil = {
         userActions.receiveSingleUser(data);
         callback && callback(data.id);
       }
-    );
+    ).fail(function() {
+      failureCallback();
+    });
   },
 
   updateUser: function(id, user) {
