@@ -66,7 +66,7 @@ var TabMaker = React.createClass({
               <Link
                 to={"main/snippets/" + snippet.id}
                 className="tab-link">
-                {snippet.title}
+                {snippet.title.length > 30 ? snippet.title.slice(0, 30) + "..." : snippet.title}
               </Link>
             </div>
           </header>
@@ -134,7 +134,7 @@ var TabMaker = React.createClass({
               <Link
                 to={"main/snippets/" + annotation.snippet_id + "/annotations/" + annotation.id}
                 className="tab-link">
-                {annotation.title}
+                {annotation.title.length > 30 ? annotation.title.slice(0, 30) + "..." : annotation.title}
               </Link>
             </div>
           </header>
