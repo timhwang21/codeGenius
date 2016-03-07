@@ -1,6 +1,4 @@
 var React = require('react');
-// var ReactTransition = require('react-addons-css-transition-group');
-// var hljs = require('highlight.js');
 
 var SnippetDetailLeft = require('./snippetDetailLeft');
 var SnippetDetailRight = require('./snippetDetailRight');

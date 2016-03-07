@@ -13,7 +13,7 @@ var LanguageApiUtil = {
     $.get(
       "api/languages/" + id,
       {},
-      data => anguageActions.receiveSingleLanguage(data)
+      data => languageActions.receiveSingleLanguage(data)
     );
   },
 

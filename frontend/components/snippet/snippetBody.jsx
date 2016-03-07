@@ -2,7 +2,6 @@ var React = require('react');
 var Link = require('react-router').Link;
 var ApiUtil = require('../../util/ApiUtil.js');
 
-
 var SnippetLine = require('./snippetLine');
 var SnippetAnnotatedLine = require('./snippetAnnotatedLine');
 
@@ -21,7 +20,6 @@ var SnippetBody = React.createClass({
 
   componentDidMount: function() {
     this.changeToken = AnnotationStore.addListener(this._onChange);
-    // hljs.initHighlighting();
   },
 
   componentWillUnmount: function() {
@@ -32,10 +30,6 @@ var SnippetBody = React.createClass({
     if (newProps.snippet !== this.props.snippet) {
       ApiUtil.fetchAnnotationsForSnippet(newProps.snippet.id);
     }
-  },
-
-  componentDidUpdate: function() {
-    // hljs.initHighlighting();
   },
 
   _onChange: function() {
