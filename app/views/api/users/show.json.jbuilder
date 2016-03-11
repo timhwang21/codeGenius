@@ -12,6 +12,17 @@ json.snippets @user.snippets do |snippet|
   json.language snippet.language.name
 end
 
+json.annotations @user.annotations do |annotation|
+  json.id annotation.id
+  json.snippet_id annotation.snippet_id
+  json.snippet_title annotation.snippet.title
+  json.title annotation.snippet.body.split("\n")[annotation.line_idx]
+  json.line_idx annotation.line_idx
+  json.body annotation.body
+  json.upvotes annotation.upvotes
+  json.downvotes annotation.downvotes
+end
+
 # json.snippet_comments @user.snippet_comments do |comment|
 #   json.id comment.id
 #   json.snippet_id comment.snippet_id
@@ -24,17 +35,6 @@ end
 #   json.upvotes comment.upvotes
 #   json.downvotes comment.downvotes
 # end
-
-json.annotations @user.annotations do |annotation|
-  json.id annotation.id
-  json.snippet_id annotation.snippet_id
-  json.snippet_title annotation.snippet.title
-  json.title annotation.snippet.body.split("\n")[annotation.line_idx]
-  json.line_idx annotation.line_idx
-  json.body annotation.body
-  json.upvotes annotation.upvotes
-  json.downvotes annotation.downvotes
-end
 
 # json.annotation_comments @user.annotation_comments do |comment| # refactor into one comment model?
 #   json.id comment.id
