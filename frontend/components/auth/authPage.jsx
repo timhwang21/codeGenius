@@ -166,20 +166,21 @@ var AuthPage = React.createClass({
             <div className="login-form-error">{this.state.errors}</div>
 
             <div className="login-button-row">
-              <button 
-                className="square-button btn-submit login-button" 
-                onClick={this.handleSignUp}
-                id="btn1"
-                value="Sign Up" >
-                Sign Up
-              </button>
 
               <button 
                 className="square-button btn-submit login-button" 
                 onClick={this.handleSignIn}
-                id="btn2"
+                id="btn1"
                 value="Sign In" >
                 Sign In
+              </button>
+
+              <button 
+                className="square-button btn-submit login-button" 
+                onClick={this.handleSignUp}
+                id="btn2"
+                value="Sign Up" >
+                Sign Up
               </button>
 
               <button 
