@@ -59,4 +59,15 @@ Each user has a **profile page**, where authored snippets and annotations can be
 [screenshot4]: ./app/assets/images/screenshot4.png
 [screenshot5]: ./app/assets/images/screenshot5.png
 
+## Known Issues
 
+1. CSS for snippet title field needs to be elongated.
+2. Snippet titles longer than 30 characters break the line.
+3. Search bar only shows top ~20 results.
+
+# Future Features
+
+1. Either add pagination to search results, or implement a dedicated search results page.
+2. Allow for searching by author.
+3. Make decision on how to handle snippet edits -- strict (Rapgenius style -- don't allow editing at all) or loose (delete all annotations upon snippet editing)
+4. Pagination for user tab.
