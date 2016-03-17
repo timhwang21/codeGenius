@@ -11,14 +11,6 @@ var SearchBar = require('./search/searchBar');
 var SnippetStore = require('../../stores/snippetStore.js');
 var ApiUtil = require('../../util/ApiUtil.js');
 
-var SNIPPETS = [
-  {title: 'timBsearch'},
-  {title: 'traveling_salesman'},
-  {title: 'myCurry'},
-  {title: 'binarysearch'},
-  {title: 'mergesort'}
-];
-
 var HeaderPrimary = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired,
@@ -38,7 +30,6 @@ var HeaderPrimary = React.createClass({
 
   componentDidMount: function() {
     this.snippetChangeToken = SnippetStore.addListener(this._onSnippetChange);
-    ApiUtil.fetchAllSnippets();
   },
 
   componentWillUnmount: function() {
@@ -50,6 +41,8 @@ var HeaderPrimary = React.createClass({
   },
 
   handleFocusSearchbar: function() {
+    ApiUtil.fetchAllSnippets();
+
     this.setState({
       searchbarStyle: {
         background: "#39382F",
@@ -81,7 +74,6 @@ var HeaderPrimary = React.createClass({
   },
 
   render: function() {
-    // debugger;
     return(
       <div className="header-primary">
         <div 

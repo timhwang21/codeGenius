@@ -64,7 +64,14 @@ Each user has a **profile page**, where authored snippets and annotations can be
 1. CSS for snippet title field needs to be elongated.
 2. Snippet titles longer than 30 characters break the line.
 3. Search bar only shows top ~20 results.
-4. Sometimes upon directly accessing a snippet page, the APIUtil function to retrieve data seems to fail. This apparently occurs randomly, and only occurs on the deployed site (not locally). Investigate `fetchSingleSnippet` in `snippetApiUtil`.
+4. Sometimes upon directly accessing a snippet page, a blank page is shown. 
+
+    2016-03-17T04:52:24.827593+00:00 app[web.1]: Started GET "/api/session/check" for 192.77.237.95 at 2016-03-17 04:52:24 +0000
+    2016-03-17T04:52:24.925187+00:00 app[web.1]: Started GET "/api/snippets/35" for 192.77.237.95 at 2016-03-17 04:52:24 +0000
+    2016-03-17T04:52:24.944438+00:00 app[web.1]: Started GET "/api/snippets/35/add_view" for 192.77.237.95 at 2016-03-17 04:52:24 +0000
+    2016-03-17T04:52:24.953065+00:00 app[web.1]: Started GET "/api/snippets" for 192.77.237.95 at 2016-03-17 04:52:24 +0000
+
+A call to `fetchAllSnippets` is being made after `fetchSingleSnippet` (apparently from the searchbar), which overwrites necessary information. 
 
 # Future Features
 
