@@ -15,24 +15,37 @@ var SearchBar = React.createClass({
 
   makeResultTable: function() {
     if (this.state.filterText !== '') {
-      return (        
-        <ResultTable
-          snippets={this.props.snippets}
-          filterText={this.state.filterText}/>
+      return (     
+        <div onClick={this.handleLinkClick}>   
+          <ResultTable
+            snippets={this.props.snippets}
+            filterText={this.state.filterText}/>
+        </div>
       );
     }
   },
 
+  blurSearchbar: function() {
+    this.setState({filterText: ''});
+    this.refs.filterTextInput.blur();
+  },
+
   handleClick: function (event) {  
     if (!ReactDOM.findDOMNode(this).contains(event.target)) {
-      this.setState({filterText: ''});
+      this.blurSearchbar();
     }
   },
 
   handleEsc: function (event) {
     if (event.keyCode === 27) {
-      this.setState({filterText: ''});
-      this.refs.filterTextInput.blur();
+      this.blurSearchbar();
+    }
+  },
+
+  handleLinkClick: function(event) {
+    console.log(event.target);
+    if (event.target.tagName === "A") {
+      this.blurSearchbar();
     }
   },
 
