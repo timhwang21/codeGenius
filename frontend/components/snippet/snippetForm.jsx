@@ -102,7 +102,7 @@ var SnippetForm = React.createClass({
   handleTab: function (event) {
     if (event.keyCode === 9) {
       event.preventDefault();
-      // update to add 4 spaces
+      // update to add 4 spaces -- LinkState doesn't seem to work too well with simulated keypresses
     }
   },
 

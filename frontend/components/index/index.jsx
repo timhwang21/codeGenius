@@ -18,12 +18,17 @@ var Index = React.createClass({
     return({
       snippets: SnippetStore.popular(22) ? SnippetStore.popular(22) : [],
       lastSnippet: SnippetStore.last() ? SnippetStore.last() : {},
+      newPageLoad: SnippetStore.all().length === 0
     });
   },
 
   componentDidMount: function() {
     this.snippetChangeToken = SnippetStore.addListener(this._onSnippetChange);
-    ApiUtil.fetchAllSnippets();
+    if (this.state.newPageLoad === true) {
+      ApiUtil.fetchAllSnippets();
+    } else {
+      ApiUtil.fetchUnfetchedSnippets();
+    }
   },
 
   componentWillUnmount: function() {
