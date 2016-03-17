@@ -9,6 +9,14 @@ var SnippetApiUtil = {
     );
   },
 
+  fetchUnfetchedSnippets: function() {
+    $.get(
+      "api/snippets", 
+      {}, 
+      data => snippetActions.receiveUnfetchedSnippets(data)
+    );
+  },
+
   fetchSingleSnippet: function(id) {
     $.get(
       "api/snippets/" + id,

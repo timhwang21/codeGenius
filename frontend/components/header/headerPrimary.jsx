@@ -30,6 +30,7 @@ var HeaderPrimary = React.createClass({
 
   componentDidMount: function() {
     this.snippetChangeToken = SnippetStore.addListener(this._onSnippetChange);
+    ApiUtil.fetchUnfetchedSnippets();
   },
 
   componentWillUnmount: function() {
@@ -41,7 +42,6 @@ var HeaderPrimary = React.createClass({
   },
 
   handleFocusSearchbar: function() {
-    ApiUtil.fetchAllSnippets();
 
     this.setState({
       searchbarStyle: {

@@ -15,6 +15,14 @@ function resetAllSnippets(snippets) {
   snippets.forEach(snippet => resetSnippet(snippet));
 }
 
+function resetUnfetchedSnippets(snippets) {
+  snippets.forEach(function(snippet) {
+    if (!_snippets[snippet.id]) {
+      resetSnippet(snippet);
+    }
+  });
+}
+
 function removeSnippet(snippet) {
   delete _snippets[snippet.id];
 }
@@ -62,6 +70,10 @@ SnippetStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case snippetConstants.SNIPPETS_ALL_RECEIVED:
       resetAllSnippets(payload.snippets);
+      this.__emitChange();
+      break;
+    case snippetConstants.UNFETCHED_SNIPPETS_RECEIVED:
+      resetUnfetchedSnippets(payload.snippets);
       this.__emitChange();
       break;
     case snippetConstants.SNIPPET_RECEIVED:

@@ -9,6 +9,13 @@ var snippetActions = {
     });
   },
 
+  receiveUnfetchedSnippets: function(snippets) {
+    Dispatcher.dispatch({
+      actionType: snippetConstants.UNFETCHED_SNIPPETS_RECEIVED,
+      snippets: snippets
+    });
+  },
+
   receiveSingleSnippet: function(snippet) {
     Dispatcher.dispatch({
       actionType: snippetConstants.SNIPPET_RECEIVED,

@@ -99,6 +99,13 @@ var SnippetForm = React.createClass({
     this.context.router.push("main/");
   },
 
+  handleTab: function (event) {
+    if (event.keyCode === 9) {
+      event.preventDefault();
+      // update to add 4 spaces
+    }
+  },
+
   createSnippet: function(snippet) {
     snippet.author_id = this.context.currentUser.id;
     ApiUtil.createSnippet(snippet, function(id) {
@@ -159,6 +166,7 @@ var SnippetForm = React.createClass({
                 rows="20" 
                 cols="88" 
                 placeholder="Enter code here... "
+                onKeyDown={this.handleTab}
                 valueLink={this.linkState("body")} />
             </div>
 
