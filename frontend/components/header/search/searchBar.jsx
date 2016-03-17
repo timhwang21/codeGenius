@@ -43,7 +43,6 @@ var SearchBar = React.createClass({
   },
 
   handleLinkClick: function(event) {
-    console.log(event.target);
     if (event.target.tagName === "A") {
       this.blurSearchbar();
     }

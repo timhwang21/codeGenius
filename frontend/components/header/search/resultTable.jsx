@@ -35,7 +35,6 @@ var ResultTable = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="search-dropdown">
         {this.makeRows()}
