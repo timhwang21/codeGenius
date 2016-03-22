@@ -31,12 +31,14 @@ class Snippet < ActiveRecord::Base
 
   has_many(
     :snippet_comments,
+    dependent: :destroy,
     class_name: :SnippetComment,
     foreign_key: :snippet_id,
     primary_key: :id)
 
   has_many(
     :annotations,
+    dependent: :destroy,
     class_name: :Annotation,
     foreign_key: :snippet_id,
     primary_key: :id)

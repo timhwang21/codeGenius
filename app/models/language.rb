@@ -13,6 +13,7 @@ class Language < ActiveRecord::Base
 
   has_many(
     :snippets,
+    dependent: :destroy,
     class_name: :Snippet,
     foreign_key: :language_id,
     primary_key: :id)
