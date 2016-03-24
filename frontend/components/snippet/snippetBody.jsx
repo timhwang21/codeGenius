@@ -55,7 +55,7 @@ var SnippetBody = React.createClass({
           } else { lineComponent = this.makeLine(id, line, i); }
           return (
             <div className="snippet-body-line" id={i} key={i}>
-              <span className="line-number noselect">{i}</span> 
+              <span className="line-number noselect" data-line-num={i}></span> 
               {lineComponent}
             </div>
           );

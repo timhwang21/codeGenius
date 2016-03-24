@@ -92,6 +92,10 @@
   text-align: right;
   vertical-align: top;
   width: 1.9em;
+
+  &:after {
+    content: attr(data-line-num);
+  }
 }
 
 .line-wrapper {
