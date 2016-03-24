@@ -16,11 +16,18 @@ var SnippetAnnotatedLine = React.createClass({
     event.stopPropagation();
   },
 
+  checkComment: function() {
+    var commentMarkers = ["#", "%", "!", "\/\/", "'", "--"];
+    if (commentMarkers
+        .map((marker) => new RegExp("^" + marker + ""))
+        .some((regex) => regex.test(this.props.line))) {
+      return {color: "#999"}
+    }
+  },
+
   render: function() {
-    // debugger;
-    //if history param == param for annotation, {state} = highlighted; if not, {state} = ""
     return(
-      <div className="line-wrapper" onClick={this.handleClick}>
+      <div className="line-wrapper" onClick={this.handleClick} style={this.checkComment()}>
         <span className="annotated-line">
             {this.props.line}
         </span>

@@ -19,9 +19,18 @@ var SnippetLine = React.createClass({
     }
   },
 
+  checkComment: function() {
+    var commentMarkers = ["#", "%", "!", "\/\/", "'", "--"];
+    if (commentMarkers
+        .map((marker) => new RegExp("^" + marker + ""))
+        .some((regex) => regex.test(this.props.line))) {
+      return {color: "#999"}
+    }
+  },
+
   render: function() {
     return(
-      <div className="line-wrapper" onClick={this.handleClick}>
+      <div className="line-wrapper" onClick={this.handleClick} style={this.checkComment()}>
         <span className="line">
           {this.props.line}
         </span>
