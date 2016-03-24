@@ -13,6 +13,36 @@ var IndexLeft = React.createClass({
         </ul>
 
         <header className="header-large">
+          <p>Newest features</p>
+        </header>
+
+        <article className="index-article">
+          <div>
+            codeGenius now supports&nbsp;
+            <span className="link-box">
+              <a href="http://www.code-geni.us/#/main/snippets/35" className="body-link">
+                comment highlighting
+              </a>
+            </span>, 
+            one of the more requested features! Additionally, stuff under the hood has been improved: the searchbar 
+            now works more logically, extraneous API calls have been reduced to improve loading speed, and copying 
+            no longer includes line numbers.
+          </div>
+
+          <div>
+            Moving forwards, the most important feature on the roadmap is to improve navigation. As codeGenius 
+            transitions from being a hobby project to a functional site, finding and accessing snippets needs to 
+            be made easier. This includes: creating a dedicated search page, creating index pages for languages, 
+            and adding tagging functionalities. Also on the to-do list are comments and User IQ.
+          </div>
+
+          <div>
+            Until next time!
+          </div>
+
+        </article>
+
+        <header className="header-large">
           <p>Adding & annotating snippets</p>
         </header>
 
@@ -65,22 +95,6 @@ var IndexLeft = React.createClass({
             functionality of Rapgenius with Rosettacode's concept of programming 
             chrestomathy, I hope to provide a valuable resource to aid the learning of 
             other new programmers.
-          </div>
-
-        </article>
-
-        <header className="header-large">
-          <p>Features to come</p>
-        </header>
-
-        <article className="index-article">
-          <div>
-            codeGenius was created in two weeks as a capstone project for App Academy. 
-            While the project is currently "complete," projects such as these are never 
-            truly finishes, and there are still many features that can be added to make 
-            codeGenius a more fully fledged site. Features planned for the short term 
-            include commenting, a voting system, a user IQ system, sorting by languages, 
-            syntax highlighting, and tagging functionality.
           </div>
 
         </article>

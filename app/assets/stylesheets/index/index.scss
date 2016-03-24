@@ -1,6 +1,10 @@
 .index-text, .index-article {
   display: flex;
   flex-direction: column;
+
+  * {
+    display: inline;
+  }
 }
 
 .index-text {
