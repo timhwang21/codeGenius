@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
 
     get 'snippets/:id/add_view', as: 'snippet_add_view', to: 'snippets#add_view'
+    get 'snippets/:id/download', as: 'snippet_download', to: 'snippets#download'
 
     # resources :snippet_comments, only: [:show, :update, :destroy] 
     resources :annotations, only: [:create, :show, :update, :destroy] 

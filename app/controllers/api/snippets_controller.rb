@@ -1,4 +1,6 @@
 class Api::SnippetsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:download]
+
   def index
     @snippets = Snippet.all
   end
@@ -39,6 +41,11 @@ class Api::SnippetsController < ApplicationController
   def add_view
     Snippet.increment_counter(:views, params[:id])
     render json: "Success"
+  end
+
+  def download
+    snippet = Snippet.find(params[:id])
+    send_data snippet.body, filename: snippet.create_filename
   end
 
   private

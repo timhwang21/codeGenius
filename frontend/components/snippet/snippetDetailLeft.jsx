@@ -11,6 +11,11 @@ var SnippetDetailLeft = React.createClass({
     currentUser: React.PropTypes.object,
   },
 
+  handleDownload: function(event) {
+    var id = this.props.snippet.id;
+    window.location = `api/snippets/${id}/download`;
+  },
+
   handleEdit: function(event) {
     var id = this.props.snippet.id;
     this.context.router.push("/main/snippets/" + id + "/edit");
@@ -36,6 +41,12 @@ var SnippetDetailLeft = React.createClass({
       return (
         <div className="button-row" onClick={this.doNothing}>
           <button 
+            className="square-button btn-submit"
+            onClick={this.handleDownload} >
+            Download
+          </button>
+
+          <button 
             className="square-button"
             onClick={this.handleEdit} >
             Edit
@@ -57,6 +68,12 @@ var SnippetDetailLeft = React.createClass({
     } else {
       return (
         <div className="button-row" onClick={this.doNothing}>
+          <button 
+            className="square-button btn-submit"
+            onClick={this.handleDownload} >
+            Download
+          </button>
+
           <button 
             className="square-button btn-noborder"
             onClick={this.handleBack} >

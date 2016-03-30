@@ -49,4 +49,29 @@ class Snippet < ActiveRecord::Base
   #   foreign_key: :snippet_id,
   #   primary_key: :id)
 
+  def create_filename
+    file_ext = {
+      1 => "ada",
+      2 => "bash",
+      3 => "cs",
+      4 => "cpp",
+      5 => "clj",
+      6 => "go",
+      7 => "hs",
+      8 => "html",
+      9 => "java",
+      10 => "js",
+      11 => "php",
+      12 => "pde",
+      13 => "py",
+      14 => "r",
+      15 => "rb",
+      16 => "sc",
+      17 => "swift",
+      18 => "ts"
+    }
+
+    "#{title}.#{file_ext[language_id]}"
+  end
+
 end
