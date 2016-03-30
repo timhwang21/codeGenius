@@ -20,7 +20,7 @@ var IndexLeft = React.createClass({
           <div>
             codeGenius now supports&nbsp;
             <span className="link-box">
-              <a href="http://www.code-geni.us/#/main/snippets/35" className="body-link">
+              <a href="http://www.code-geni.us/#/main/snippets/41" className="body-link">
                 comment highlighting
               </a>
             </span>, 

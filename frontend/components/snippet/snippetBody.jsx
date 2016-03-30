@@ -14,7 +14,7 @@ var SnippetBody = React.createClass({
 
   getInitialState: function() {
     return ({
-      annotations: AnnotationStore.allByIndex().length > 0 ? AnnotationStore.allByIndex : []
+      annotations: AnnotationStore.allByIndex().length > 0 ? AnnotationStore.allByIndex() : []
     });
   },
 
