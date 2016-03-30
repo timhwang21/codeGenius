@@ -71,7 +71,9 @@ class Snippet < ActiveRecord::Base
       18 => "ts"
     }
 
-    "#{title}.#{file_ext[language_id]}"
+    safe_title = title.gsub(/\s/, "_").gsub(/\..*/, "").gsub(/\W/, "")
+
+    "#{safe_title}.#{file_ext[language_id]}"
   end
 
 end
