@@ -24,7 +24,7 @@ var SnippetLine = React.createClass({
     if (commentMarkers
         .map(marker => new RegExp("^\\s*" + marker))
         .some(regex => regex.test(this.props.line))) {
-      return {color: "#999"}
+      return {color: "#75715e"}
     }
   },
 
