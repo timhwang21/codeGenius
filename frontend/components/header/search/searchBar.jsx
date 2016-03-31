@@ -5,6 +5,7 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ResultTable = require('./resultTable');
 
 var SearchBar = React.createClass({
+
   mixins: [LinkedStateMixin],
 
   getInitialState: function() {
@@ -36,8 +37,16 @@ var SearchBar = React.createClass({
   },
 
   handleClick: function (event) {  
+    var resultTable = this.refs.resultTable;
     if (!ReactDOM.findDOMNode(this).contains(event.target)) {
       this.blurSearchbar();
+    }
+  },
+
+  handleMousedown: function (event) {
+    var resultTable = this.refs.resultTable;
+    if (resultTable && ReactDOM.findDOMNode(resultTable).contains(event.target)) {
+      event.preventDefault();
     }
   },
 
@@ -56,10 +65,12 @@ var SearchBar = React.createClass({
 
   componentDidMount: function() {
     document.addEventListener('click', this.handleClick, false);
+    document.addEventListener('mousedown', this.handleMousedown, false);
   },
 
   componentWillUnmount: function() {
     document.removeEventListener('click', this.handleClick, false);
+    document.removeEventListener('mousedown', this.handleMousedown, false);
   },
 
   render: function() {
