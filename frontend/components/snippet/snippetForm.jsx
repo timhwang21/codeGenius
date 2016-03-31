@@ -24,7 +24,11 @@ var SnippetForm = React.createClass({
   getInitialState: function() {
     var snippet;
     if (this.props.params.snippetId) {
+
       var id = parseInt(this.props.params.snippetId);
+      if (!SnippetStore.find(id)) {
+        ApiUtil.fetchSingleSnippet(id); // TODO: This appears to fix reload bug. But seems strange. Investigate.
+      }
       snippet = SnippetStore.find(id) || this.blankAttrs;
     } else {
       snippet = this.blankAttrs; 

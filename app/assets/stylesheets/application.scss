@@ -92,7 +92,7 @@ textarea {
   }
 }
 
-@include scrollbars(.5em, #39382F);
+@include scrollbars(6px, #39382F);
 
 button:focus, select {
   outline: 0 !important;
