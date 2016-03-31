@@ -61,8 +61,38 @@ label {
 
 textarea {
   resize: none;
-  overflow:hidden;
 }
+
+@mixin scrollbars($size, $foreground-color, $background-color: transparent) {
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: $background-color;
+  }
+
+  ::-webkit-resizer {
+    background-color: #666;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@include scrollbars(.5em, #39382F);
 
 button:focus, select {
   outline: 0 !important;
