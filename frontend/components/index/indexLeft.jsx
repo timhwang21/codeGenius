@@ -13,27 +13,27 @@ var IndexLeft = React.createClass({
         </ul>
 
         <header className="header-large">
-          <p>Newest features</p>
+          <p>Syntax highlighting & source file downloading</p>
         </header>
 
         <article className="index-article">
           <div>
-            codeGenius now supports&nbsp;
-            <span className="link-box">
-              <a href="http://www.code-geni.us/#/main/snippets/41" className="body-link">
-                comment highlighting
-              </a>
-            </span>, 
-            one of the more requested features! Additionally, stuff under the hood has been improved: the searchbar 
-            now works more logically, extraneous API calls have been reduced to improve loading speed, and copying 
-            no longer includes line numbers.
+            At long last, syntax highlighting is available on codeGenius! No longer will 
+            users be subject to soporific white text when trying to learn to code.
           </div>
 
           <div>
-            Moving forwards, the most important feature on the roadmap is to improve navigation. As codeGenius 
-            transitions from being a hobby project to a functional site, finding and accessing snippets needs to 
-            be made easier. This includes: creating a dedicated search page, creating index pages for languages, 
-            and adding tagging functionalities. Also on the to-do list are comments and User IQ.
+            As the feature is still being improved, highlighting will not automatically 
+            take place on page load. For now, hit the backtick key on your keyboard ("`") 
+            when viewing a snippet, and watch it light up! It's like plugging in Christmas 
+            lights, but without any of the the tangled wires and frustration. What more 
+            could you ask for?
+          </div>
+          
+          <div>
+            Additionally, you can now download files directly off of codeGenius without 
+            any copy pasting at all! Just scroll to the bottom of any snippet, and click on 
+            the shiny new green 'Download' button.
           </div>
 
           <div>

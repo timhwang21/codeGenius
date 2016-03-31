@@ -25,9 +25,17 @@ var SnippetBody = React.createClass({
     });
   },
 
+  handleBacktick: function() {
+    if (event.keyCode === 192) {
+      handleCodeLoaded();
+    }
+  },
+
   componentDidMount: function() {
     this.changeToken = AnnotationStore.addListener(this._onChange);
-    handleCodeLoaded();
+    // TODO: Don't automatically highlight on load until highlight accuracy improved
+    // handleCodeLoaded();
+    document.addEventListener('keydown', this.handleBacktick, false);
   },
 
   componentWillUnmount: function() {
@@ -35,7 +43,8 @@ var SnippetBody = React.createClass({
   },
 
   componentDidUpdate: function() {
-    handleCodeLoaded();
+    // TODO: Don't automatically highlight on load until highlight accuracy improved
+    // handleCodeLoaded();
   },
 
   componentWillReceiveProps: function(newProps) {
@@ -104,10 +113,17 @@ var SnippetBody = React.createClass({
   },
 
   render: function() {
+    // HLJS autodetection isn't perfect -- try to match based on languageID first
     var snippet = this.props.snippet;
+    var klass;
+    var language = snippet.language;
+    if (language && hljs.getLanguage(language.toLowerCase())) {
+      var klass = language.toLowerCase();
+    }
+
     return(
       <article className="snippet-body">
-        <pre><code id="code">
+        <pre><code id="code" className={klass}>
           {this.makeBody(snippet.body)}
         </code></pre>
       </article>
