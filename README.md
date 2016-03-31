@@ -31,7 +31,7 @@ Code snippets are retrieved based on **popularity** (view count) and **recency**
     # routes.rb
     get 'snippets/:id/add_view', as: 'snippet_add_view', to: 'snippets#add_view'`
 
-![Screenshot 2][screenshot1]
+![Screenshot 2][screenshot2]
 
 ### Search
 
