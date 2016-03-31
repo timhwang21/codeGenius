@@ -18,10 +18,9 @@ var SnippetAnnotatedLine = React.createClass({
 
   checkComment: function() {
     var commentMarkers = ["#", "%", "!", "\/\/", "'", "--"];
-    debugger;
     if (commentMarkers
-        .map(marker => new RegExp("^\s*" + marker + ""))
-        .some((regex) => regex.test(this.props.line))) {
+        .map(marker => new RegExp("^\\\s*" + marker))
+        .some(regex => regex.test(this.props.line))) {
       return {color: "#999"}
     }
   },
