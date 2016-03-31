@@ -52,7 +52,7 @@ The searchbar submits an AJAX request for all the snippet titles upon loading. B
 
 ### Snippets & Annotations
 
-Users can view individual code snippets. Clicking on an annotated line reveals the annotation, while clicking on other lines opens a form to create a new annotation.
+Users can view individual code snippets. Clicking on an annotated line reveals the annotation, while clicking on other lines opens a form to create a new annotation. Syntax highlighting is implemented using [highlight.js](https://highlightjs.org/).
 
 The annotation logic works as follows:
 
