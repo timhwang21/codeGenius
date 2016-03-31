@@ -17,7 +17,7 @@ var SnippetAnnotatedLine = React.createClass({
   },
 
   checkComment: function() {
-    var commentMarkers = ["#", "%", "!", "\/\/", "'", "--"];
+    var commentMarkers = ["#", "%", "\/\/", "'", "--"];
     if (commentMarkers
         .map(marker => new RegExp("^\\s*" + marker))
         .some(regex => regex.test(this.props.line))) {
