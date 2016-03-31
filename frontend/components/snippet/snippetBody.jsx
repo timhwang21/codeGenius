@@ -25,8 +25,8 @@ var SnippetBody = React.createClass({
     });
   },
 
-  handleBacktick: function() {
-    if (event.keyCode === 192) {
+  handleBacktick: function(event) {
+    if (event.keyCode === 192 || event.charCode === 192 || event.key === "`") {
       handleCodeLoaded();
     }
   },
@@ -40,6 +40,7 @@ var SnippetBody = React.createClass({
 
   componentWillUnmount: function() {
     this.changeToken.remove();
+    document.removeEventListener('keydown', this.handleBacktick, false);
   },
 
   componentDidUpdate: function() {

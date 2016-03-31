@@ -19,10 +19,15 @@ var SearchBar = React.createClass({
         <div onClick={this.handleLinkClick}>   
           <ResultTable
             snippets={this.props.snippets}
-            filterText={this.state.filterText}/>
+            filterText={this.state.filterText}
+            ref="resultTable" />
         </div>
       );
     }
+  },
+
+  focusSearchbar: function() {
+    this.refs.filterTextInput.focus();
   },
 
   blurSearchbar: function() {
@@ -37,14 +42,15 @@ var SearchBar = React.createClass({
   },
 
   handleEsc: function (event) {
-    if (event.keyCode === 27) {
+    if (event.keyCode === 27 || event.charCode === 27 || event.key === "Escape") {
       this.blurSearchbar();
     }
   },
 
   handleLinkClick: function(event) {
     if (event.target.tagName === "A") {
-      this.blurSearchbar();
+      this.focusSearchbar();
+      setTimeout(this.blurSearchbar(), 1);
     }
   },
 

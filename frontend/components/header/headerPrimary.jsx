@@ -42,7 +42,6 @@ var HeaderPrimary = React.createClass({
   },
 
   handleFocusSearchbar: function() {
-
     this.setState({
       searchbarStyle: {
         background: "#39382F",
