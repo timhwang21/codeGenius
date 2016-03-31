@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+
+ *= require monokai-sublime
+
  */
 
 html, body, header, nav, a, ul, li, pre, code,
@@ -79,10 +82,6 @@ textarea {
 
   ::-webkit-scrollbar-corner {
     background: $background-color;
-  }
-
-  ::-webkit-resizer {
-    background-color: #666;
   }
 
   // For Internet Explorer

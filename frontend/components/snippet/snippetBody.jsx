@@ -7,6 +7,13 @@ var SnippetAnnotatedLine = require('./snippetAnnotatedLine');
 
 var AnnotationStore = require('../../stores/annotationStore');
 
+function handleCodeLoaded() {
+  var code = document.getElementById("code");
+  if (code.innerHTML.length > 0) {
+    hljs.highlightBlock(code);
+  }
+}
+
 var SnippetBody = React.createClass({
   contextTypes: {
     lines: React.PropTypes.array
@@ -20,10 +27,15 @@ var SnippetBody = React.createClass({
 
   componentDidMount: function() {
     this.changeToken = AnnotationStore.addListener(this._onChange);
+    handleCodeLoaded();
   },
 
   componentWillUnmount: function() {
     this.changeToken.remove();
+  },
+
+  componentDidUpdate: function() {
+    handleCodeLoaded();
   },
 
   componentWillReceiveProps: function(newProps) {
@@ -64,7 +76,7 @@ var SnippetBody = React.createClass({
         return lines.map(function(line, i) {
           return (
             <div className="snippet-body-line" id={i} key={i}>
-              <span className="line-number noselect">{i}</span> 
+              <span className="line-number noselect" data-line-num={i}></span> 
               {this.makeLine(id, line, i)}
             </div>
           );
@@ -92,11 +104,10 @@ var SnippetBody = React.createClass({
   },
 
   render: function() {
-
     var snippet = this.props.snippet;
     return(
       <article className="snippet-body">
-        <pre><code>
+        <pre><code id="code">
           {this.makeBody(snippet.body)}
         </code></pre>
       </article>
