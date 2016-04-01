@@ -41,11 +41,13 @@ html {
   align-items: center;
   background: black;
   text-decoration: none;
+  min-height: 100%;
 }
 
-html, body, #root, .app {
+body, #root, .app {
   height: 100%;
   width: 100%;
+  min-height: 50em;
 }
 
 .nav-link, .body-link, .show-link, .index-article a {

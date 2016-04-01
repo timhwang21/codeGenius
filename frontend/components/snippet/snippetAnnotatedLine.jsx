@@ -5,13 +5,21 @@ var animateScrollTop = function() {
   $("html, body").animate({scrollTop: "260px"}, 200);
 };
 
+var animateScrollBot = function() {
+  $("html, body").animate({scrollTop: $(document).height()}, 200);
+};
+
 var SnippetAnnotatedLine = React.createClass({
   contextTypes: {
     router: React.PropTypes.object
   },
 
   handleClick: function(event) {
-    animateScrollTop();
+    if ($(document).width() > 1200) {
+      animateScrollTop();
+    } else {
+      animateScrollBot();
+    }
     this.context.router.push("main/snippets/" + this.props.snippetId + "/annotations/" + this.props.annotation.id)
     event.stopPropagation();
   },
