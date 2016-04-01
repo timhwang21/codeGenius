@@ -54,6 +54,7 @@ html, body, #root, .app {
   border-right: 1px solid rgba(0,0,0,0);
   display: inline-block;
   color: #99a7ee;
+  -webkit-transition: .1s;
   transition: .1s;
   white-space: nowrap;
 }

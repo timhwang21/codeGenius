@@ -70,6 +70,7 @@
   background-position: center center;
   z-index: 2;
   transition: .2s;
+  -webkit-transition: .2s;
 }
 
 .popular-list-item:hover .popular-link{
@@ -79,6 +80,7 @@
 .popular-large:hover .popular-overlay{
   opacity: 0.4;
   transition: .2s;
+  -webkit-transition: .2s;
 }
 
 .popular-link {

@@ -4,11 +4,22 @@ var ApiUtil = require('../../util/ApiUtil');
 
 var SnippetBody = require('./snippetBody');
 
+function handleCodeLoaded() {
+  var code = document.getElementById("code");
+  if (code.innerHTML.length > 0) {
+    hljs.highlightBlock(code);
+  }
+}
+
 var SnippetDetailLeft = React.createClass({
 
   contextTypes: {
     router: React.PropTypes.object,
     currentUser: React.PropTypes.object,
+  },
+
+  handleHighlight: function(event) {
+    handleCodeLoaded();
   },
 
   handleDownload: function(event) {
@@ -92,6 +103,12 @@ var SnippetDetailLeft = React.createClass({
       <article className="snippet-col-left-pane">
         <header className="snippet-header-large">
           {snippet.title}
+
+          <button
+            className="square-button btn-submit"
+            onClick={this.handleHighlight} >
+            Highlight
+          </button>
         </header>
 
         <header className="snippet-header-medium">
@@ -115,10 +132,6 @@ var SnippetDetailLeft = React.createClass({
       </article>
     );
   }
-
-
-
 });
-
 
 module.exports = SnippetDetailLeft;

@@ -122,6 +122,7 @@
 
 .tab-link {
   transition: .1s;
+  -webkit-transition: .1s;
   border-top-left-radius: 1px;
   border-bottom-left-radius: 1px;
   border-right: 1px solid rgba(0, 0, 0, 0);
