@@ -103,16 +103,16 @@ var SnippetDetailLeft = React.createClass({
       <article className="snippet-col-left-pane">
         <header className="snippet-header-large">
           {snippet.title}
+        </header>
+
+        <header className="snippet-header-medium">
+          {snippet.language}
 
           <button
             className="square-button btn-submit"
             onClick={this.handleHighlight} >
             Highlight
           </button>
-        </header>
-
-        <header className="snippet-header-medium">
-          {snippet.language}
         </header>
 
         <header className="snippet-header-text">

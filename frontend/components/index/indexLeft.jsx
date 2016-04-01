@@ -25,7 +25,7 @@ var IndexLeft = React.createClass({
           <div>
             As the feature is still being improved, highlighting will not automatically 
             take place on page load. For now, either press the "Highlight" button next to 
-            the snippet title, or hit the backtick key ("`") when viewing a snippet to 
+            the snippet language, or hit the backtick key ("`") when viewing a snippet to 
             enable syntax highlighting! It's like plugging in Christmas lights, but without 
             any of the tangled wires and familial resentment. What more could you ask for?
           </div>

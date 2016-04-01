@@ -14,12 +14,19 @@
 
 .snippet-header-large {
   color: white;
-  display: flex;
-  align-items: center;
   font-family: 'menlo', Consolas, monospace;
   font-size: 40px;
   font-weight: 700;
   margin: 6px 0;
+}
+
+.snippet-header-medium {
+  color: #BBB;
+  display: flex;
+  font-family: 'menlo', Consolas, monospace;
+  font-size: 24px;
+  margin: 6px 0;
+  height: 1em;
 
   .btn-submit {
     font-size: 12px;
@@ -30,21 +37,12 @@
     -webkit-transition: opacity .2s linear;
     opacity: 0;
     margin: 0 1em;
-    margin-top: .5em;
   }
 
   &:hover .btn-submit {
     visibility: visible;
     opacity: 1;
   }
-}
-
-.snippet-header-medium {
-  color: #BBB;
-  font-family: 'menlo', Consolas, monospace;
-  font-size: 24px;
-  margin: 6px 0;
-  height: 1em;
 }
 
 .snippet-header-text {
