@@ -32,7 +32,7 @@ var SnippetAnnotatedLine = React.createClass({
       return {color: "#75715e"}
     }
   },
-
+ 
   render: function() {
     return(
       <div className="line-wrapper" onClick={this.handleClick} style={this.checkComment()}>
