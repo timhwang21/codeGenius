@@ -56,19 +56,20 @@ class Snippet < ActiveRecord::Base
       3 => "cs",
       4 => "cpp",
       5 => "clj",
-      6 => "go",
-      7 => "hs",
-      8 => "html",
-      9 => "java",
-      10 => "js",
-      11 => "php",
-      12 => "pde",
-      13 => "py",
-      14 => "r",
-      15 => "rb",
-      16 => "sc",
-      17 => "swift",
-      18 => "ts"
+      6 => "elm",
+      7 => "go",
+      8 => "hs",
+      9 => "html",
+      10 =>"java", 
+      11 => "js",
+      12 => "php",
+      13 => "pde",
+      14 => "py",
+      15 => "r",
+      16 => "rb",
+      17 => "sc",
+      18 => "swift",
+      19 => "ts"
     }
 
     safe_title = title.gsub(/\s/, "_").gsub(/\..*/, "").gsub(/\W/, "")
